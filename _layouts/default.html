@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% capture pagename %}{{ page.name | downcase }}{% endcapture %}
+{% capture _ %}{{ pagename | slice: -5, 5 }}{% endcapture %}
+{% if _ == ".html" %}{% capture pagename %}{{ pagename | split: ".html" }}{% endcapture %}{% endif %}
+{% if pagename == "" %}{% assign pagename = "index" %}{% endif %}
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>{{ page.title }} &ndash; {{ site.title }}</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/favicon-16x16.png">
+    <link rel="manifest" href="{{ site.baseurl }}/site.webmanifest">
+    <link rel="mask-icon" href="{{ site.baseurl }}/safari-pinned-tab.svg" color="{{ site.themecolor }}">
+    <meta name="apple-mobile-web-app-title" content="{{ site.shorttitle }}">
+    <meta name="application-name" content="{{ site.shorttitle }}">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="{{ site.baseurl }}/mstile-144x144.png">
+    <meta name="theme-color" content="#000000">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Nunito:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link href="{{ site.baseurl }}/css/fonts.css" rel="stylesheet" type="text/css">
+    <link href="{{ site.baseurl }}/css/main.css" rel="stylesheet" type="text/css">
+    <link href="{{ site.baseurl }}/css/{{ pagename }}.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <div>
+            <a href="{{ site.baseurl }}/" target="_self"><img src="{{ site.baseurl }}/media/FGF.yellow.circle.outline.svg" alt="Yellow FGF Logo" /></a>
+            <div>
+                <p><a href="{{ site.baseurl }}/" target="_self" class="editable">{{ site.title }}</a><p>
+            </div>
+        </div>
+        <div>
+            <span><a href="{{ site.baseurl }}/" target="_self">{{ site.description }}</a></span>
+        </div>
+    </header>
+    <nav>
+        <input type="checkbox" name="show-nav" id="show-nav" />
+        <div id="nav-toggle">
+            <div>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <ul>
+            <li class='nav-link {% if pagename == "index" %} selected{% endif %}'>
+                <a href="{{ site.baseurl }}/" target="_self" id="nav-home">Home</a>
+            </li>
+            <li class='nav-link {% if pagename == "aboutus"%} selected{% endif %}'>
+                <a href="{{ site.baseurl }}/aboutus" target="_self" id="nav-about-us">About Us</a>
+            </li>
+            <li class='nav-link {% if pagename == "students" or pagename == "scholarship" or pagename == "collegereadiness" %} selected{% endif %}'>
+                <a href="{{ site.baseurl }}/students" target="_self" id="nav-students">Students</a>
+                <ul class="subnav">
+                    <li class='subnav-link {% if pagename == "scholarship" %} selected{% endif %}'><a href="{{ site.baseurl }}/scholarship" target="_self">FGF Scholarship</a></li>
+                    <li class='subnav-link {% if pagename == "collegereadiness" %} selected{% endif %}'><a href="{{ site.baseurl }}/collegereadiness" target="_self">College Readiness</a></li>
+                </ul>
+            </li>
+            <li class='nav-link {% if pagename == "more" or pagename == "teachersandparents" or pagename == "donate" %} selected{% endif %}'>
+                <span id="nav-more" tabindex="0">More</span>
+                <ul class="subnav">
+                    <li class='subnav-link {% if pagename == "parentsandteachers" %} selected{% endif %}'><a href="{{ site.baseurl }}/parentsandteachers" target="_self">Parents &amp; Teachers</a></li>
+                    <li class='subnav-link {% if pagename == "donate" %} selected{% endif %}'><a href="{{ site.baseurl }}/donate" target="_self">Donate</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    {{ content }}
+    <footer>
+        <div>
+            <div><a href="{{ site.instagram.url }}"><span>{% include social-media-icons.html social_icon="instagram" %}</span>&nbsp;<span>@{{ site.instagram.handle }}<span></a></div>
+            <div><a href="{{ site.twitter.url }}"><span>{% include social-media-icons.html social_icon="twitter" %}</span>&nbsp;<span>@{{ site.instagram.handle }}</a></span></div>
+            <div><a href="{{ site.youtube.url }}"><span>{% include social-media-icons.html social_icon="youtube" %}</span>&nbsp;<span>{{ site.youtube.name }}</span></a></div>
+            <div><a href="mailto:{{ site.email }}"><span>{% include social-media-icons.html social_icon="email" %}</span>&nbsp;<span>{{ site.email }}</span></a></div>
+        </div>
+        <small>&copy; 2020, First Generation First</small>
+    </footer>
+</body>
+</html>

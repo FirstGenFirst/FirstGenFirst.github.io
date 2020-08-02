@@ -1,0 +1,47 @@
+---
+---
+$theme-color: {{ site.themecolor  }};
+$secondary-color: {{ site.secondarycolor }};
+$footer-color: {{ site.footercolor }};
+$dark-text: {{ site.darktext }};
+$Helvetica: Helvetica, "Helvetica Neue", Arial, sans-serif;
+$Coolvetica: Coolvetica, Arial, sans-serif;
+$Cormorant: "Cormorant Garamond", TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+$Nunito: Nunito, $Helvetica;
+
+$content-width: 60rem;
+
+section {
+	background-color: white;
+	padding: 4em;
+
+	h1 {
+		font-size: 5em;
+		font-family: $Coolvetica;
+		text-align: center;
+		margin: 0;
+	}
+
+	h2 {
+		font-size: 2em;
+		font-family: $Coolvetica;
+		text-align: center;
+		margin: 0;
+	}
+
+	div {
+		font-family: $Helvetica;
+		text-align: center;
+		margin: 2em 0 0;
+
+		a {
+			color: inherit;
+			text-decoration: underline;
+
+			&:hover,
+			&:focus {
+				text-decoration: none;
+			}
+		}
+	}
+}

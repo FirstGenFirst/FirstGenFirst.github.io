@@ -1,0 +1,27 @@
+{
+  "name": "pearsandstuff.github.io",
+  "version": "1.0.0",
+  "description": "Personal Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pearsandstuff/pearsandstuff.github.io.git"
+  },
+  "author": "Christian Figueroa <figgchristian@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pearsandstuff/pearsandstuff.github.io/issues"
+  },
+  "homepage": "https://github.com/pearsandstuff/pearsandstuff.github.io#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-uglify": "^3.0.2"
+  }
+}

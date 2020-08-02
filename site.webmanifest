@@ -1,0 +1,28 @@
+---
+---
+{
+    "background-color": "{{ site.themecolor }}",
+    "categories": [
+        "education"
+    ],
+    "description": "{{ site.description }}",
+    "dir": "auto",
+    "display": "browser",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "lang": "en-US",
+    "name": "{{ site.title }}",
+    "orientation": "any",
+    "short_name": "{{ site.shorttitle }}",
+    "theme_color": "{{ site.themecolor }}"
+}

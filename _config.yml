@@ -1,0 +1,53 @@
+---
+# Full title
+title: "First Generation First"
+# Shorter title used for stuff like an app icon
+shorttitle: "First Gen First"
+# Displayed in the header
+description: "Putting our first-gen students first."
+
+youtube:
+  name: "First Generation First"
+  # URL to the channel
+  url: "https://www.youtube.com/channel/UCmFyUfF2O_-k9U1UIYwM6RA/"
+  # Video ID of the video to showcase on the home page
+  latestvideo: "VvNfAz3wAec" # Should be JUST THE ID at the end of the video's url
+
+twitter:
+  name: "First Gen First"
+  # Handle, without the "@" at the front
+  handle: "firstgen1st"
+  # URL to the account
+  url: "https://twitter.com/firstgen1st?s=20"
+
+instagram:
+  name: "First Generation First"
+  # Handle, without the "@" at the front
+  handle: "firstgenfirst"
+  # URL to the account
+  url: "https://www.instagram.com/firstgenfirst/"
+# Main email used for contacting
+email: "firstgen1st@gmail.com"
+
+# The main color for the website's look (the reddish one)
+themecolor: "#e3170a"
+# Secondary color used for accents and stuff (the yellowish one)
+secondarycolor: "#fffa89"
+# Color used for footer on each webpage
+footercolor: "#f2f1f0"
+# Color used sometimes for dark text instead of plain black
+darktext: "#4C0803"
+
+# Either yes or no, indicating if the header at the top of each page should stick to the top or
+# scroll away with the rest of the header.
+stickyheader: no
+
+
+
+# Other settings you probably never need to touch.
+baseurl: ""
+url: "https://firstgenfirst.github.io"
+host: 0.0.0.0
+theme: minima
+plugins:
+  - jekyll-sitemap
