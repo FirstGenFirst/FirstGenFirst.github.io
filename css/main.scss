@@ -171,13 +171,38 @@ nav {
 	}
 }
 
-section:nth-child(2n) {
+body > section:nth-child(2n) {
 	background-color: scale-color($theme-color, $lightness: 5%);
 	color: white;
 }
 
-section:nth-child(2n + 1) {
+body > section:nth-child(2n + 1) {
 	background-color: white;
+}
+
+a.button {
+	font-family: $Coolvetica;
+	margin: auto;
+	text-align: center;
+	color: white;
+	background-color: $theme-color;
+	text-decoration: none;
+	padding: .3em 1em;
+	font-size: 1.5em;
+	border-radius: .5em;
+	transition: color .3s cubic-bezier(0.77,0.2,0.05,1.0),
+		background-color .3s cubic-bezier(0.77,0.2,0.05,1.0);
+
+	&:hover,
+	&:focus {
+		color: $theme-color;
+		background-color: #EEE;
+	}
+
+	// No href is a disabled button
+	&:not([href]) {
+		pointer-events: none;
+	}
 }
 
 footer {

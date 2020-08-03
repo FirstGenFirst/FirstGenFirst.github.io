@@ -54,24 +54,7 @@ $content-width: 60rem;
 
 			> a {
 				display: none;
-				font-family: $Coolvetica;
-				margin: auto;
 				width: 50%;
-				text-align: center;
-				color: white;
-				background-color: $theme-color;
-				text-decoration: none;
-				padding: .3em 1em;
-				font-size: 1.5em;
-				border-radius: .5em;
-				transition: color .3s cubic-bezier(0.77,0.2,0.05,1.0),
-					background-color .3s cubic-bezier(0.77,0.2,0.05,1.0);
-
-				&:hover,
-				&:focus {
-					color: $theme-color;
-					background-color: #EEE;
-				}
 			}
 
 			&:not(:first-of-type) {
@@ -95,24 +78,7 @@ $content-width: 60rem;
 
 			> a {
 				display: block;
-				font-family: $Coolvetica;
-				margin: auto;
 				width: 50%;
-				text-align: center;
-				color: white;
-				background-color: $theme-color;
-				text-decoration: none;
-				padding: .3em 1em;
-				font-size: 1.5em;
-				border-radius: .5em;
-				transition: color .3s cubic-bezier(0.77,0.2,0.05,1.0),
-					background-color .3s cubic-bezier(0.77,0.2,0.05,1.0);
-
-				&:hover,
-				&:focus {
-					color: $theme-color;
-					background-color: #EEE;
-				}
 			}
 
 			&:not(:first-of-type) {

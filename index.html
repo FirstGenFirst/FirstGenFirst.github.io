@@ -3,14 +3,6 @@ title: Home
 layout: default
 ---
 <section id="quick-links">
-	<!-- Included so that links will be proper color immediately without having tow ait for stylesheets to load -->
-	<style>
-		.quick-link > a,
-		.quick-btn > a {
-			background-color: {{ site.themecolor }};
-			color: white;
-		}
-	</style>
 	<div id="quick-links-container">
 		<div class="quick-link">
 			<div>
@@ -22,7 +14,7 @@ layout: default
 			</div>
 			<h3 class="editable">YouTube</h3>
 			<p class="editable">Check out our latest video by Jazmin! Are YOU first-generation? This is the first of FGF's Terms Explained segment on YouTube!</p>
-			<a href="{{ site.youtube.url }}" target="_blank" rel="nofollow noopener">Subscribe</a>
+			<a href="{{ site.youtube.url }}" target="_blank" rel="nofollow noopener" class="editable button">Subscribe</a>
 		</div>
 		<div class="quick-link">
 			<div>
@@ -34,7 +26,7 @@ layout: default
 			</div>
 			<h3 class="editable">Apply</h3>
 			<p class="editable">The FGF Scholarship aims to financially assist first-generation and/or low-income high school students with college expenses. Check if you're eligible!</p>
-			<a href="{{ site.baseurl }}/scholarship" target="_self">Apply</a>
+			<a href="{{ site.baseurl }}/scholarship" target="_self" class="editable button">Apply</a>
 		</div>
 		<div class="quick-link">
 			<div>
@@ -46,18 +38,18 @@ layout: default
 			</div>
 			<h3 class="editable">Donate</h3>
 			<p class="editable">The First Generation First Fund will be used towards scholarships for students in underfunded schools nationally, but primarily in the Los Angeles area.</p>
-			<a href="{{ site.baseurl }}/donate" target="_self">Donate</a>
+			<a href="{{ site.baseurl }}/donate" target="_self" class="editable button">Donate</a>
 		</div>
 	</div>
 	<div id="quick-btns-container">
 		<div class="quick-btn">
-			<a href="{{ site.baseurl }}/donate" target="_self">Subscribe</a>
+			<a href="{{ site.baseurl }}/donate" target="_self" class="editable button">Subscribe</a>
 		</div>
 		<div class="quick-btn">
-			<a href="{{ site.baseurl }}/apply" target="_self">Apply</a>
+			<a href="{{ site.baseurl }}/apply" target="_self" class="editable button">Apply</a>
 		</div>
 		<div class="quick-btn">
-			<a href="{{ site.baseurl }}/donate" target="_self">Donate</a>
+			<a href="{{ site.baseurl }}/donate" target="_self" class="editable button">Donate</a>
 		</div>
 	</div>
 </section>
@@ -107,7 +99,7 @@ layout: default
 <section id="contact-us">
 	<div>
 		<div>
-			<h2>Contact Us<div>
+			<h2 class="editable">Contact Us<div>
 				<svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 337.772 303.508" role="img">
 					<path fill="{{ site.secondarycolor }}" d="M310.485 21.159C290.731 4.583 271.484-.029 245.926 0c-27.13 2.348-50.615 15.589-77.041 49.05C142.46 15.589 118.975 2.348 91.845 0 66.287-.029 47.038 4.583 27.284 21.159 14.511 31.878 0 60.341 0 87.465c.339 54.573 38.391 136.609 163.485 212.905l5.165 3.138.236-.141.236.141 5.165-3.138c125.094-76.296 163.146-158.332 163.485-212.905-.001-27.124-14.514-55.587-27.287-66.306z"></path>
 				</svg></div>
@@ -139,8 +131,8 @@ layout: default
 		<div class="editable">#IAmFLI</div>
 	</div>
 	<div>
-		<img src="{{ site.baseurl }}/media/follow-us-1.jpg" />
-		<img src="{{ site.baseurl }}/media/follow-us-2.jpg" />
-		<img src="{{ site.baseurl }}/media/follow-us-3.jpg" />
+		<img src="{{ site.baseurl }}/media/follow-us-1.jpg" class="editable" />
+		<img src="{{ site.baseurl }}/media/follow-us-2.jpg" class="editable" />
+		<img src="{{ site.baseurl }}/media/follow-us-3.jpg" class="editable" />
 	</div>
 </section>
