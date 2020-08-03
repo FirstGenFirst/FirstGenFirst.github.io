@@ -1,17 +1,6 @@
 ---
 ---
-$theme-color: {{ site.themecolor }};
-$secondary-color: {{ site.secondarycolor }};
-$footer-color: {{ site.footercolor }};
-$dark-text: {{ site.darktext }};
-$Helvetica: Helvetica, "Helvetica Neue", Arial, sans-serif;
-$Coolvetica: Coolvetica, Arial, sans-serif;
-$Cormorant: "Cormorant Garamond", TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
-$Nunito: Nunito, $Helvetica;
-
-$content-width: 60rem;
-
-$background-lightness: 85%;
+{% include sass_variables.scss %}
 
 #students {
 	padding: 3em 2em;
@@ -33,6 +22,7 @@ $background-lightness: 85%;
 			font-size: 1.2em;
 			font-weight: 300;
 			margin: 1rem 0;
+			color: $dark-text;
 		}
 	}
 
@@ -43,7 +33,6 @@ $background-lightness: 85%;
 
 #fgf-scholarship,
 #other-scholarships,
-#sat-act-practice-preparation,
 #build-your-professional-profile {
 	padding: 1em 0;
 
@@ -64,6 +53,7 @@ $background-lightness: 85%;
 			font-size: 1.2em;
 			font-weight: 300;
 			margin: 1rem 0;
+			color: $dark-text;
 
 			> strong {
 				font-weight: 600;
@@ -98,6 +88,7 @@ $background-lightness: 85%;
 			font-size: 1.2em;
 			font-weight: 300;
 			margin: 1rem 0;
+			color: $dark-text;
 
 			> strong {
 				font-weight: 600;
@@ -167,27 +158,6 @@ $background-lightness: 85%;
 	}
 }
 
-@media only screen and (max-width: 767px) {
-	#actions-you-can-take-in-high-school {
-		> div:nth-child(2) {
-			> div:nth-child(1),
-			> div:nth-child(2) {
-				flex-direction: column;
-
-				> div:nth-child(1) {
-					background-color: change-color($theme-color, $lightness: $background-lightness);
-				}
-
-				> div:nth-child(2) {
-					background-color: change-color($secondary-color, $lightness: $background-lightness);
-					margin-left: initial;
-					margin-top: 1em;
-				}
-			}
-		}
-	}
-}
-
 #sat-act-practice-preparation {
 	padding: 1em 0;
 
@@ -208,6 +178,7 @@ $background-lightness: 85%;
 			font-size: 1.2em;
 			font-weight: 300;
 			margin: 1rem 0;
+			color: $dark-text;
 
 			> strong {
 				font-weight: 600;
@@ -231,9 +202,9 @@ $background-lightness: 85%;
 
 			> p {
 				font-family: $Helvetica;
-				font-size: 1.2em;
 				font-weight: 300;
 				margin: .5em 0;
+				color: $dark-text;
 			}
 		}
 	}
@@ -246,5 +217,26 @@ a:not(.button) {
 	&:hover,
 	&:focus {
 		text-decoration: none;
+	}
+}
+
+@media #{$mobile} {
+	#actions-you-can-take-in-high-school {
+		> div:nth-child(2) {
+			> div:nth-child(1),
+			> div:nth-child(2) {
+				flex-direction: column;
+
+				> div:nth-child(1) {
+					background-color: change-color($theme-color, $lightness: $background-lightness);
+				}
+
+				> div:nth-child(2) {
+					background-color: change-color($secondary-color, $lightness: $background-lightness);
+					margin-left: initial;
+					margin-top: 1em;
+				}
+			}
+		}
 	}
 }

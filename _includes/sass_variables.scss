@@ -1,0 +1,13 @@
+$theme-color: {{ site.themecolor  }};
+$secondary-color: {{ site.secondarycolor }};
+$footer-color: {{ site.footercolor }};
+$dark-text: {{ site.darktext }};
+$Helvetica: Helvetica, "Helvetica Neue", Arial, sans-serif;
+$Coolvetica: Coolvetica, Arial, sans-serif;
+$Cormorant: "Cormorant Garamond", TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+$Nunito: Nunito, $Helvetica;
+
+$content-width: 60rem;
+$background-lightness: 85%;
+
+$mobile: "only screen and (max-width: 767px)";
