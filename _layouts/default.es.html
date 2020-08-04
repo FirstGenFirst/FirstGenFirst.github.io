@@ -29,18 +29,22 @@
             color: white;
         }
     </style>
+    {% if site.stickyheader %}
+    {% comment %} Only load Stickyfill if _config.yml has it set to true. {% endcomment %}
+    <script type="text/javascript" src="{{ site.baseurl }}/stickyfill.min.js"></script>
+    {% endif %}
 </head>
 <body>
     <header>
         <div>
-            <a href="{{ site.baseurl }}/" target="_self"><img src="{{ site.baseurl }}/media/FGF.yellow.circle.outline.svg" alt="Yellow FGF Logo" /></a>
+            <a href="{{ site.baseurl }}/hogar" target="_self"><img src="{{ site.baseurl }}/media/FGF.yellow.circle.outline.svg" alt="Yellow FGF Logo" /></a>
             <div>
-                <p id="name"><a href="{{ site.baseurl }}/" target="_self">{{ site.title-es }}</a></p>
-                <p id="slogan"><a href="{{ site.baseurl }}/" target="_self">{{ site.description-es }}</a></p>
+                <p id="name"><a href="{{ site.baseurl }}/hogar" target="_self">{{ site.title-es }}</a></p>
+                <p id="slogan"><a href="{{ site.baseurl }}/hogar" target="_self">{{ site.description-es }}</a></p>
             </div>
         </div>
     </header>
-    <nav>
+    <nav id="navbar">
         <div>
             <div id="olang">
                 {% if page.en %}
@@ -94,5 +98,9 @@
         </div>
         <small>&copy; 2020, First Generation First</small>
     </footer>
+    {% if site.stickyheader %}
+    {% comment %} Make navbar a sticky element, and add an extraneous <div> to keep :nth-child selectors working. {% endcomment %}
+    <script type="text/javascript">!function(s,d){s.forceSticky(),s.addOne(s=d.getElementById("navbar")),s.parentElement.insertBefore(d.createElement("div"),s),s.previousSibling.style.display="none"}(Stickyfill,document)</script>
+    {% endif %}
 </body>
 </html>

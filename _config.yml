@@ -42,7 +42,7 @@ footercolor: "#f2f1f0"
 
 # Either yes or no, indicating if the header at the top of each page should stick to the top or
 # scroll away with the rest of the header.
-stickyheader: no
+stickyheader: yes
 
 
 

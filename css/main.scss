@@ -90,6 +90,8 @@ nav {
 	z-index: 999;
 
 	{% if site.stickyheader %}
+	// Add position: sticky if site has its stickyheader option on.
+	// This should be overriden by Stickyfill.js, but is still here in the unlikely case that JavaScript is turned off as a fallback.
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
