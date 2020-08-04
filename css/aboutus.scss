@@ -3,87 +3,39 @@
 {% include sass_variables.scss %}
 
 #about-us {
-	padding: 3em 2em;
+	#hi-flex {
+		$offset-from-top: 20%;
 
-	> div {
-		width: $content-width;
-		max-width: 100%;
-		margin: auto;
 		display: flex;
+		flex-direction: column;
+		margin-right: -2em;
+		z-index: 1;
 
-		> div:nth-child(1) {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			flex-basis: 50%;
-			width: 50%;
-			margin: 0;
+		div:nth-child(1) {
+			flex-basis: $offset-from-top;
 			flex-grow: 1;
-
-			h2 {
-				font-family: $Cormorant;
-				font-weight: 500;
-				font-style: italic;
-				font-size: 2.5em;
-				margin: 0;
-			}
-
-			p {
-				font-family: $Helvetica;
-				font-size: 1.2em;
-				font-weight: 300;
-				margin: 1rem 0;
-				color: $dark-text;
-			}
+			flex-shrink: 1;
 		}
 
-		> div:nth-child(2) {
-			display: flex;
-			justify-content: center;
+		div:nth-child(2) {
+			font-size: 3em;
+			font-family: $Cormorant;
+			font-style: italic;
+			font-weight: 300;
+			background-color: $secondary-color;
+			border-radius: 50%;
+			padding: .4em;
+		}
+
+		div:nth-child(3) {
+			flex-basis: 100% - $offset-from-top;
 			flex-grow: 1;
-			max-width: 25em;
-			align-self: center;
-			margin-left: 1em;
-
-			> div:nth-child(1) {
-				display: flex;
-				flex-direction: column;
-				margin-right: -2em;
-				z-index: 1;
-
-				div:nth-child(1) {
-					flex-basis: 20%;
-					flex-grow: 1;
-					flex-shrink: 1;
-				}
-
-				div:nth-child(2) {
-					font-size: 3em;
-					font-family: $Cormorant;
-					font-style: italic;
-					font-weight: 300;
-					background-color: $secondary-color;
-					border-radius: 50%;
-					padding: .4em;
-				}
-
-				div:nth-child(3) {
-					flex-basis: 80%;
-					flex-grow: 1;
-					flex-shrink: 1;
-				}
-			}
-
-			> img {
-				height: 20em;
-			}
+			flex-shrink: 1;
 		}
 	}
 }
 
 #our-history {
-	padding: 3em 2em;
-
 	> div {
 		width: $content-width;
 		max-width: 100%;
@@ -130,192 +82,133 @@
 }
 
 #our-mission {
-	padding: 3em 2em;
+	
+}
 
+#contact-us {
 	> div {
-		width: $content-width;
-		max-width: 100%;
-		margin: auto;
 		display: flex;
 
-		> div:nth-child(1) {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
+		> div {
+			@include centering-flex;
 			flex-basis: 50%;
-			width: 50%;
-			margin: 0;
-			flex-grow: 1;
 
-			h2 {
-				font-family: $Cormorant;
-				font-weight: 500;
-				font-style: italic;
-				font-size: 2.5em;
-				margin: 0;
-			}
-
-			p {
-				font-family: $Helvetica;
-				font-size: 1.2em;
-				font-weight: 300;
-				margin: 1rem 0;
-				color: $dark-text;
-			}
-		}
-
-		> div:nth-child(2) {
-			align-self: center;
-			flex-grow: 1;
-			text-align: center;
-
-			> img {
-				height: 20em;
+			&:nth-child(2) {
 				margin-left: 1em;
 			}
 		}
 	}
-}
 
-#contact-us {
-	padding: 3em 2em;
-
-	> div {
-		width: $content-width;
-		max-width: 100%;
-		margin: auto;
+	h2 {
 		display: flex;
+		align-items: center;
+		justify-content: space-between;
 
 		> div {
+			height: 1em;
+			width: 1em;
+			vertical-align: middle;
+			transform: scale(1.3);
+			margin-right: .5em
+		}
+	}
+
+	p {
+		margin: 0;
+		font-family: $Nunito;
+		font-size: 1.5em;
+		font-weight: 300;
+		font-style: italic;
+
+		a {
+			color: inherit;
+			text-decoration: none;
 			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			flex-basis: 50%;
-			width: 50%;
 
-			h2 {
-				font-family: $Cormorant;
-				font-weight: 500;
-				font-style: italic;
-				font-size: 2.5em;
-				margin: 0;
-				position: relative;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
+			span {
+				display: block;
 
-				> div {
-					height: 1em;
-					width: 1em;
-					vertical-align: middle;
-					transform: scale(1.3);
-					margin-right: .5em
-				}
-			}
-
-			p {
-				font-family: $Cormorant;
-				font-size: 1.8em;
-				font-weight: 300;
-				margin: 0;
-
-				a {
-					color: inherit;
-					text-decoration: none;
-					display: flex;
-
-					span {
-						display: block;
-						text-decoration: underline;
-						font-size: 1em;
-
-						&:first-of-type {
-							display: flex;
-							flex-direction: column;
-							justify-content: center;
-						}
-
-						&:last-of-type {
-							vertical-align: middle;
-						}
-					}
-
-					&:hover,
-					&:focus,
-					&:focus-within {
-						span {
-							text-decoration: none;
-						}
-					}
-				}
-
-				&:nth-child(2) {
-					margin: 1rem 0 0;
+				&:first-of-type {
+					@include centering-flex;
 				}
 
 				&:last-of-type {
-					margin: 0 0 1rem;
+					vertical-align: middle;
 				}
 			}
 
-			> form {
-				background-color: white;
-				padding: 1em 2em;
-
-				h3 {
-					font-family: $Nunito;
-					font-weight: 300;
-					font-style: italic;
-					font-size: 1.5em;
-					color: scale-color($theme-color, $lightness: 20%);
-					margin: 0;
-				}
-
-				input,
-				textarea {
-					border: .2em solid $theme-color;
-					font-family: $Nunito;
-					font-weight: 300;
-					font-style: italic;
-					font-size: 1.2em;
-					color: scale-color($theme-color, $lightness: 20%);
-					padding: .5rem 1rem;
-					outline: 0;
-					width: calc(100% - 2rem);
-
-					&:focus {
-						border-color: scale-color($theme-color, $lightness: 50%);
-					}
-
-					&:not(:first-child) {
-						margin-top: 1rem;
-					}
-				}
-
-				textarea {
-					height: 4em;
-				}
-
-				button {
-					background-color: scale-color($theme-color, $lightness: 20%);
-					color: white;
-					border: 0;
-					font-size: 1.2em;
-					padding: .5rem 1rem;
-					width: calc(50% - 2rem);
-					margin: 1rem auto 0;
-					display: block;
-					cursor: pointer;
-
-					&:hover,
-					&:focus {
-						background-color: scale-color($theme-color, $lightness: 50%);
-					}
+			&:hover,
+			&:focus,
+			&:focus-within {
+				span {
+					text-decoration: none;
 				}
 			}
+		}
 
-			&:nth-child(2) {
-				margin-left: 1em;
+		&:first-of-type {
+			margin-top: 1rem;
+		}
+
+		&:last-of-type {
+			margin-bottom: 1rem;
+		}
+	}
+
+	form {
+		background-color: white;
+		padding: 1em 2em;
+
+		h4 {
+			font-family: $Nunito;
+			font-weight: 300;
+			font-style: italic;
+			font-size: 1.5em;
+			color: scale-color($theme-color, $lightness: 20%);
+			margin: 0;
+		}
+
+		input,
+		textarea {
+			border: .2em solid $theme-color;
+			font-family: $Nunito;
+			font-weight: 300;
+			font-style: italic;
+			font-size: 1.2em;
+			color: scale-color($theme-color, $lightness: 20%);
+			padding: .5rem 1rem;
+			outline: 0;
+			width: calc(100% - 2rem);
+			border-radius: .4em;
+			transition: border-color .3s cubic-bezier(0.77,0.2,0.05,1.0);
+
+			&:focus {
+				border-color: scale-color($theme-color, $lightness: 50%);
+			}
+
+			&:not(:first-child) {
+				margin-top: 1rem;
+			}
+		}
+
+		textarea {
+			height: 4em;
+		}
+
+		button {
+			background-color: scale-color($theme-color, $lightness: 20%);
+			color: white;
+			border: 0;
+			font-size: 1.2em;
+			padding: .5rem 1rem;
+			width: calc(50% - 2rem);
+			margin: 1rem auto 0;
+			display: block;
+			cursor: pointer;
+
+			&:hover,
+			&:focus {
+				background-color: scale-color($theme-color, $lightness: 50%);
 			}
 		}
 	}

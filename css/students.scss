@@ -3,149 +3,57 @@
 {% include sass_variables.scss %}
 
 #students {
-	padding: 3em 2em;
-
-	> div {
-		width: $content-width;
-		max-width: 100%;
-		margin: auto;
-
-		> h2 {
-			font-family: $Cormorant;
-			font-style: italic;
-			font-size: 2.5em;
-			margin: 0;
-		}
-
-		> p {
-			font-family: $Helvetica;
-			font-size: 1.2em;
-			font-weight: 300;
-			margin: 1rem 0;
-			color: $dark-text;
-		}
-	}
-
-	> section:last-child {
-		padding-bottom: 0;
-	}
+	
 }
 
-#fgf-scholarship,
-#other-scholarships,
-#build-your-professional-profile {
-	padding: 1em 0;
+#fgf-scholarship {
 
-	> div:nth-child(1) {
-		width: $content-width;
-		max-width: 100%;
-		margin: auto;
+}
 
-		> h3 {
-			font-family: $Cormorant;
-			font-style: italic;
-			font-size: 1.8em;
-			margin: 0;
-		}
+#other-scholarships {
 
-		> p {
-			font-family: $Helvetica;
-			font-size: 1.2em;
-			font-weight: 300;
-			margin: 1rem 0;
-			color: $dark-text;
-
-			> strong {
-				font-weight: 600;
-			}
-		}
-	}
-
-	> div:nth-child(2) {
-		text-align: center;
-		padding-top: .5em;
-	}
 }
 
 #actions-you-can-take-in-high-school {
-	padding: 1em 0;
-
-	> div:nth-child(1),
-	> div:nth-child(3) {
-		width: $content-width;
-		max-width: 100%;
-		margin: auto;
-
-		> h3 {
-			font-family: $Cormorant;
-			font-style: italic;
-			font-size: 1.8em;
-			margin: 0;
-		}
-
-		> p {
-			font-family: $Helvetica;
-			font-size: 1.2em;
-			font-weight: 300;
-			margin: 1rem 0;
-			color: $dark-text;
-
-			> strong {
-				font-weight: 600;
-			}
-		}
-	}
-
-	> div:nth-child(4) {
-		text-align: center;
-		padding-top: .5em;
-	}
-
-	> div:nth-child(2) {
+	#chart {
 		display: flex;
 		flex-direction: column;
 		align-items: stretch;
-		width: $content-width;
-		max-width: 100%;
-		margin: auto;
 
 		> div {
 			display: flex;
-			margin-top: 1em;
+
+			&:not(:first-child) {
+				margin-top: 1em;
+			}
 
 			> div {
 				flex-grow: 1;
 				flex-shrink: 1;
-				flex-basis: 50%;
-				background-color: change-color($theme-color, $lightness: $background-lightness);
+				flex-basis: 0;
+				background-color: scale-color($theme-color, $lightness: 5%);
+				color: white;
 				border-radius: .5em;
 				padding: 1em .5em;
 
-				> h4,
-				> h5 {
+				h4 {
 					text-align: center;
 					font-family: $Coolvetica;
+					font-weight: 500;
+					font-size: 1.5em;
 					margin: 0;
 				}
 
-				> h4 {
-					font-size: 1.5em;
-				}
-
-				> h5 {
-					font-size: 1.2em;
-				}
-
-				> ul {
+				ul {
 					font-family: $Helvetica;
 					font-size: 1em;
 
-					> li {
+					li {
 						padding: .3em 0;
 					}
 				}
 
-				&:nth-child(2) {
+				&:not(:first-child) {
 					margin-left: 1em;
 				}
 			}
@@ -153,86 +61,46 @@
 
 		> div:nth-child(1) > div:nth-child(2),
 		> div:nth-child(2) > div:nth-child(1) {
-			background-color: change-color($secondary-color, $lightness: $background-lightness);
+			background-color: $secondary-color;
+			color: black;
 		}
 	}
 }
 
 #sat-act-practice-preparation {
-	padding: 1em 0;
-
-	> div:nth-child(1) {
-		width: $content-width;
-		max-width: 100%;
-		margin: auto;
-
-		> h3 {
-			font-family: $Cormorant;
-			font-style: italic;
-			font-size: 1.8em;
-			margin: 0;
-		}
-
-		> p {
-			font-family: $Helvetica;
-			font-size: 1.2em;
-			font-weight: 300;
-			margin: 1rem 0;
-			color: $dark-text;
-
-			> strong {
-				font-weight: 600;
-			}
-		}
-	}
-
 	> ul {
 		width: $content-width;
 		max-width: 100%;
 		margin: auto;
 		box-sizing: border-box;
 
-		> li {
-			> h4 {
-				font-family: $Cormorant;
-				font-style: italic;
-				font-size: 1.5em;
-				margin: 0;
-			}
-
-			> p {
-				font-family: $Helvetica;
-				font-weight: 300;
-				margin: .5em 0;
-				color: $dark-text;
-			}
+		h4 {
+			font-family: $Cormorant;
+			font-style: italic;
+			font-size: 1.5em;
+			margin: 0;
 		}
 	}
 }
 
-a:not(.button) {
-	color: inherit;
-	text-decoration: underline;
-
-	&:hover,
-	&:focus {
-		text-decoration: none;
-	}
+#build-your-professional-profile {
+	
 }
 
 @media #{$mobile} {
 	#actions-you-can-take-in-high-school {
-		> div:nth-child(2) {
-			> div:nth-child(1),
-			> div:nth-child(2) {
+		#chart {
+			> div {
 				flex-direction: column;
 
 				> div:nth-child(1) {
-					background-color: change-color($theme-color, $lightness: $background-lightness);
+					background-color: scale-color($theme-color, $lightness: 5%) !important;
+					color: white !important;
 				}
 
 				> div:nth-child(2) {
-					background-color: change-color($secondary-color, $lightness: $background-lightness);
+					background-color: $secondary-color !important;
+					color: black !important;
 					margin-left: initial;
 					margin-top: 1em;
 				}

@@ -4,12 +4,50 @@
 
 #quick-links {
 	display: flex;
-	padding: 3em 2em;
 	flex-wrap: wrap;
 
-	p {
-		line-height: initial;
-		color: #4C0803;
+	.quick-link {
+		max-width: 20em;
+		width: 33%;
+		flex-basis: 33%;
+		flex-shrink: 1;
+		flex-grow: 1;
+
+		&-img {
+			box-shadow: 0 .2em .3em transparentize(black, 0.47);
+
+			a > div {
+				width: 100%;
+				background-size: cover;
+				background-position: center;
+				overflow: hidden;
+
+				> div {
+					// This <div> gives the parent <div> its 16:9 ratio shape.
+					margin: percentage(9 / 16) 0;
+				}
+			}
+		}
+
+		p {
+			line-height: initial;
+			color: #4C0803;
+		}
+
+		h4 {
+			margin: .2em 0;
+			font-size: 1.7em;
+			font-family: $Helvetica;
+		}
+
+		> a {
+			display: none;
+			width: 50%;
+		}
+
+		&:not(:first-of-type) {
+			margin-left: 2em;
+		}
 	}
 
 	#quick-links-container {
@@ -17,40 +55,6 @@
 		justify-content: center;
 		width: 100%;
 		flex-basis: 100%;
-
-		.quick-link {
-			max-width: 20em;
-			width: 33%;
-			flex-basis: 33%;
-			flex-shrink: 1;
-			flex-grow: 1;
-
-			> div > a > div {
-				width: 100%;
-				background-size: cover;
-				background-position: center;
-				overflow: hidden;
-
-				> div {
-					margin: 56.25% 0;
-				}
-			}
-
-			h4 {
-				margin: .2em 0;
-				font-size: 1.7em;
-				font-family: $Helvetica;
-			}
-
-			> a {
-				display: none;
-				width: 50%;
-			}
-
-			&:not(:first-of-type) {
-				margin-left: 2em;
-			}
-		}
 	}
 
 	#quick-btns-container {
@@ -79,66 +83,22 @@
 }
 
 #about-us {
-	padding: 3em 2em;
+	#about {
+		background-color: $secondary-color;
+		padding: .5em;
 
-	> div {
-		width: $content-width;
-		max-width: 100%;
-		margin: auto;
-		display: flex;
-
-		> div {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			flex-basis: 50%;
-			width: 50%;
-			margin: 0;
-
-			h2 {
-				font-family: $Cormorant;
-				font-style: italic;
-				margin: 0;
-			}
-
-			p {
-				font-family: $Helvetica;
-				font-size: 1.2em;
-				font-weight: 300;
-				margin: 1rem 0;
-			}
-
-			#about {
-				width: 25em;
-				max-width: 95%;
-				margin: auto;
-				background-color: $secondary-color;
-				padding: .5em;
-
-				video {
-					width: 100%;
-					display: block;
-				}
-			}
+		video {
+			width: 100%;
+			display: block;
 		}
 	}
 }
 
 #our-team {
-	padding: 3em 2em;
-
-	h2 {
-		font-family: $Cormorant;
-		font-style: italic;
-		margin: 0 auto 1.2rem;
-		width: $content-width;
-		max-width: 100%;
-	}
-
 	#team-members {
 		width: $content-width - 5rem;
 		max-width: 100%;
-		margin: auto;
+		margin: 1.2em auto 0;
 		display: flex;
 		flex-direction: column;
 
@@ -155,7 +115,6 @@
 			> div {
 				display: flex;
 				flex-direction: column;
-				justify-content: flex-start;
 
 				> div {
 					background-color: $secondary-color;
@@ -176,164 +135,151 @@
 				}
 
 				> p {
-					padding: 0 1em;
+					padding-left: 1em;
 				}
 			}
 
-			&:not(:last-of-type) {
-				margin-bottom: 3em;
+			&:not(:first-child) {
+				margin-top: 3em;
 			}
 		}
 	}
 }
 
 #contact-us {
-	padding: 3em 2em;
-
 	> div {
-		width: $content-width;
-		max-width: 100%;
-		margin: auto;
 		display: flex;
 
 		> div {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
+			@include centering-flex;
 			flex-basis: 50%;
-			width: 50%;
-
-			h2 {
-				font-family: $Cormorant;
-				font-style: italic;
-				margin: 0;
-				position: relative;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-
-				> div {
-					height: 1em;
-					width: 1em;
-					vertical-align: middle;
-					transform: scale(1.3);
-					margin-right: .5em
-				}
-			}
-
-			p {
-				font-family: $Cormorant;
-				font-size: 1.8em;
-				font-weight: 300;
-				margin: 0;
-
-				a {
-					color: inherit;
-					text-decoration: none;
-					display: flex;
-
-					span {
-						display: block;
-						text-decoration: underline;
-						font-size: 1em;
-
-						&:first-of-type {
-							display: flex;
-							flex-direction: column;
-							justify-content: center;
-						}
-
-						&:last-of-type {
-							vertical-align: middle;
-						}
-					}
-
-					&:hover,
-					&:focus,
-					&:focus-within {
-						span {
-							text-decoration: none;
-						}
-					}
-				}
-
-				&:nth-child(2) {
-					margin: 1rem 0 0;
-				}
-
-				&:last-of-type {
-					margin: 1rem 0 1rem;
-				}
-			}
-
-			> form {
-				background-color: white;
-				padding: 1em 2em;
-
-				h4 {
-					font-family: $Nunito;
-					font-weight: 300;
-					font-style: italic;
-					font-size: 1.5em;
-					color: scale-color($theme-color, $lightness: 20%);
-					margin: 0;
-				}
-
-				input,
-				textarea {
-					border: .2em solid $theme-color;
-					font-family: $Nunito;
-					font-weight: 300;
-					font-style: italic;
-					font-size: 1.2em;
-					color: scale-color($theme-color, $lightness: 20%);
-					padding: .5rem 1rem;
-					outline: 0;
-					width: calc(100% - 2rem);
-
-					&:focus {
-						border-color: scale-color($theme-color, $lightness: 50%);
-					}
-
-					&:not(:first-child) {
-						margin-top: 1rem;
-					}
-				}
-
-				textarea {
-					height: 4em;
-				}
-
-				button {
-					background-color: scale-color($theme-color, $lightness: 20%);
-					color: white;
-					border: 0;
-					font-size: 1.2em;
-					padding: .5rem 1rem;
-					width: calc(50% - 2rem);
-					margin: 1rem auto 0;
-					display: block;
-					cursor: pointer;
-
-					&:hover,
-					&:focus {
-						background-color: scale-color($theme-color, $lightness: 50%);
-					}
-				}
-			}
 
 			&:nth-child(2) {
 				margin-left: 1em;
 			}
 		}
 	}
+
+	h2 {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		> div {
+			height: 1em;
+			width: 1em;
+			vertical-align: middle;
+			transform: scale(1.3);
+			margin-right: .5em
+		}
+	}
+
+	p {
+		margin: 0;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+			display: flex;
+
+			span {
+				display: block;
+
+				&:first-of-type {
+					@include centering-flex;
+				}
+
+				&:last-of-type {
+					vertical-align: middle;
+				}
+			}
+
+			&:hover,
+			&:focus,
+			&:focus-within {
+				span {
+					text-decoration: none;
+				}
+			}
+		}
+
+		&:nth-child(2) {
+			margin: 1rem 0 0;
+		}
+
+		&:not(:last-of-type) {
+			font-family: $Nunito;
+			font-size: 1.5em;
+			font-weight: 300;
+			font-style: italic;
+		}
+
+		&:last-of-type {
+			margin: 1em 0 0;
+		}
+	}
+
+	form {
+		background-color: white;
+		padding: 1em 2em;
+
+		h4 {
+			font-family: $Nunito;
+			font-weight: 300;
+			font-style: italic;
+			font-size: 1.5em;
+			color: scale-color($theme-color, $lightness: 20%);
+			margin: 0;
+		}
+
+		input,
+		textarea {
+			border: .2em solid $theme-color;
+			font-family: $Nunito;
+			font-weight: 300;
+			font-style: italic;
+			font-size: 1.2em;
+			color: scale-color($theme-color, $lightness: 20%);
+			padding: .5rem 1rem;
+			outline: 0;
+			width: calc(100% - 2rem);
+			border-radius: .4em;
+			transition: border-color .3s cubic-bezier(0.77,0.2,0.05,1.0);
+
+			&:focus {
+				border-color: scale-color($theme-color, $lightness: 50%);
+			}
+
+			&:not(:first-child) {
+				margin-top: 1rem;
+			}
+		}
+
+		textarea {
+			height: 4em;
+		}
+
+		button {
+			background-color: scale-color($theme-color, $lightness: 20%);
+			color: white;
+			border: 0;
+			font-size: 1.2em;
+			padding: .5rem 1rem;
+			width: calc(50% - 2rem);
+			margin: 1rem auto 0;
+			display: block;
+			cursor: pointer;
+
+			&:hover,
+			&:focus {
+				background-color: scale-color($theme-color, $lightness: 50%);
+			}
+		}
+	}
 }
 
 #follow-us {
-	padding: 3rem 2rem;
-
-	> div:nth-child(1) {
-		text-align: center;
+	.button-center {
 		font-family: $Coolvetica;
 
 		a {
@@ -342,49 +288,25 @@
 			font-size: 1.5em;
 			border-radius: 2em;
 			text-decoration: none;
-			display: inline-block;
-			margin: auto;
 			display: inline-flex;
 			align-items: stretch;
 			color: black;
 
 			span:first-of-type {
-				display: inline-flex;
-				flex-direction: column;
-				justify-content: center;
-			}
-
-			span:last-of-type {
-				vertical-align: middle;
+				@include centering-flex;
 			}
 		}
 	}
 
-	> div:nth-child(2) {
-		display: flex;
-		width: $content-width;
-		max-width: 100%;
-		margin: 1em auto 0;
-		justify-content: space-around;
+	#follow-tags {
+		margin: 1em auto;
 		font-family: $Coolvetica;
 		font-size: 1.5em;
-		color: $dark-text;
-
-		> div {
-			flex-grow: 1;
-			flex-basis: 0;
-			text-align: center;
-		}
 	}
 
-	> div:nth-child(3) {
-		display: flex;
-		width: $content-width;
-		max-width: 100%;
+	#follow-images {
 		height: 18rem;
 		max-height: calc((100vw - 4rem) * 0.3);
-		margin: 1em auto 0;
-		justify-content: space-around;
 
 		> img {
 			width: 20em;
@@ -469,13 +391,15 @@
 	}
 
 	#follow-us {
-		> div:nth-child(2) {
-			flex-direction: column;
+		#follow-tags {
 			align-items: center;
+
+			> * {
+				margin-top: 0;
+			}
 		}
 
-		> div:nth-child(3) {
-			flex-direction: column;
+		#follow-images {
 			align-items: center;
 			height: initial;
 			max-height: initial;
@@ -483,10 +407,6 @@
 			> img {
 				max-width: 80%;
 				flex-shrink: initial;
-
-				&:not(:first-child) {
-					margin-top: 1em;
-				}
 			}
 		}
 	}

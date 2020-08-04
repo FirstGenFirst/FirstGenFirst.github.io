@@ -3,88 +3,27 @@
 {% include sass_variables.scss %}
 
 #college-readiness {
-	padding: 3rem 2rem;
-
-	> div {
-		width: $content-width;
-		max-width: 100%;
-		margin: auto;
-
-		> h2 {
-			font-family: $Cormorant;
-			font-weight: 500;
-			font-style: italic;
-			font-size: 2.5em;
-			margin: 0;
-		}
-
-		> p {
-			font-family: $Helvetica;
-			font-weight: 300;
-			font-size: 1.2em;
-			color: $dark-text;
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
+	p:last-child {
+		margin-bottom: 0;
 	}
 }
 
 #categories {
-	padding: 1em 0;
-
-	> h3 {
-		font-family: $Cormorant;
-		font-weight: 500;
-		font-size: 1.8em;
-		font-style: italic;
-		margin: 0 auto;
-		width: $content-width;
-		max-width: 100%;
-	}
-
-	> p {
-		width: $content-width;
-		max-width: 100%;
-		font-size: 1.2em;
-		margin: 1em auto;
-		font-family: $Helvetica;
-		font-weight: 300;
-		color: $dark-text;
-	}
-
-	> div {
-		display: flex;
-		width: $content-width;
-		max-width: 100%;
-		margin: auto;
-		justify-content: space-around;
-		font-family: $Coolvetica;
-		align-items: stretch;
-
-		> a {
-			flex-basis: 0;
-			flex-grow: 1;
+	#selector {
+		a {
 			margin: 0;
 			padding: 1em;
+			text-align: center;
+			white-space: initial;
 
-			> div {
-				height: 100%;
+			h4 {
+				font-family: $Coolvetica;
+				font-weight: 500;
+				margin: 0;
+			}
 
-				> h4 {
-					text-align: center;
-					margin: 0;
-				}
-
-				> p {
-					font-family: $Helvetica;
-					font-weight: 300;
-					text-align: center;
-					font-size: 1.2rem;
-					margin: .5em 0 0;
-					flex-grow: 1;
-				}
+			p {
+				margin: .5em 0 0;
 			}
 
 			&:not(:first-child) {
@@ -96,7 +35,7 @@
 
 @media #{$mobile} {
 	#categories {
-		> div:nth-child(3) {
+		#selector {
 			flex-direction: column;
 
 			a:not(:first-child) {
