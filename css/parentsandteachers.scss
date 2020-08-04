@@ -1,0 +1,86 @@
+---
+---
+{% include sass_variables.scss %}
+
+#parents-and-teachers {
+	padding: 3rem 2rem;
+
+	> div {
+		display: flex;
+		width: $content-width;
+		max-width: 100%;
+		margin: auto;
+		align-items: center;
+
+		> div:nth-child(1) {
+			> h2 {
+				font-family: $Cormorant;
+				font-weight: 500;
+				font-style: italic;
+				font-size: 2.5em;
+				margin: 0;
+			}
+
+			> p {
+				font-family: $Helvetica;
+				font-weight: 300;
+				font-size: 1.2em;
+				color: $dark-text;
+			}
+		}
+
+		> div:nth-child(2) {
+			margin-left: 1em;
+
+			> img {
+				height: 20em;
+			}
+		}
+	}
+}
+
+#financial-resources,
+#talking-about-college {
+	padding: 1rem 0;
+	width: $content-width;
+	max-width: 100%;
+	margin: auto;
+
+	> div {
+		> h3 {
+			font-family: $Cormorant;
+			font-weight: 500;
+			font-style: italic;
+			font-size: 1.8em;
+			margin: 0;
+		}
+
+		> p {
+			font-family: $Helvetica;
+			font-weight: 300;
+			font-size: 1.2em;
+			color: $dark-text;
+		}
+
+		> div {
+			text-align: center;
+		}
+	}
+}
+
+@media #{$mobile} {
+	#parents-and-teachers {
+		> div {
+			flex-direction: column;
+
+			> div:nth-child(2) {
+				margin-left: initial;
+
+				> img {
+					height: initial;
+					max-width: 15em;
+				}
+			}
+		}
+	}
+}

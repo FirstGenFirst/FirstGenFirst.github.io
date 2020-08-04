@@ -1,10 +1,14 @@
 ---
 # Full title
 title: "First Generation First"
+# Spanish version
+title-es: "First Generation First"
 # Shorter title used for stuff like an app icon
 shorttitle: "First Gen First"
+shortitle-es: "First Gen First"
 # Displayed in the header
 description: "Putting our first-gen students first."
+description-es: "Poniendo a nuestros estudiantes de primera generación en primer lugar."
 
 youtube:
   name: "First Generation First"
@@ -35,8 +39,6 @@ themecolor: "#e3170a"
 secondarycolor: "#fffa89"
 # Color used for footer on each webpage
 footercolor: "#f2f1f0"
-# Color used sometimes for dark text instead of plain black
-darktext: "#4C0803"
 
 # Either yes or no, indicating if the header at the top of each page should stick to the top or
 # scroll away with the rest of the header.

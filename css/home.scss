@@ -7,6 +7,11 @@
 	padding: 3em 2em;
 	flex-wrap: wrap;
 
+	p {
+		line-height: initial;
+		color: #4C0803;
+	}
+
 	#quick-links-container {
 		display: flex;
 		justify-content: center;
@@ -31,16 +36,10 @@
 				}
 			}
 
-			h3 {
+			h4 {
 				margin: .2em 0;
 				font-size: 1.7em;
 				font-family: $Helvetica;
-			}
-
-			p {
-				font-family: $Helvetica;
-				font-weight: 300;
-				color: $dark-text;
 			}
 
 			> a {
@@ -99,7 +98,6 @@
 			h2 {
 				font-family: $Cormorant;
 				font-style: italic;
-				font-size: 2.5em;
 				margin: 0;
 			}
 
@@ -132,7 +130,6 @@
 	h2 {
 		font-family: $Cormorant;
 		font-style: italic;
-		font-size: 2.5em;
 		margin: 0 auto 1.2rem;
 		width: $content-width;
 		max-width: 100%;
@@ -179,11 +176,7 @@
 				}
 
 				> p {
-					font-family: $Helvetica;
-					font-weight: 300;
-					font-size: 1.2em;
 					padding: 0 1em;
-					color: $dark-text;
 				}
 			}
 
@@ -213,7 +206,6 @@
 			h2 {
 				font-family: $Cormorant;
 				font-style: italic;
-				font-size: 2.5em;
 				margin: 0;
 				position: relative;
 				display: flex;
@@ -278,7 +270,7 @@
 				background-color: white;
 				padding: 1em 2em;
 
-				h3 {
+				h4 {
 					font-family: $Nunito;
 					font-weight: 300;
 					font-style: italic;
