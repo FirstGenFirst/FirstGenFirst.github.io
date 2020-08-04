@@ -42,7 +42,7 @@
     {% endif %}
 </head>
 <body>
-    <header>
+    <header id="top">
         <div>
             <a href="{{ site.baseurl }}/" target="_self"><img src="{{ site.baseurl }}/media/FGF.yellow.circle.outline.svg" alt="Yellow FGF Logo" /></a>
             <div>
@@ -99,6 +99,9 @@
             <div><a href="{{ site.twitter.url }}"><span class="link">{% include social-media-icons.html social_icon="twitter" %}</span>&nbsp;<span>@{{ site.twitter.handle }}</a></span></div>
             <div><a href="{{ site.youtube.url }}"><span class="link">{% include social-media-icons.html social_icon="youtube" %}</span>&nbsp;<span>{{ site.youtube.name }}</span></a></div>
             <div><a href="mailto:{{ site.email }}"><span class="link">{% include social-media-icons.html social_icon="email" %}</span>&nbsp;<span>{{ site.email }}</span></a></div>
+        </div>
+        <div id="back-to-top">
+            <a href="#top" class="link">Back to Top</a>
         </div>
         <div id="footer-translate">
             {% if page.es %}<a href="{{ page.es }}" class="link">Lee esta página en español</a>{% endif %}
