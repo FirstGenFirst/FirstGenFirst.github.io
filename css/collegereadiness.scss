@@ -3,7 +3,7 @@
 {% include sass_variables.scss %}
 
 #college-readiness {
-	p:last-child {
+	> div p:last-child {
 		margin-bottom: 0;
 	}
 }
