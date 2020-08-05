@@ -4,8 +4,8 @@ title: "First Generation First"
 # Spanish version
 title-es: "First Generation First"
 # Shorter title used for stuff like an app icon
-shorttitle: "First Gen First"
-shortitle-es: "First Gen First"
+shorttitle: "FirstGenFirst"
+shortitle-es: "FirstGenFirst"
 # Displayed in the header
 description: "Putting our first-gen students first."
 description-es: "Poniendo a nuestros estudiantes de primera generación en primer lugar."
@@ -31,7 +31,7 @@ instagram:
   # URL to the account
   url: "https://www.instagram.com/firstgenfirst/"
 # Main email used for contacting
-email: "firstgen1st@gmail.com"
+email: "info@firstgenfirst.org"
 
 # The main color for the website's look (the reddish one)
 themecolor: "#e3170a"
