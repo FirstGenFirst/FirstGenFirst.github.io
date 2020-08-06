@@ -99,7 +99,7 @@ collections:
 
 # Other settings you probably never need to touch.
 baseurl: ""
-url: "https://firstgenfirst.github.io"
+url: "https://firstgenfirst.org"
 host: 0.0.0.0
 plugins:
   - jekyll-sitemap
