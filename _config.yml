@@ -45,11 +45,67 @@ footercolor: "#f2f1f0"
 stickyheader: yes
 
 
+# Controls how/which files get translated
+translations:
+  langs:
+    - es
+  pages:   # Pages get copied to their language folder with the same name as their source file.
+    - lang-ref: aboutus         # The ID of this page; the corresponding CSS file with this ID will be used.
+      src: aboutus.html         # The source file to translate (should be in English)
+      es:                       # The langauge code to translate to (and the folder the file gets outputted to)
+        title: Sobre Nosotros   # The title of the new page (what gets displayed in the <title>)
+        permalink: /sobrenosotros.html   # Where the new file should be stored in relation to the website
+    - lang-ref: collegereadiness
+      src: collegereadiness.html
+      es:
+        title: Preparaci&oacute;n
+        permalink: /preparacion.html
+    - lang-ref: donate
+      src: donate.html
+      es:
+        title: Donar
+        permalink: /donar.html
+    - lang-ref: students
+      src: students.html
+      es:
+        title: Estudiantes
+        permalink: /estudiantes.html
+    - lang-ref: home
+      src: index.html
+      es:
+        title: Hogar
+        permalink: /hogar.html
+    - lang-ref: parentsandteachers
+      src: parentsandteachers.html
+      es:
+        title: Padres &amp; Maestros
+        permalink: /padresymaestros.html
+    - lang-ref: scholarship
+      src: scholarship.html
+      es:
+        title: Beca de FGF
+        permalink: /beca.html
+
+
+collections:
+  team_members:
+    output: false
+    order:
+      - jazmin.md
+      - caroline.md
+      - alan.md
+      - christian.md
+
 
 # Other settings you probably never need to touch.
 baseurl: ""
 url: "https://firstgenfirst.github.io"
 host: 0.0.0.0
-theme: minima
 plugins:
   - jekyll-sitemap
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - gulpfile.js
+  - vendor

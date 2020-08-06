@@ -3,7 +3,7 @@
 {% capture _ %}{{ pagename | slice: -5, 5 }}{% endcapture %}
 {% if _ == ".html" %}{% capture pagename %}{{ pagename | split: ".html" }}{% endcapture %}{% endif %}
 {% if pagename == "" %}{% assign pagename = "index" %}{% endif %}
-<html lang="en">
+<html lang="es">
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -18,6 +18,7 @@
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="msapplication-TileImage" content="{{ site.baseurl }}/mstile-144x144.png">
     <meta name="theme-color" content="#000000">
+    {% if jekyll.environment == "production" %}
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174502356-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -25,6 +26,7 @@
         gtag('js', new Date());
         gtag('config', 'UA-174502356-1');
     </script>
+    {% endif %}
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,300;1,500&family=Nunito:ital,wght@1,300&display=swap" rel="stylesheet">
     <link href="{{ site.baseurl }}/css/fonts.css" rel="stylesheet" type="text/css">
     <link href="{{ site.baseurl }}/css/main.css" rel="stylesheet" type="text/css">

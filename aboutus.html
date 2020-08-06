@@ -5,7 +5,7 @@ lang: en
 lang-ref: aboutus
 es: sobrenosotros
 ---
-<section id="about-us">
+<section id="about-us" translate>
 	<div class="text-then-img">
 		<div>
 			<h2 class="editable">About Us</h2>
@@ -14,14 +14,14 @@ es: sobrenosotros
 		<div>
 			<div id="hi-flex">
 				<div></div>
-				<div>Hi!</div>
+				<div translate="no">Hi!</div>
 				<div></div>
 			</div>
 			<img src="{{ site.baseurl }}/media/aboutus.jpg" class="editable">
 		</div>
 	</div>
 </section>
-<section id="our-history">
+<section id="our-history" translate>
 	<div class="img-then-text">
 		<div>
 			<h2 class="editable">Our History</h2>
@@ -32,7 +32,7 @@ es: sobrenosotros
 		</div>
 	</div>
 </section>
-<section id="our-mission">
+<section id="our-mission" translate>
 	<div class="text-then-img">
 		<div>
 			<h2 class="editable">Our Mission</h2>
@@ -43,24 +43,26 @@ es: sobrenosotros
 		</div>
 	</div>
 </section>
-<section id="contact-us">
+<section id="contact-us" translate="no">
 	<div>
 		<div>
-			<h2 class="editable">Contact Us<div>
-				<svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 337.772 303.508" role="img">
+			<h2 class="editable"><span translate>Contact Us</span>
+				<div>
+					<svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 337.772 303.508" role="img">
 					<path fill="{{ site.secondarycolor }}" d="M310.485 21.159C290.731 4.583 271.484-.029 245.926 0c-27.13 2.348-50.615 15.589-77.041 49.05C142.46 15.589 118.975 2.348 91.845 0 66.287-.029 47.038 4.583 27.284 21.159 14.511 31.878 0 60.341 0 87.465c.339 54.573 38.391 136.609 163.485 212.905l5.165 3.138.236-.141.236.141 5.165-3.138c125.094-76.296 163.146-158.332 163.485-212.905-.001-27.124-14.514-55.587-27.287-66.306z"></path>
-				</svg></div>
+					</svg>
+				</div>
 			</h2>
 			<p><a href="{{ site.instagram.url }}"><span>{% include social-media-icons.html social_icon="instagram" %}</span>&nbsp;<span>@{{ site.instagram.handle }}<span></a></p>
 			<p><a href="{{ site.twitter.url }}"><span>{% include social-media-icons.html social_icon="twitter" %}</span>&nbsp;<span>@{{ site.twitter.handle }}<span></a></p>
 			<p><a href="{{ site.youtube.url }}"><span>{% include social-media-icons.html social_icon="youtube" %}</span>&nbsp;<span>{{ site.youtube.name }}<span></a></p>
 			<p><a href="mailto:{{ site.email }}"><span>{% include social-media-icons.html social_icon="email" %}</span>&nbsp;<span>{{ site.email }}<span></a></p>
 		</div>
-		<div>
+		<div translate>
 			<form action="https://formspree.io/mqkyngyo" method="POST">
-				<h4 class="editable">Send Us An Email</h4>
+				<h4 class="editable">Send Us an Email</h4>
 				<input type="text" name="name" placeholder="Name"/>
-				<input type="email" name="_replyto" placeholder="Email" />
+				<input type="email" name="_replyto" placeholder="Email"/>
 				<textarea name="message" placeholder="Your Message"></textarea>
 				<button type="submit">Send</button>
 			</form>
