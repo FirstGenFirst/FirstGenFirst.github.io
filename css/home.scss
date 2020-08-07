@@ -352,28 +352,6 @@
 		}
 	}
 
-	#our-team {
-		#team-members {
-			div.team-member {
-				flex-direction: column;
-
-				img {
-					display: block;
-					margin: auto;
-				}
-
-				> div {
-					> div {
-						padding: .5em .8em;
-						max-width: calc(100% - 1.6em);
-						margin: 0 auto;
-						text-align: center;
-					}
-				}
-			}
-		}
-	}
-
 	#contact-us > div {
 		flex-direction: column;
 
@@ -384,6 +362,10 @@
 			&:nth-child(2) {
 				margin: 0;
 			}
+		}
+
+		p:last-of-type {
+			margin-bottom: 1em;
 		}
 	}
 

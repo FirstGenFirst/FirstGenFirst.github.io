@@ -41,14 +41,52 @@
 						font-size: .8em;
 					}
 				}
+			}
 
-				> p {
-					padding-left: 1em;
+			p {
+				padding-left: 1rem;
+				margin: 0;
+
+				&:first-of-type {
+					margin-top: 1em;
+				}
+
+				&.contact-me {
+					font-size: 1em;
+					margin-top: .5em;
 				}
 			}
 
 			&:not(:first-child) {
 				margin-top: 3em;
+			}
+		}
+	}
+}
+
+@media #{$mobile} {
+	#our-team {
+		#team-members {
+			div.team-member {
+				flex-direction: column;
+
+				img {
+					display: block;
+					margin: auto;
+				}
+
+				> div {
+					> div {
+						padding: .5em .8em;
+						max-width: calc(100% - 1.6em);
+						margin: 0 auto;
+						text-align: center;
+					}
+				}
+
+				p {
+					padding-left: 0;
+				}
 			}
 		}
 	}

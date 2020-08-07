@@ -4,13 +4,13 @@ const json2yaml = require("json2yaml");
 
 // Sometimes Google starts blocking traffic when you send too many requests, so uncomment either one
 // of these to switch which one gets used and (hopefully) Google starts letting you use it again.
-// const googleTranslate = require('@k3rn31p4nic/google-translate-api');
-const googleTranslate = require("translatte");
+const googleTranslate = require('@k3rn31p4nic/google-translate-api');
+// const googleTranslate = require("translatte");
 
 module.exports = function(type, config, lang) {
 
 	// Handles all translation requests.
-	function translate(string, fromLang, toLang, suppressErr) {
+	function translate(string, fromLang, toLang) {
 		let trimmedLeft = string.trimLeft();
 		let trimmedRight = string.trimRight();
 
@@ -45,12 +45,9 @@ module.exports = function(type, config, lang) {
 			}).then(successfulTranslation).catch(failedTranslation);
 		})
 
-		if (!suppressErr) {
-			promise.catch(function(error) {
-				console.log(error)
-				throw error;
-			});
-		}
+		promise.catch(function(error) {
+			
+		});
 
 		return promise;
 	}
@@ -158,7 +155,6 @@ module.exports = function(type, config, lang) {
 					for (let name in tag.attributes) {
 						// Check if this is a replacing attribute.
 						// If it is, it doesn't have to appear in the final document.
-						let simpleName = name;
 						if (name.substring(0, 5) == "data-" &&
 							name.substring(name.length - toLang.length - 1) == "-" + toLang) {
 							continue;
@@ -211,7 +207,7 @@ module.exports = function(type, config, lang) {
 						continue;
 					}
 
-					if (node.translate && typeof tag.override == "string") {
+					if (tag.translate && typeof tag.override == "string") {
 						stringDoc.push(tag.override);
 					} else {
 						writeChildren(tag);

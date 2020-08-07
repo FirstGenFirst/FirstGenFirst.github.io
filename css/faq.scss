@@ -2,87 +2,23 @@
 ---
 {% include sass_variables.scss %}
 
-#about-us {
-	#hi-flex {
-		$offset-from-top: 20%;
-
-		display: flex;
-		flex-direction: column;
-		margin-right: -2em;
-		z-index: 1;
-
-		div:nth-child(1) {
-			flex-basis: $offset-from-top;
-			flex-grow: 1;
-			flex-shrink: 1;
-		}
-
-		div:nth-child(2) {
-			font-size: 3em;
-			font-family: $Cormorant;
-			font-style: italic;
-			font-weight: 300;
-			background-color: $secondary-color;
-			border-radius: 50%;
-			padding: .4em;
-		}
-
-		div:nth-child(3) {
-			flex-basis: 100% - $offset-from-top;
-			flex-grow: 1;
-			flex-shrink: 1;
-		}
+#faq {
+	ul {
+		@include body-width;
 	}
-}
 
-#our-history {
-	> div {
-		width: $content-width;
-		max-width: 100%;
-		margin: auto;
-		display: flex;
-		flex-direction: row-reverse;
-
-		> div:nth-child(1) {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			flex-basis: 50%;
-			width: 50%;
-			margin: 0;
-			flex-grow: 1;
-
-			h2 {
-				font-family: $Cormorant;
-				font-weight: 500;
-				font-style: italic;
-				font-size: 2.5em;
-				margin: 0;
-			}
-
-			p {
-				font-family: $Helvetica;
-				font-size: 1.2em;
-				font-weight: 300;
-				margin: 1rem 0;
-			}
-		}
-
-		> div:nth-child(2) {
-			align-self: center;
-			flex-grow: 1;
-			text-align: center;
-
-			> img {
-				height: 20em;
-				margin-right: 1em;
-			}
-		}
+	h3 {
+		font-size: 1.5em;
+		font-family: $Coolvetica;
+		font-weight: 500;
+		font-style: initial;
+		line-height: 1.5;
 	}
-}
 
-#our-mission {
-	
+	p {
+		margin-top: 0;
+		margin-bottom: 1.25em;
+	}
 }
 
 #contact-us {
@@ -99,10 +35,19 @@
 		}
 	}
 
+	&:nth-child(2n) h2 > div {
+		color: $secondary-color;
+	}
+
+	&:nth-child(2n + 1) h2 > div {
+		color: scale-color($theme-color, $lightness: 5%);
+	}
+
 	h2 {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		font-size: 2.5rem;
 
 		> div {
 			height: 1em;
@@ -114,20 +59,8 @@
 		}
 	}
 
-	&:nth-child(2n) h2 > div {
-		color: $secondary-color;
-	}
-
-	&:nth-child(2n + 1) h2 > div {
-		color: scale-color($theme-color, $lightness: 5%);
-	}
-
 	p {
 		margin: 0;
-		font-family: $Nunito;
-		font-size: 1.5em;
-		font-weight: 300;
-		font-style: italic;
 
 		a {
 			color: inherit;
@@ -155,12 +88,19 @@
 			}
 		}
 
-		&:first-of-type {
-			margin-top: 1rem;
+		&:nth-child(2) {
+			margin: 1rem 0 0;
+		}
+
+		&:not(:last-of-type) {
+			font-family: $Nunito;
+			font-size: 1.5em;
+			font-weight: 300;
+			font-style: italic;
 		}
 
 		&:last-of-type {
-			margin-bottom: 1rem;
+			margin: 1em 0 0;
 		}
 	}
 
@@ -263,63 +203,15 @@
 }
 
 @media #{$mobile} {
-	#about-us {
+	#contact-us > div {
+		flex-direction: column;
+
 		> div {
-			flex-direction: column;
+			width: 100%;
+			flex-basis: 100%;
 
-			> div:nth-child(1) {
-				width: 100%;
-				flex-basis: 100%;
-			}
-
-			> div:nth-child(2) {
-				max-width: initial;
-				margin-left: 0;
-			}
-		}
-	}
-
-	#our-history {
-		> div {
-			flex-direction: column;
-
-			> div:nth-child(1) {
-				width: 100%;
-				flex-basis: 100%;
-			}
-
-			> div:nth-child(2) img {
-				margin-right: 0;
-			}
-		}
-	}
-
-	#our-mission {
-		> div {
-			flex-direction: column;
-
-			> div:nth-child(1) {
-				width: 100%;
-				flex-basis: 100%;
-			}
-
-			> div:nth-child(2) img {
-				margin-left: 0;
-			}
-		}
-	}
-
-	#contact-us {
-		> div {
-			flex-direction: column;
-
-			> div {
-				width: 100%;
-				flex-basis: 100%;
-
-				&:nth-child(2) {
-					margin: 0;
-				}
+			&:nth-child(2) {
+				margin: 0;
 			}
 		}
 

@@ -73,6 +73,11 @@ translations:
       es:
         title: Donar
         permalink: /donar.html
+    - lang-ref: faq
+      src: faq.html
+      es:
+        title: Preguntas Más Frecuentes
+        permalink: /pmf.html
     - lang-ref: home
       src: index.html
       es:
