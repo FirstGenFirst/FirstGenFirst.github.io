@@ -1,0 +1,55 @@
+---
+---
+{% include sass_variables.scss %}
+
+#our-team {
+	#team-members {
+		width: $content-width - 5rem;
+		max-width: 100%;
+		margin: 1.2em auto 0;
+		display: flex;
+		flex-direction: column;
+
+		div.team-member {
+			display: flex;
+			justify-content: stretch;
+
+			img {
+				height: 20em;
+				width: 15em;
+				object-fit: cover;
+			}
+
+			> div {
+				display: flex;
+				flex-direction: column;
+
+				> div {
+					background-color: $secondary-color;
+					color: black;
+					font-size: 1.5em;
+					padding: .8em 1em;
+					width: 18rem;
+					margin: .75em 0 0 -2em;
+
+					> span:nth-child(1) {
+						font-family: $Coolvetica;
+					}
+
+					> span:nth-child(2) {
+						font-family: $Cormorant;
+						font-size: .8em;
+					}
+				}
+
+				> p {
+					padding-left: 1em;
+				}
+			}
+
+			&:not(:first-child) {
+				margin-top: 3em;
+			}
+		}
+	}
+}

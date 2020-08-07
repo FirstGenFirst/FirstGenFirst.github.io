@@ -95,58 +95,6 @@
 	}
 }
 
-#our-team {
-	#team-members {
-		width: $content-width - 5rem;
-		max-width: 100%;
-		margin: 1.2em auto 0;
-		display: flex;
-		flex-direction: column;
-
-		div.team-member {
-			display: flex;
-			justify-content: stretch;
-
-			img {
-				height: 20em;
-				width: 15em;
-				object-fit: cover;
-			}
-
-			> div {
-				display: flex;
-				flex-direction: column;
-
-				> div {
-					background-color: $secondary-color;
-					color: black;
-					font-size: 1.5em;
-					padding: .8em 1em;
-					width: 18rem;
-					margin: .75em 0 0 -2em;
-
-					> span:nth-child(1) {
-						font-family: $Coolvetica;
-					}
-
-					> span:nth-child(2) {
-						font-family: $Cormorant;
-						font-size: .8em;
-					}
-				}
-
-				> p {
-					padding-left: 1em;
-				}
-			}
-
-			&:not(:first-child) {
-				margin-top: 3em;
-			}
-		}
-	}
-}
-
 #contact-us {
 	> div {
 		display: flex;
@@ -159,6 +107,14 @@
 				margin-left: 1em;
 			}
 		}
+	}
+
+	&:nth-child(2n) h2 > div {
+		color: $secondary-color;
+	}
+
+	&:nth-child(2n + 1) h2 > div {
+		color: scale-color($theme-color, $lightness: 5%);
 	}
 
 	h2 {
@@ -182,7 +138,7 @@
 		a {
 			color: inherit;
 			text-decoration: none;
-			display: flex;
+			display: inline-flex;
 
 			span {
 				display: block;
@@ -221,8 +177,53 @@
 		}
 	}
 
-	form {
+	&:nth-child(2n) form {
 		background-color: white;
+
+		h4 {
+			color: scale-color($theme-color, $lightness: 20%);
+		}
+
+		input,
+		textarea {
+			border: .2em solid $theme-color;
+		}
+
+		button {
+			background-color: scale-color($theme-color, $lightness: 20%);
+			color: white;
+
+			&:hover,
+			&:focus {
+				background-color: scale-color($theme-color, $lightness: 50%);
+			}
+		}
+	}
+
+	&:nth-child(2n + 1) form {
+		background-color: scale-color($theme-color, $lightness: 5%);
+
+		h4 {
+			color: white;
+		}
+
+		input,
+		textarea {
+			border: .2em solid $secondary-color;
+		}
+
+		button {
+			background-color: white;
+			color: $theme-color;
+
+			&:hover,
+			&:focus {
+				background-color: scale-color(white, $lightness: -10%);
+			}
+		}
+	}
+
+	form {
 		padding: 1em 2em;
 
 		h4 {
@@ -230,13 +231,11 @@
 			font-weight: 300;
 			font-style: italic;
 			font-size: 1.5em;
-			color: scale-color($theme-color, $lightness: 20%);
 			margin: 0;
 		}
 
 		input,
 		textarea {
-			border: .2em solid $theme-color;
 			font-family: $Nunito;
 			font-weight: 300;
 			font-style: italic;
@@ -262,8 +261,9 @@
 		}
 
 		button {
-			background-color: scale-color($theme-color, $lightness: 20%);
-			color: white;
+			font-family: $Nunito;
+			font-weight: 300;
+			font-style: italic;
 			border: 0;
 			font-size: 1.2em;
 			padding: .5rem 1rem;
@@ -271,11 +271,6 @@
 			margin: 1rem auto 0;
 			display: block;
 			cursor: pointer;
-
-			&:hover,
-			&:focus {
-				background-color: scale-color($theme-color, $lightness: 50%);
-			}
 		}
 	}
 }

@@ -164,7 +164,7 @@ nav {
 					right: 0;
 					width: 10em;
 					background-color: scale-color($theme-color, $lightness: 10%);
-					padding: 1em 0;
+					padding: .5em 0;
 					color: white;
 					flex-direction: column;
 
@@ -370,7 +370,7 @@ footer {
 
 	#footer-social-links a {
 		text-decoration: none;
-		display: flex;
+		display: inline-flex;
 		justify-content: center;
 
 		span {

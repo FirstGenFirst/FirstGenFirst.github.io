@@ -1,0 +1,24 @@
+---
+title: Our Team
+layout: default
+lang: en
+lang-ref: ourteam
+es: nuestroequipo
+---
+<section id="our-team">
+	<h2 class="editable">Our Team</h2>
+	<div id="team-members" translate="no">
+		{%- assign filtered = site.team_members | where: "lang", page.lang -%}
+		{%- assign filtered = filtered | sort: "ordering" -%}
+		{%- for team_member in filtered -%}
+		{%- if team_member.display == false -%}{%- continue -%}{%- endif -%}
+		<div class="team-member">
+			<img src="{{ site.baseurl }}/{{ site.mediadir }}/{{ team_member.image }}" alt="{{ team_member.name }}">
+			<div>
+				<div><span>{{ team_member.name }}</span><span> &ndash; <span>{{ team_member.role }}</span></span></div>
+				<p class="editable">{{ team_member.bio }}</p>
+			</div>
+		</div>
+		{%- endfor -%}
+	</div>
+</section>

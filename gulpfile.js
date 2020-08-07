@@ -6,7 +6,10 @@ const yaml = require("js-yaml");
 const merge = require("merge-stream");
 const frontMatter = require("gulp-front-matter");
 
-const translateFiles = require("./translate_files")
+const translateFiles = require("./translate_files");
+
+let translations;
+
 
 exports.jekyll = function jekyll(cb) {
 	const jekyll = childprocess.spawn(
@@ -27,10 +30,55 @@ exports.jekyll = function jekyll(cb) {
 	cb();
 };
 
-exports.translate = function translate() {
-	let translations;
+function translateCollections() {
 	try {
-		translations = yaml.safeLoad(fs.readFileSync("./_config.yml", "utf-8")).translations;
+		translations = translations || yaml.safeLoad(fs.readFileSync("./_config.yml", "utf-8")).translations;
+	} catch (e) {
+		return cb(e);
+	}
+
+	let streams = [];
+
+	for (let i = translations.langs.length - 1; i >= 0; i--) {
+		for (let j = translations.collections.length - 1; j >= 0; j--) {
+			streams.push(
+				gulp.src(`_${translations.collections[j].name}/*.*`)
+					.pipe(frontMatter({
+						remove: true
+					}))
+					.pipe(translateFiles(
+						"collection",
+						translations.collections[j],
+						translations.langs[i]
+					))
+					.pipe(gulp.dest(`_${translations.collections[j].name}/${translations.langs[i]}/`))
+			);
+
+			if (translations.collections[j].subdirectories) {
+				for (let k = translations.collections.subdirectories.length - 1; k >= 0; k--) {
+					streams.push(
+						gulp.src(`_${translations.collections[j].name}/*`)
+							.pipe(frontMatter({
+								remove: true
+							}))
+							.pipe(translateFiles(
+								"collection",
+								translations.collections[j],
+								translations.langs[i]
+							))
+							.pipe(gulp.dest(`_${translations.collections[j].name}/${translations.langs[i]}/`))
+					);
+				}
+			}
+		}
+	}
+
+	return merge(streams);
+}
+
+function translatePages() {
+	try {
+		translations = translations || yaml.safeLoad(fs.readFileSync("./_config.yml", "utf-8")).translations;
 	} catch (e) {
 		return cb(e);
 	}
@@ -55,6 +103,8 @@ exports.translate = function translate() {
 	}
 
 	return merge(streams);
-};
+}
+
+exports.translate = gulp.series(translateCollections, translatePages);
 
 exports.default = exports.jekyll;

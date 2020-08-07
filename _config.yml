@@ -1,37 +1,37 @@
 ---
 # Full title
-title: "First Generation First"
+title: First Generation First
 # Spanish version
-title-es: "First Generation First"
+title-es: First Generation First
 # Shorter title used for stuff like an app icon
-shorttitle: "FirstGenFirst"
-shortitle-es: "FirstGenFirst"
+shorttitle: FirstGenFirst
+shortitle-es: FirstGenFirst
 # Displayed in the header
-description: "Putting our first-gen students first."
-description-es: "Poniendo a nuestros estudiantes de primera generación en primer lugar."
+description: Putting our first-gen students first.
+description-es: Poniendo a nuestros estudiantes de primera generación en primer lugar.
 
 youtube:
-  name: "First Generation First"
+  name: First Generation First
   # URL to the channel
-  url: "https://www.youtube.com/channel/UCmFyUfF2O_-k9U1UIYwM6RA/"
+  url: https://www.youtube.com/channel/UCmFyUfF2O_-k9U1UIYwM6RA/
   # Video ID of the video to showcase on the home page
-  latestvideo: "VvNfAz3wAec" # Should be JUST THE ID at the end of the video's url
+  latestvideo: VvNfAz3wAec # Should be JUST THE ID at the end of the video's url
 
 twitter:
-  name: "First Gen First"
+  name: First Gen First
   # Handle, without the "@" at the front
-  handle: "firstgen1st"
+  handle: firstgen1st
   # URL to the account
-  url: "https://twitter.com/firstgen1st?s=20"
+  url: https://twitter.com/firstgen1st?s=20
 
 instagram:
-  name: "First Generation First"
+  name: First Generation First
   # Handle, without the "@" at the front
-  handle: "firstgenfirst"
+  handle: firstgenfirst
   # URL to the account
-  url: "https://www.instagram.com/firstgenfirst/"
+  url: https://www.instagram.com/firstgenfirst/
 # Main email used for contacting
-email: "info@firstgenfirst.org"
+email: info@firstgenfirst.org
 
 # The main color for the website's look (the reddish one)
 themecolor: "#e3170a"
@@ -42,18 +42,26 @@ footercolor: "#f2f1f0"
 
 # Either yes or no, indicating if the header at the top of each page should stick to the top or
 # scroll away with the rest of the header.
-stickyheader: yes
+stickyheader: true
 
 
 # Controls how/which files get translated
 translations:
+  # A list of languages to translate to, excluding English
   langs:
     - es
-  pages:   # Pages get copied to their language folder with the same name as their source file.
-    - lang-ref: aboutus         # The ID of this page; the corresponding CSS file with this ID will be used.
-      src: aboutus.html         # The source file to translate (should be in English)
-      es:                       # The langauge code to translate to (and the folder the file gets outputted to)
-        title: Sobre Nosotros   # The title of the new page (what gets displayed in the <title>)
+  collections:   # Collections get copied to a language subdirectory with the same name as their source file.
+    - name: team_members
+      subdirectories:   # List of subdirectories to look at as well.
+      fields:   # List of the fields that should be translated in the front matter.
+        - role
+        - bio
+      content: true   # Whether to translate the content or not.
+  pages:   # Pages get copied to their language directory with the same name as their source file.
+    - lang-ref: aboutus                  # The ID of this page; the corresponding CSS file with this ID will be used.
+      src: aboutus.html                  # The source file to translate (should be in English)
+      es:                                # The langauge code to translate to (and the folder the file gets outputted to)
+        title: Sobre Nosotros            # The title of the new page (what gets displayed in the <title>)
         permalink: /sobrenosotros.html   # Where the new file should be stored in relation to the website
     - lang-ref: collegereadiness
       src: collegereadiness.html
@@ -65,16 +73,16 @@ translations:
       es:
         title: Donar
         permalink: /donar.html
-    - lang-ref: students
-      src: students.html
-      es:
-        title: Estudiantes
-        permalink: /estudiantes.html
     - lang-ref: home
       src: index.html
       es:
         title: Hogar
         permalink: /hogar.html
+    - lang-ref: ourteam
+      src: ourteam.html
+      es:
+        title: Nuestro Equipo
+        permalink: /nuestroequipo.html
     - lang-ref: parentsandteachers
       src: parentsandteachers.html
       es:
@@ -85,21 +93,22 @@ translations:
       es:
         title: Beca de FGF
         permalink: /beca.html
+    - lang-ref: students
+      src: students.html
+      es:
+        title: Estudiantes
+        permalink: /estudiantes.html
 
 
 collections:
   team_members:
     output: false
-    order:
-      - jazmin.md
-      - caroline.md
-      - alan.md
-      - christian.md
 
 
 # Other settings you probably never need to touch.
 baseurl: ""
 url: "https://firstgenfirst.org"
+mediadir: media
 host: 0.0.0.0
 plugins:
   - jekyll-sitemap

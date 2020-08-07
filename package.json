@@ -23,7 +23,9 @@
     "gulp-util": "^3.0.8",
     "htmlparser2": "^4.1.0",
     "js-yaml": "^3.14.0",
-    "merge-stream": "^2.0.0"
+    "json2yaml": "^1.1.0",
+    "merge-stream": "^2.0.0",
+    "translatte": "^2.5.8"
   },
   "keywords": [
     "college",

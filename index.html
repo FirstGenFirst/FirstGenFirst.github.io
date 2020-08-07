@@ -73,45 +73,12 @@ es: hogar
 		</div>
 	</div>
 </section>
-<section id="our-team" translate>
-	<h2 class="editable">Our Team</h2>
-	<div id="team-members">
-		<div class="team-member">
-			<img src="{{ site.baseurl }}/media/jazmin.jpg" alt="Jazmin Reyes" data-alt-es="Jazmin Reyes" class="editable">
-			<div>
-				<div><span class="editable" translate="no">Jazmin Reyes</span><span> &ndash; <span class="editable" data-translate-override-es="Fundadora">Founder</span></span></div>
-				<p class="editable">Hello! My name is Jazmin Reyes and I founded FGF in hopes to support first-generation and low-income students like myself through scholarships and sufficient resources. My vision is to lead more students into college by providing helpful insights that I wished someone had told me and tips I have learned through my own experiences in high school and college.</p>
-			</div>
-		</div>
-		<div class="team-member">
-			<img src="{{ site.baseurl }}/media/caroline.jpg" alt="Caroline Tran" data-alt-es="Caroline Tran" class="editable">
-			<div>
-				<div><span class="editable" translate="no">Caroline Tran</span><span> &ndash; <span class="editable">Design</span></span></div>
-				<p class="editable">Hi! I'm Caroline Tran and I am an undergraduate at Stanford University from Seattle, WA. As a first-generation college student, I've been diving head first into every new experience, so I know how it feels to be overwhlemed and lost. I joined FGF in hopes of helping other first-gen students navigate the high school to college transition while using my passion for mentorship and art.</p>
-			</div>
-		</div>
-		<div class="team-member">
-			<img src="{{ site.baseurl }}/media/alan.jpg" alt="Alan Gallardo" data-alt-es="Alan Gallardo" class="editable">
-			<div>
-				<div><span class="editable" translate="no">Alan Gallardo</span><span> &ndash; <span class="editable">Marketing</span></span></div>
-				<p class="editable">Hey guys! I'm Alan and I am a current undergraduate at UCLA studying Communications and Film. I joined the FGF team because I also grew up as a first-generation and low-income student from the city of Bell, CA and I want to help reach as many students as possible by using my experience in film and marketing.</p>
-			</div>
-		</div>
-		<div class="team-member">
-			<img src="{{ site.baseurl }}/media/christian.jpg" alt="Christian Figueroa" data-alt-es="Christian Figueroa" class="editable">
-			<div>
-				<div><span class="editable" translate="no">Christian Figueroa</span><span> &ndash; <span class="editable">Software</span></span></div>
-				<p class="editable">Hi!<span data-translate-override-es=" Soy Christian ">I'm Christian</span>and I'm an undergraduate at Stanford studying Computer Science and Biology. I grew up as a first-gen student in Wasco, CA. I joined FGF because I know how hard it is to navigate something as new and scary as college, and I want to help other first-gen students who feel the same way.</p>
-			</div>
-		</div>
-	</div>
-</section>
 <section id="contact-us" translate="no">
 	<div>
 		<div>
 			<h2 class="editable" translate>Contact Us<div>
 				<svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 337.772 303.508" role="img">
-					<path fill="{{ site.secondarycolor }}" d="M310.485 21.159C290.731 4.583 271.484-.029 245.926 0c-27.13 2.348-50.615 15.589-77.041 49.05C142.46 15.589 118.975 2.348 91.845 0 66.287-.029 47.038 4.583 27.284 21.159 14.511 31.878 0 60.341 0 87.465c.339 54.573 38.391 136.609 163.485 212.905l5.165 3.138.236-.141.236.141 5.165-3.138c125.094-76.296 163.146-158.332 163.485-212.905-.001-27.124-14.514-55.587-27.287-66.306z"></path>
+					<path fill="currentColor" d="M310.485 21.159C290.731 4.583 271.484-.029 245.926 0c-27.13 2.348-50.615 15.589-77.041 49.05C142.46 15.589 118.975 2.348 91.845 0 66.287-.029 47.038 4.583 27.284 21.159 14.511 31.878 0 60.341 0 87.465c.339 54.573 38.391 136.609 163.485 212.905l5.165 3.138.236-.141.236.141 5.165-3.138c125.094-76.296 163.146-158.332 163.485-212.905-.001-27.124-14.514-55.587-27.287-66.306z"></path>
 				</svg></div>
 			</h2>
 			<p><a href="{{ site.instagram.url }}"><span>{% include social-media-icons.html social_icon="instagram" %}</span>&nbsp;<span class="link">@{{ site.instagram.handle }}<span></a></p>
@@ -123,9 +90,9 @@ es: hogar
 		<div translate="">
 			<form action="https://formspree.io/mqkyngyo" method="POST">
 				<h4 class="editable">Send Us An Email</h4>
-				<input type="text" name="name" placeholder="Name"/>
-				<input type="email" name="_replyto" placeholder="Email" />
-				<textarea name="message" placeholder="Your Message"></textarea>
+				<input type="text" name="name" placeholder="Name" required />
+				<input type="email" name="_replyto" placeholder="Email" required />
+				<textarea name="message" placeholder="Your Message" required></textarea>
 				<button type="submit">Send</button>
 			</form>
 		</div>
