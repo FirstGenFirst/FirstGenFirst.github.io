@@ -24,7 +24,7 @@
 
 				> div {
 					// This <div> gives the parent <div> its 16:9 ratio shape.
-					margin: percentage(9 / 16) 0;
+					margin-top: percentage(9 / 16);
 				}
 			}
 		}
@@ -86,12 +86,35 @@
 	#about {
 		background-color: $secondary-color;
 		padding: .5em;
+		position: relative;
+		width: 100%;
 
-		video {
+		iframe {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
 			width: 100%;
-			display: block;
-			box-shadow: 0 .2em .3em transparentize(black, 0.47);
 		}
+
+		> div {
+			position: relative;
+			overflow: hidden;
+
+			div {
+				margin-top: percentage(9 / 16);
+			}
+		}
+
+		// video {
+		// 	width: 100%;
+		// 	display: block;
+		// 	box-shadow: 0 .2em .3em transparentize(black, 0.47);
+		// }
+	}
+
+	.text-then-img > div {
+		flex-basis: 50%
 	}
 }
 
