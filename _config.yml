@@ -59,47 +59,47 @@ translations:
       content: true   # Whether to translate the content or not.
   pages:   # Pages get copied to their language directory with the same name as their source file.
     - lang-ref: aboutus                  # The ID of this page; the corresponding CSS file with this ID will be used.
-      src: aboutus.html                  # The source file to translate (should be in English)
+      src: aboutus/index.html            # The source file to translate (should be in English)
       es:                                # The langauge code to translate to (and the folder the file gets outputted to)
         title: Sobre Nosotros            # The title of the new page (what gets displayed in the <title>)
         permalink: /sobrenosotros.html   # Where the new file should be stored in relation to the website
     - lang-ref: collegereadiness
-      src: collegereadiness.html
+      src: students/collegereadiness.html
       es:
         title: Preparaci&oacute;n
-        permalink: /preparacion.html
+        permalink: /estudiantes/preparacion.html
     - lang-ref: donate
-      src: donate.html
+      src: more/donate.html
       es:
         title: Donar
         permalink: /donar.html
     - lang-ref: faq
-      src: faq.html
+      src: students/scholarship/faq.html
       es:
         title: Preguntas Más Frecuentes
-        permalink: /pmf.html
+        permalink: /estudiantes/beca/pmf.html
     - lang-ref: home
-      src: index.html
+      src: home.html
       es:
         title: Hogar
         permalink: /hogar.html
     - lang-ref: ourteam
-      src: ourteam.html
+      src: aboutus/ourteam.html
       es:
         title: Nuestro Equipo
-        permalink: /nuestroequipo.html
+        permalink: sobrenosotros/nuestroequipo.html
     - lang-ref: parentsandteachers
-      src: parentsandteachers.html
+      src: more/parentsandteachers.html
       es:
         title: Padres &amp; Maestros
         permalink: /padresymaestros.html
     - lang-ref: scholarship
-      src: scholarship.html
+      src: students/scholarship/index.html
       es:
         title: Beca de FGF
-        permalink: /beca.html
+        permalink: /estudiantes/beca.html
     - lang-ref: students
-      src: students.html
+      src: students/index.html
       es:
         title: Estudiantes
         permalink: /estudiantes.html

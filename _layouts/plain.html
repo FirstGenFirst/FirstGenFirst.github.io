@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% capture pagename %}{{ page.name | downcase }}{% endcapture %}
+{% capture _ %}{{ pagename | slice: -5, 5 }}{% endcapture %}
+{% if _ == ".html" %}{% capture pagename %}{{ pagename | split: ".html" }}{% endcapture %}{% endif %}
+{% if pagename == "" %}{% assign pagename = "index" %}{% endif %}
+<html lang="en">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>{{ page.title }} &ndash; {{ site.title }}</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/favicon-16x16.png">
+    <link rel="manifest" href="{{ site.baseurl }}/site.webmanifest">
+    <link rel="mask-icon" href="{{ site.baseurl }}/safari-pinned-tab.svg" color="{{ site.themecolor }}">
+    <meta name="apple-mobile-web-app-title" content="{{ site.shorttitle }}">
+    <meta name="application-name" content="{{ site.shorttitle }}">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="{{ site.baseurl }}/mstile-144x144.png">
+    <meta name="theme-color" content="#000000">
+    {% if jekyll.environment == "production" %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174502356-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-174502356-1');
+    </script>
+    {% endif %}
+    <link href="{{ site.baseurl }}/css/{{ page.lang-ref }}.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    {{ content }}
+</body>
+</html>

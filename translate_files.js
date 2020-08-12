@@ -299,13 +299,13 @@ module.exports = function(type, config, lang) {
 
 					// Make a new front matter to add to the beginning of the file.
 					contents +=
-						`---\n`                                        +
-						`title: "${langConfig.title}"\n`               +
-						`layout: "default.${lang}"\n`                  +
-						`permalink: "${langConfig.permalink}"\n`       +
-						`lang: "${lang}"\n`                            +
-						`lang-ref: "${config["lang-ref"]}"\n`          +
-						`en: "${config.src.replace(/\.html$/, "")}"\n` +
+						`---\n`                                                                       +
+						`title: "${langConfig.title}"\n`                                              +
+						`layout: "default.${lang}"\n`                                                 +
+						`permalink: "${langConfig.permalink}"\n`                                      +
+						`lang: "${lang}"\n`                                                           +
+						`lang-ref: "${config["lang-ref"]}"\n`                                         +
+						`en: "/${file.frontMatter.permalink || config.src.replace(/\.html$/, "")}"\n` +
 						`---\n`
 
 					// Now parse the rest of the page as HTML.

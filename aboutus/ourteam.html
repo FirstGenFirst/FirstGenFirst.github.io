@@ -1,12 +1,12 @@
 ---
-title: "Nuestro Equipo"
-layout: "default.es"
-permalink: "/nuestroequipo.html"
-lang: "es"
-lang-ref: "ourteam"
-en: "ourteam"
+title: Our Team
+layout: default
+permalink: /aboutus/ourteam
+lang: en
+lang-ref: ourteam
+es: /sobrenosotros/nuestroequipo
 ---
-<section id="our-team">
+<section id="our-team" translate>
 	<h2 class="editable">Our Team</h2>
 	<div id="team-members" translate="no">
 		{%- assign filtered = site.team_members | where: "lang", page.lang -%}
@@ -16,9 +16,9 @@ en: "ourteam"
 		<div class="team-member">
 			<img src="{{ site.baseurl }}/{{ site.mediadir }}/{{ team_member.image }}" alt="{{ team_member.name }}">
 			<div>
-				<div><span>{{ team_member.name }}</span><span> – <span>{{ team_member.role }}</span></span></div>
+				<div><span>{{ team_member.name }}</span><span> &ndash; <span>{{ team_member.role }}</span></span></div>
 				<p class="editable">{{ team_member.bio }}</p>
-				<p class="contact-me"><span translate>Contáctame en</span> <a href="mailto:{{ team_member.email }}" class="link">{{ team_member.email }}</a>.</p>
+				<p class="contact-me"><span translate data-translate-override-es="Contáctame en">Contact me at</span> <a href="mailto:{{ team_member.email }}" class="link">{{ team_member.email }}</a>.</p>
 			</div>
 		</div>
 		{%- endfor -%}

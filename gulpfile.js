@@ -5,6 +5,7 @@ const fs = require("fs");
 const yaml = require("js-yaml");
 const merge = require("merge-stream");
 const frontMatter = require("gulp-front-matter");
+const path = require("path");
 
 const translateFiles = require("./translate_files");
 
@@ -97,7 +98,7 @@ function translatePages() {
 						translations.pages[j],
 						translations.langs[i]
 					))
-					.pipe(gulp.dest(translations.langs[i] + "/"))
+					.pipe(gulp.dest(translations.langs[i] + "/" + path.dirname(translations.pages[j].src) + "/"))
 			);
 		}
 	}
