@@ -122,6 +122,7 @@ mediadir: media
 host: 0.0.0.0
 plugins:
   - jekyll-sitemap
+  - jekyll-redirect-from
 exclude:
   - node_modules
   - package.json
