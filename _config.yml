@@ -62,12 +62,17 @@ translations:
       src: aboutus/index.html            # The source file to translate (should be in English)
       es:                                # The langauge code to translate to (and the folder the file gets outputted to)
         title: Sobre Nosotros            # The title of the new page (what gets displayed in the <title>)
-        permalink: /sobrenosotros.html   # Where the new file should be stored in relation to the website
+        permalink: /sobrenosotros        # Where the new file should be stored in relation to the website
     - lang-ref: collegereadiness
       src: students/collegereadiness.html
       es:
         title: Preparaci&oacute;n
-        permalink: /estudiantes/preparacion.html
+        permalink: /estudiantes/preparacion
+    - lang-ref: applyingtocollege
+      src: students/applyingtocollege/index.html
+      es:
+        title: Aplicando a la Universidad
+        permalink: /estudiantes/aplicandoalauniversidad
     - lang-ref: donate
       src: more/donate.html
       es:
@@ -77,32 +82,32 @@ translations:
       src: students/scholarship/faq.html
       es:
         title: Preguntas Más Frecuentes
-        permalink: /estudiantes/beca/pmf.html
+        permalink: /estudiantes/beca/pmf
     - lang-ref: home
       src: home.html
       es:
         title: Hogar
-        permalink: /hogar.html
+        permalink: /hogar
     - lang-ref: ourteam
       src: aboutus/ourteam.html
       es:
         title: Nuestro Equipo
-        permalink: sobrenosotros/nuestroequipo.html
+        permalink: sobrenosotros/nuestroequipo
     - lang-ref: parentsandteachers
       src: more/parentsandteachers.html
       es:
         title: Padres &amp; Maestros
-        permalink: /padresymaestros.html
+        permalink: /padresymaestros
     - lang-ref: scholarship
       src: students/scholarship/index.html
       es:
         title: Beca de FGF
-        permalink: /estudiantes/beca.html
+        permalink: /estudiantes/beca
     - lang-ref: students
       src: students/index.html
       es:
         title: Estudiantes
-        permalink: /estudiantes.html
+        permalink: /estudiantes
 
 
 collections:
@@ -123,3 +128,4 @@ exclude:
   - package-lock.json
   - gulpfile.js
   - vendor
+  - translate_files.js

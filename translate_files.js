@@ -4,8 +4,8 @@ const json2yaml = require("json2yaml");
 
 // Sometimes Google starts blocking traffic when you send too many requests, so uncomment either one
 // of these to switch which one gets used and (hopefully) Google starts letting you use it again.
-const googleTranslate = require('@k3rn31p4nic/google-translate-api');
-// const googleTranslate = require("translatte");
+// const googleTranslate = require('@k3rn31p4nic/google-translate-api');
+const googleTranslate = require("translatte");
 
 module.exports = function(type, config, lang) {
 
@@ -299,13 +299,13 @@ module.exports = function(type, config, lang) {
 
 					// Make a new front matter to add to the beginning of the file.
 					contents +=
-						`---\n`                                                                       +
-						`title: "${langConfig.title}"\n`                                              +
-						`layout: "default.${lang}"\n`                                                 +
-						`permalink: "${langConfig.permalink}"\n`                                      +
-						`lang: "${lang}"\n`                                                           +
-						`lang-ref: "${config["lang-ref"]}"\n`                                         +
-						`en: "/${file.frontMatter.permalink || config.src.replace(/\.html$/, "")}"\n` +
+						`---\n`                                                                            +
+						`title: "${langConfig.title}"\n`                                                   +
+						`layout: "default.${lang}"\n`                                                      +
+						`permalink: "${langConfig.permalink}"\n`                                           +
+						`lang: "${lang}"\n`                                                                +
+						`lang-ref: "${config["lang-ref"]}"\n`                                              +
+						`en: "${file.frontMatter.permalink || "/" + config.src.replace(/\.html$/, "")}"\n` +
 						`---\n`
 
 					// Now parse the rest of the page as HTML.
