@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+{% capture pagename %}{{ page.name | downcase }}{% endcapture %}
+{% capture _ %}{{ pagename | slice: -5, 5 }}{% endcapture %}
+{% if _ == ".html" %}{% capture pagename %}{{ pagename | split: ".html" }}{% endcapture %}{% endif %}
+{% if pagename == "" %}{% assign pagename = "index" %}{% endif %}
+<html lang="en">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>{{ page.title }} &ndash; {{ site.title }}</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/favicon-16x16.png">
+    <link rel="manifest" href="{{ site.baseurl }}/site.webmanifest">
+    <link rel="mask-icon" href="{{ site.baseurl }}/safari-pinned-tab.svg" color="{{ site.themecolor }}">
+    <meta name="apple-mobile-web-app-title" content="{{ site.shorttitle }}">
+    <meta name="application-name" content="{{ site.shorttitle }}">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="{{ site.baseurl }}/mstile-144x144.png">
+    <meta name="theme-color" content="#000000">
+    {% if jekyll.environment == "production" %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174502356-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-174502356-1');
+    </script>
+    {% endif %}
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="{{ site.baseurl }}/css/{{ page.lang-ref }}.css" rel="stylesheet" type="text/css">
+</head>
+{% capture newline %}
+{% endcapture %}
+{%- assign sqrt3 = "1.73205080757" -%}
+{%- assign slides = page.slides | limit: 10 -%}
+{%- assign slideids = "" | split: "" -%}
+{%- for slide in slides -%}
+    {%- assign slidename = slide[1].name -%}
+    {%- if slidename == nil -%}
+        {%- assign slidename = slide[0] -%}
+    {%- endif -%}
+    {%- assign slideid = slidename | downcase | replace: "-", "" | replace: "&", "and" | replace: " ", "-" | replace: newline, "-" | split: " " -%}
+    {%- assign slideids = slideids | concat: slideid -%}
+    {%- assign slidename = slidename | split: newline -%}
+{%- endfor -%}
+<body>
+    <div id="title"></div>
+    {%- for slideid in slideids -%}
+    <div id="{{ slideid }}"></div>
+    {%- endfor -%}
+    <div id="content">
+
+        {%- for slide in slides -%}
+            {%- assign i = forloop.index | minus: 1 -%}
+            {%- case i -%}
+            {%- when 0 -%}
+                {%- if slides.size == 1 or slides.size == 3 -%}
+                    {%- assign transformation = "translate(0,calc(-150% - 1.5em)" -%}
+                {%- elsif slides.size == 2 -%}
+                    {%- assign transformation = "translate(calc(-75% - 0.5em * " | append: sqrt3 | append: "),0)" -%}
+                {%- else -%}
+                    {%- assign transformation = "translate(calc(-75% - 0.5em * " | append: sqrt3 | append: "),calc(-100% - 1em))" -%}
+                {%- endif -%}
+            {%- when 1 -%}
+                {%- if slides.size == 2 -%}
+                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),0)" -%}
+                {%- elsif slides.size == 3 -%}
+                    {%- assign transformation = "translate(calc(-75% - 0.5em * " | append: sqrt3 | append: "),0)" -%}
+                {%- elsif slides.size == 4 or slides.size == 6 -%}
+                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),calc(-100% - 1em))" -%}
+                {%- else -%}
+                    {%- assign transformation = "translate(0,calc(-150% - 1.5em)" -%}
+                {%- endif -%}
+            {%- when 2 -%}
+                {%- if slides.size == 3 -%}
+                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),0)" -%}
+                {%- elsif slides.size == 4 -%}
+                    {%- assign transformation = "translate(calc(-75% - 0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                {%- elsif slides.size == 6 -%}
+                    {%- assign transformation = "translate(calc(-75% - 0.5em * " | append: sqrt3 | append: "),0)" -%}
+                {%- else -%}
+                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),calc(-100% - 1em))" -%}
+                {%- endif -%}
+            {%- when 3 -%}
+                {%- if slides.size == 4 -%}
+                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                {%- elsif slides.size == 5 -%}
+                    {%- assign transformation = "translate(calc(-75% - 0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                {%- elsif slides.size == 6 -%}
+                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),0)" -%}
+                {%- else -%}
+                    {%- assign transformation = "translate(calc(-75% - 0.5em * " | append: sqrt3 | append: "),0)" -%}
+                {%- endif -%}
+            {%- when 4 -%}
+                {%- if slides.size == 5 -%}
+                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                {%- elsif slides.size == 6 -%}
+                    {%- assign transformation = "translate(calc(-75% + -0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                {%- else -%}
+                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),0)" -%}
+                {%- endif -%}
+            {%- when 5 -%}
+                {%- if slides.size == 6 -%}
+                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                {%- else -%}
+                    {%- assign transformation = "translate(calc(-75% - 0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                {%- endif -%}
+            {%- when 6 -%}
+                {%- if slides.size == 7 -%}
+                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                {%- else -%}
+                    {%- assign transformation = "translate(0,calc(150% + 1.5em)" -%}
+                {%- endif -%}
+            {%- when 7 -%}
+                {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+            {%- when 8 -%}
+                {%- assign transformation = "translate(0,calc(-50% - 0.5em)" -%}
+            {%- when 9 -%}
+                {%- assign transformation = "translate(0,calc(50% + 0.5em)" -%}
+            {%- endcase -%}
+            <div id="hex-{{ slideids[i] }}" class="hex" style="transform:translate(-50%,-50%) {{ transformation }}">
+                <svg viewBox="-17.75 -15.522 35.5 31.044">
+                    <a class="forward" href="{{ page.permalink }}#{{ slideids[i] }}" target="_self">
+                        <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
+                    </a>
+                    <a class="back" href="{{ page.permalink }}#title" target="_self">
+                        <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
+                    </a>
+                </svg>
+                <div {% if i == 8 %}style="height:70%"{% elsif i == 9 %}style="height:70%;top:30%"{% endif %}>
+                    {%- assign slidename = slide[1].name -%}
+                    {%- if slidename == nil -%}
+                        {%- assign slidename = slide[0] -%}
+                    {%- endif -%}
+                    {%- assign fontscale = slide[1].fontscale -%}
+                    {%- if fontscale == nil -%}
+                        {%- assign fontscale = 1 -%}
+                    {%- endif -%}
+                    <h2 style="font-size:{{ fontscale }}em">{{ slidename | newline_to_br }}</h2>
+                </div>
+            </div>
+        {%- endfor -%}
+
+        {%- if slides.size <= 3 -%}
+            <div class="hex filler" style="transform:translate(-50%,-50%) translate(calc(-75% - 0.5em * {{ sqrt3 }}),calc(-100% - 1em))">
+                <svg viewBox="-17.75 -15.522 35.5 31.044">
+                    <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
+                </svg>
+            </div>
+            <div class="hex filler" style="transform:translate(-50%,-50%) translate(calc(75% + 0.5em * {{ sqrt3 }}),calc(-100% - 1em))">
+                <svg viewBox="-17.75 -15.522 35.5 31.044">
+                    <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
+                </svg>
+            </div>
+            <div class="hex filler" style="transform:translate(-50%,-50%) translate(calc(-75% - 0.5em * {{ sqrt3 }}),calc(100% + 1em))">
+                <svg viewBox="-17.75 -15.522 35.5 31.044">
+                    <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
+                </svg>
+            </div>
+            <div class="hex filler" style="transform:translate(-50%,-50%) translate(calc(75% + 0.5em * {{ sqrt3 }}),calc(100% + 1em))">
+                <svg viewBox="-17.75 -15.522 35.5 31.044">
+                    <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
+                </svg>
+            </div>
+        {%- endif -%}
+        {%- if slides.size == 2 or slides.size == 4 or slides.size == 6 -%}
+            <div class="hex filler" style="transform:translate(-50%,-50%) translate(0,calc(-150% - 1.5em)">
+                <svg viewBox="-17.75 -15.522 35.5 31.044">
+                    <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
+                </svg>
+            </div>
+        {%- endif -%}
+        {%- if slides.size == 1 or slides.size == 4 or slides.size == 5 -%}
+            <div class="hex filler" style="transform:translate(-50%,-50%) translate(calc(-75% - 0.5em * {{ sqrt3 }}),0">
+                <svg viewBox="-17.75 -15.522 35.5 31.044">
+                    <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
+                </svg>
+            </div>
+            <div class="hex filler" style="transform:translate(-50%,-50%) translate(calc(75% + 0.5em * {{ sqrt3 }}),0">
+                <svg viewBox="-17.75 -15.522 35.5 31.044">
+                    <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
+                </svg>
+            </div>
+        {%- endif -%}
+        {%- if slides.size <= 7 -%}
+            <div class="hex filler" style="transform:translate(-50%,-50%) translate(0,calc(150% + 1.5em)">
+                <svg viewBox="-17.75 -15.522 35.5 31.044">
+                    <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
+                </svg>
+            </div>
+        {%- endif -%}
+        {%- if slides.size <= 8 -%}
+            <div class="hex filler" style="transform:translate(-50%,-50%) translate(0,calc(-50% - .5em)">
+                <svg viewBox="-17.75 -15.522 35.5 31.044">
+                    <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
+                </svg>
+            </div>
+        {%- endif -%}
+        {%- if slides.size <= 9 -%}
+            <div class="hex filler" style="transform:translate(-50%,-50%) translate(0,calc(50% + .5em)">
+                <svg viewBox="-17.75 -15.522 35.5 31.044">
+                    <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
+                </svg>
+            </div>
+        {%- endif -%}
+
+        <div id="title-circle">
+            <svg viewbox="-1 -1 2 2">
+                <circle cx="0" cy="0" r="1"></circle>
+            </svg>
+            <div>{{ page.title }}</div>
+        </div>
+
+        {%- if slides.size < 10 -%}
+        <div id="site-1">
+            <a href="https://firstgenfirst.org">firstgenfirst.org</a>
+        </div>
+        {%- endif -%}
+        <div id="site-2">
+            <a href="https://firstgenfirst.org">firstgenfirst.org</a>
+        </div>
+
+        {%- for slide in slides -%}
+            {%- assign i = forloop.index | minus: 1 -%}
+            
+        {%- endfor -%}
+
+        {%- for slide in slides -%}
+            {%- assign i = forloop.index | minus: 1 -%}
+            <div id="text-container-{{ slideids[i] }}" class="text-container">
+                <div id="subtitle-{{ slideids[i] }}" class="subtitle">{{ slide[1].subtitle }}</div>
+                <div id="text-{{ slideids[i] }}" class="text">{{ slide[1].text }}</div>
+            </div>
+        {%- endfor -%}
+
+        {{ content }}
+    </div>
+    <script type="text/javascript">!function(h,i){for(i=h.length-1;i>=0;i--){h[i].addEventListener("click",function(e){e.preventDefault();location.replace(this.href.baseVal)})}}(document.querySelectorAll("svg a:not(.site)"))</script>
+    <script type="text/javascript">if(!location.hash)location.replace("#title")</script>
+</body>
+</html>

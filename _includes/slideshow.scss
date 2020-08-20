@@ -1,0 +1,295 @@
+{% include sass_variables.scss %}
+
+{% assign slideids = "" | split: "" %}
+{%- for slide in page.slides -%}
+    {%- assign slideid = slide | downcase | replace: "-", "" | replace: "&", "and" | replace: " ", "-" | split: " " -%}
+    {%- assign slideids = slideids | concat: slideid -%}
+{%- endfor -%}
+
+$slides: [{{ slideids | join: "," }}];
+
+$lightcolor: white;
+$darkcolor: black;
+
+$transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+$sqrt3: 1.73205080757;
+
+$hex-width: min((100vw - 1rem / 2 * #{$sqrt3} * 2 - 1rem * 2) / 5 * 2, (100vh - 5rem) / 4 / 2 / #{$sqrt3} * 2 * 2);
+$hex-height: calc(#{$hex-width} / 2 * #{$sqrt3});
+
+@mixin hidden {
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity $transition;
+}
+
+@mixin shown {
+	opacity: 1;
+	pointer-events: initial;
+	transition: opacity $transition;
+}
+
+@font-face {
+	font-family: 'League Spartan';
+	src: url('{{ site.baseurl }}/{{ site.mediadir }}/leaguespartan-bold-webfont.woff2') format('woff2'),
+		url('{{ site.baseurl }}/{{ site.mediadir }}/leaguespartan-bold-webfont.woff') format('woff'),
+		url('{{ site.baseurl }}/{{ site.mediadir }}/leaguespartan-bold-webfont.otf') format('opentype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@keyframes hover-hex {
+	from {
+		stroke-dashoffset: 0px;
+	}
+
+	to {
+		stroke-dashoffset: 6px;
+	}
+}
+
+html,
+body {
+	margin: 0;
+	overflow: hidden;
+	height: 100%;
+}
+
+body {
+	background-color: $primary;
+	position: relative;
+	transform: translateY(calc((100% - 100vh) / 2));
+	overflow: visible;
+}
+
+#content {
+	height: 100%;
+	transition: transform $transition;
+}
+
+.hex {
+	@include shown;
+	display: inline-block;
+	position: absolute;
+	top: 50vh;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: transform $transition,
+		opacity $transition;
+
+	svg {
+		height: $hex-height;
+		width: $hex-width;
+
+		a {
+			outline: none;
+
+			&:hover polygon,
+			&:focus polygon {
+				stroke-width: 1.5px;
+				animation: hover-hex 1s linear infinite;
+			}
+		}
+
+		polygon {
+			fill: $secondary;
+			stroke: $secondary;
+			stroke-width: 0;
+			stroke-dasharray: 3px 3px;
+			stroke-linejoin: round;
+		}
+	}
+
+	> div {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		pointer-events: none;
+		font-size: calc(#{$hex-width} * .12);
+
+		> h2 {
+			padding: 0 12.5%;
+			text-align: center;
+			color: $lightcolor;
+			font-family: "League Spartan", sans-serif;
+			font-weight: bold;
+			-webkit-hyphens: auto;
+			-ms-hyphens: auto;
+			hyphens: auto;
+			font-size: 1em;
+		}
+	}
+}
+
+@each $slide in $slides {
+	##{$slide}:target ~ #content {
+		transform: translateY(calc((100% - 100vh) / -2));
+
+		#text-container-#{$slide} {
+			@include shown;
+		}
+
+		#hex-#{$slide} {
+			transform: translate(-50%, 15%)
+				translateY(calc(-50vh + 1rem))
+				scale(1.3)
+				!important;
+
+			a.forward {
+				display: none;
+			}
+
+			polygon {
+				stroke-width: 1.5px;
+				animation: hover-hex 1s linear infinite;
+			}
+		}
+
+		.hex:not(#hex-#{$slide}) {
+			@include hidden;
+		}
+
+		#title-circle {
+			@include hidden;
+		}
+
+		#site-1 {
+			@include hidden;
+		}
+
+		#site-2 {
+			@include shown;
+		}
+	}
+
+	##{$slide}:not(:target) ~ #content {
+		#text-#{$slide} {
+			@include hidden;
+		}
+
+		#hex-#{$slide} a.back {
+			display: none;
+		}
+	}
+}
+
+#title-circle {
+	@include shown;
+	width: calc(#{$hex-width} * 1);
+	position: absolute;
+	top: 50vh;
+	left: 50%;
+	transform: translate(-50%,-50%);
+
+	circle {
+		fill: white;
+	}
+
+	div {
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		font-family: Chewy, sans-serif;
+		font-size: calc(#{$hex-width} * .12);
+	}
+}
+
+#site-1 {
+	@include shown;
+	text-align: center;
+	position: absolute;
+	height: calc(#{$hex-height} * 0.7);
+	top: calc(50vh + #{$hex-height} * .3 + 0.5em);
+	left: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	transform: translateX(-50%);
+	font-size: calc(#{$hex-width} * .09);
+
+	a {
+		color: $lightcolor;
+		font-family: "Open Sans", sans-serif;
+		font-weight: 300;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+}
+
+#site-2 {
+	@include hidden;
+	text-align: center;
+	position: absolute;
+	top: calc(100% - 2.2rem);
+	left: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	transform: translateX(-50%);
+	font-size: 1.2rem;
+
+	a {
+		color: $darkcolor;
+		font-family: "Open Sans", sans-serif;
+		font-weight: 300;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+}
+
+.text-container {
+	@include hidden;
+	position: absolute;
+	color: $darkcolor;
+	margin: auto;
+	width: calc(#{$hex-width} * 2.5 + #{$sqrt3} * 1rem);
+	top: calc(#{$hex-height} * 1.3 + 2rem);
+	left: calc(50% - #{$hex-width} * 1.25 - #{$sqrt3} * .5rem);
+	line-height: 1.2;
+	max-height: calc(100vh - (#{$hex-height} * 1.3 + 2rem) - 2.7rem - 4px);
+	overflow-y: auto;
+	padding: 2px 0;
+
+	.subtitle {
+		font-family: Chewy, sans-serif;
+		font-size: max(#{$hex-width} * .15, 1.4em);
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	.text {
+		font-family: "Open Sans", sans-serif;
+		font-size: max(#{$hex-width} * .11, 1.2em);
+
+		p {
+			text-align: center;
+		}
+
+		ul {
+			padding-left: 2em;
+		}
+
+		> :first-child {
+			margin-top: 0;
+		}
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+	}
+}
