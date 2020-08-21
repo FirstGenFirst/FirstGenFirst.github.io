@@ -15,7 +15,8 @@ $linkcolor: #303F9F;
 $transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 $sqrt3: 1.73205080757;
 
-$hex-width: min((100vw - 1rem / 2 * #{$sqrt3} * 2 - 1rem * 2) / 5 * 2, (100vh - 5rem) / 4 / 2 / #{$sqrt3} * 2 * 2);
+$hex-margin: .5rem;
+$hex-width: min((100vw - #{$hex-margin} / 2 * #{$sqrt3} * 2 - #{$hex-margin} * 2) / 5 * 2, (100vh - #{$hex-margin} * 5) / 4 / 2 / #{$sqrt3} * 2 * 2);
 $hex-height: calc(#{$hex-width} / 2 * #{$sqrt3});
 
 @mixin hidden {
@@ -111,7 +112,7 @@ body {
 		flex-direction: column;
 		justify-content: center;
 		pointer-events: none;
-		font-size: calc(#{$hex-width} * .12);
+		font-size: calc(#{$hex-width} * .11);
 
 		> h2 {
 			padding: 0 12.5%;
@@ -125,6 +126,56 @@ body {
 			font-size: 1em;
 		}
 	}
+
+	&.loc-1 {
+		transform: translate(-50%, -50%)
+			translate(calc(-75% - #{$hex-margin} * 0.5 * #{$sqrt3}), calc(-100% - #{$hex-margin}));
+	}
+
+	&.loc-2 {
+		transform: translate(-50%, -50%)
+			translate(0,calc(-150% - #{$hex-margin} * 1.5));
+	}
+
+	&.loc-3 {
+		transform: translate(-50%, -50%)
+			translate(calc(75% + #{$hex-margin} * 0.5 * #{$sqrt3}), calc(-100% - #{$hex-margin}));
+	}
+
+	&.loc-4 {
+		transform: translate(-50%, -50%)
+			translate(calc(-75% - #{$hex-margin} * 0.5 * #{$sqrt3}), 0);
+	}
+
+	&.loc-5 {
+		transform: translate(-50%, -50%)
+			translate(calc(75% + #{$hex-margin} * 0.5 * #{$sqrt3}), 0);
+	}
+
+	&.loc-6 {
+		transform: translate(-50%, -50%)
+			translate(calc(-75% - #{$hex-margin} * 0.5 * #{$sqrt3}), calc(100% + #{$hex-margin}));
+	}
+
+	&.loc-7 {
+		transform: translate(-50%, -50%)
+			translate(0,calc(150% + #{$hex-margin} * 1.5));
+	}
+
+	&.loc-8 {
+		transform: translate(-50%, -50%)
+			translate(calc(75% + #{$hex-margin} * 0.5 * #{$sqrt3}), calc(100% + #{$hex-margin}));
+	}
+
+	&.loc-9 {
+		transform: translate(-50%, -50%)
+			translate(0,calc(-50% - #{$hex-margin} * .5));
+	}
+
+	&.loc-10 {
+		transform: translate(-50%, -50%)
+			translate(0,calc(50% + #{$hex-margin} * .5));
+	}
 }
 
 @each $slide in $slides {
@@ -137,7 +188,7 @@ body {
 
 		#hex-#{$slide} {
 			transform: translate(-50%, 15%)
-				translateY(calc(-50vh + 1rem))
+				translateY(calc(-50vh + #{$hex-margin}))
 				scale(1.3)
 				!important;
 
@@ -259,9 +310,9 @@ body {
 	position: absolute;
 	color: $darkcolor;
 	margin: auto;
-	width: calc(#{$hex-width} * 2.5 + #{$sqrt3} * 1rem);
+	width: calc(#{$hex-width} * 2.5 + #{$sqrt3} * #{$hex-margin});
 	top: calc(#{$hex-height} * 1.3 + 2rem);
-	left: calc(50% - #{$hex-width} * 1.25 - #{$sqrt3} * .5rem);
+	left: calc(50% - #{$hex-width} * 1.25 - #{$sqrt3} * .5 * #{$hex-margin});
 	line-height: 1.2;
 	max-height: calc(100% - (#{$hex-height} * 1.3 + 2rem) - 2.7rem - 4px);
 	overflow-y: auto;
@@ -285,8 +336,8 @@ body {
 		ul {
 			padding-left: 2em;
 
-			li:not(:last-child) {
-				margin-bottom: .3em;
+			li + li {
+				margin-top: .3em;
 			}
 		}
 

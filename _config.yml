@@ -94,7 +94,7 @@ translations:
         title: Nuestro Equipo
         permalink: sobrenosotros/nuestroequipo
     - lang-ref: parentsandteachers
-      src: more/parentsandteachers.html
+      src: more/parentsandteachers/index.html
       es:
         title: Padres &amp; Maestros
         permalink: /padresymaestros

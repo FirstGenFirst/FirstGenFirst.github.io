@@ -57,70 +57,71 @@
             {%- case i -%}
             {%- when 0 -%}
                 {%- if slides.size == 1 or slides.size == 3 -%}
-                    {%- assign transformation = "translate(0,calc(-150% - 1.5em)" -%}
+                    {%- assign location = 2 -%}
+                    }
                 {%- elsif slides.size == 2 -%}
-                    {%- assign transformation = "translate(calc(-75% - 0.5em * " | append: sqrt3 | append: "),0)" -%}
+                    {%- assign location = 4 -%}
                 {%- else -%}
-                    {%- assign transformation = "translate(calc(-75% - 0.5em * " | append: sqrt3 | append: "),calc(-100% - 1em))" -%}
+                    {%- assign location = 1 -%}
                 {%- endif -%}
             {%- when 1 -%}
                 {%- if slides.size == 2 -%}
-                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),0)" -%}
+                    {%- assign location = 5 -%}
                 {%- elsif slides.size == 3 -%}
-                    {%- assign transformation = "translate(calc(-75% - 0.5em * " | append: sqrt3 | append: "),0)" -%}
+                    {%- assign location = 4 -%}
                 {%- elsif slides.size == 4 or slides.size == 6 -%}
-                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),calc(-100% - 1em))" -%}
+                    {%- assign location = 3 -%}
                 {%- else -%}
-                    {%- assign transformation = "translate(0,calc(-150% - 1.5em)" -%}
+                    {%- assign location = 2 -%}
                 {%- endif -%}
             {%- when 2 -%}
                 {%- if slides.size == 3 -%}
-                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),0)" -%}
+                    {%- assign location = 5 -%}
                 {%- elsif slides.size == 4 -%}
-                    {%- assign transformation = "translate(calc(-75% - 0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                    {%- assign location = 6 -%}
                 {%- elsif slides.size == 6 -%}
-                    {%- assign transformation = "translate(calc(-75% - 0.5em * " | append: sqrt3 | append: "),0)" -%}
+                    {%- assign location = 4 -%}
                 {%- else -%}
-                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),calc(-100% - 1em))" -%}
+                    {%- assign location = 3 -%}
                 {%- endif -%}
             {%- when 3 -%}
                 {%- if slides.size == 4 -%}
-                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                    {%- assign location = 8 -%}
                 {%- elsif slides.size == 5 -%}
-                    {%- assign transformation = "translate(calc(-75% - 0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                    {%- assign location = 6 -%}
                 {%- elsif slides.size == 6 -%}
-                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),0)" -%}
+                    {%- assign location = 5 -%}
                 {%- else -%}
-                    {%- assign transformation = "translate(calc(-75% - 0.5em * " | append: sqrt3 | append: "),0)" -%}
+                    {%- assign location = 4 -%}
                 {%- endif -%}
             {%- when 4 -%}
                 {%- if slides.size == 5 -%}
-                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                    {%- assign location = 8 -%}
                 {%- elsif slides.size == 6 -%}
-                    {%- assign transformation = "translate(calc(-75% + -0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                    {%- assign location = 6 -%}
                 {%- else -%}
-                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),0)" -%}
+                    {%- assign location = 5 -%}
                 {%- endif -%}
             {%- when 5 -%}
                 {%- if slides.size == 6 -%}
-                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                    {%- assign location = 8 -%}
                 {%- else -%}
-                    {%- assign transformation = "translate(calc(-75% - 0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                    {%- assign location = 6 -%}
                 {%- endif -%}
             {%- when 6 -%}
                 {%- if slides.size == 7 -%}
-                    {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                    {%- assign location = 8 -%}
                 {%- else -%}
-                    {%- assign transformation = "translate(0,calc(150% + 1.5em)" -%}
+                    {%- assign location = 7 -%}
                 {%- endif -%}
             {%- when 7 -%}
-                {%- assign transformation = "translate(calc(75% + 0.5em * " | append: sqrt3 | append: "),calc(100% + 1em))" -%}
+                {%- assign location = 8 -%}
             {%- when 8 -%}
-                {%- assign transformation = "translate(0,calc(-50% - 0.5em)" -%}
+                {%- assign location = 9 -%}
             {%- when 9 -%}
-                {%- assign transformation = "translate(0,calc(50% + 0.5em)" -%}
+                {%- assign location = 10 -%}
             {%- endcase -%}
-            <div id="hex-{{ slideids[i] }}" class="hex" style="transform:translate(-50%,-50%) {{ transformation }}">
+            <div id="hex-{{ slideids[i] }}" class="hex loc-{{ location }}">
                 <svg viewBox="-17.75 -15.522 35.5 31.044">
                     <a class="forward" href="{{ page.permalink }}#{{ slideids[i] }}" target="_self">
                         <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
@@ -144,62 +145,62 @@
         {%- endfor -%}
 
         {%- if slides.size <= 3 -%}
-            <div class="hex filler" style="transform:translate(-50%,-50%) translate(calc(-75% - 0.5em * {{ sqrt3 }}),calc(-100% - 1em))">
+            <div class="hex loc-1 filler">
                 <svg viewBox="-17.75 -15.522 35.5 31.044">
                     <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
                 </svg>
             </div>
-            <div class="hex filler" style="transform:translate(-50%,-50%) translate(calc(75% + 0.5em * {{ sqrt3 }}),calc(-100% - 1em))">
+            <div class="hex loc-3 filler">
                 <svg viewBox="-17.75 -15.522 35.5 31.044">
                     <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
                 </svg>
             </div>
-            <div class="hex filler" style="transform:translate(-50%,-50%) translate(calc(-75% - 0.5em * {{ sqrt3 }}),calc(100% + 1em))">
+            <div class="hex loc-6 filler">
                 <svg viewBox="-17.75 -15.522 35.5 31.044">
                     <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
                 </svg>
             </div>
-            <div class="hex filler" style="transform:translate(-50%,-50%) translate(calc(75% + 0.5em * {{ sqrt3 }}),calc(100% + 1em))">
+            <div class="hex loc-8 filler">
                 <svg viewBox="-17.75 -15.522 35.5 31.044">
                     <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
                 </svg>
             </div>
         {%- endif -%}
         {%- if slides.size == 2 or slides.size == 4 or slides.size == 6 -%}
-            <div class="hex filler" style="transform:translate(-50%,-50%) translate(0,calc(-150% - 1.5em)">
+            <div class="hex loc-2 filler">
                 <svg viewBox="-17.75 -15.522 35.5 31.044">
                     <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
                 </svg>
             </div>
         {%- endif -%}
         {%- if slides.size == 1 or slides.size == 4 or slides.size == 5 -%}
-            <div class="hex filler" style="transform:translate(-50%,-50%) translate(calc(-75% - 0.5em * {{ sqrt3 }}),0">
+            <div class="hex loc-4 filler">
                 <svg viewBox="-17.75 -15.522 35.5 31.044">
                     <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
                 </svg>
             </div>
-            <div class="hex filler" style="transform:translate(-50%,-50%) translate(calc(75% + 0.5em * {{ sqrt3 }}),0">
+            <div class="hex loc-5 filler">
                 <svg viewBox="-17.75 -15.522 35.5 31.044">
                     <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
                 </svg>
             </div>
         {%- endif -%}
         {%- if slides.size <= 7 -%}
-            <div class="hex filler" style="transform:translate(-50%,-50%) translate(0,calc(150% + 1.5em)">
+            <div class="hex loc-7 filler">
                 <svg viewBox="-17.75 -15.522 35.5 31.044">
                     <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
                 </svg>
             </div>
         {%- endif -%}
         {%- if slides.size <= 8 -%}
-            <div class="hex filler" style="transform:translate(-50%,-50%) translate(0,calc(-50% - .5em)">
+            <div class="hex loc-9 filler">
                 <svg viewBox="-17.75 -15.522 35.5 31.044">
                     <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
                 </svg>
             </div>
         {%- endif -%}
         {%- if slides.size <= 9 -%}
-            <div class="hex filler" style="transform:translate(-50%,-50%) translate(0,calc(50% + .5em)">
+            <div class="hex loc-10 filler">
                 <svg viewBox="-17.75 -15.522 35.5 31.044">
                     <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
                 </svg>
