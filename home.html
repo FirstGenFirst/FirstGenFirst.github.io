@@ -11,7 +11,8 @@ es: /hogar
 		<div class="quick-link">
 			<div class="quick-link-img">
 				<a href="https://youtu.be/{{ site.youtube.latestvideo }}" target="_blank" rel="nofollow noopener">
-					<div style="background-image:url('https://img.youtube.com/vi/{{ site.youtube.latestvideo }}/0.jpg')">
+					<div>
+						<img src="https://img.youtube.com/vi/{{ site.youtube.latestvideo }}/0.jpg">
 						<div></div>
 					</div>
 				</a>
@@ -23,7 +24,8 @@ es: /hogar
 		<div class="quick-link">
 			<div class="quick-link-img">
 				<a href="{{ site.baseurl }}/students/scholarship" data-href-es="{{ site.baseurl }}/estudiantes/beca" target="_self">
-					<div style="background-image:url('{{ site.baseurl }}/media/apply.jpg')">
+					<div>
+						<img src="{{ site.baseurl }}/{{ site.mediadir }}/apply.jpg">
 						<div></div>
 					</div>
 				</a>
@@ -35,24 +37,14 @@ es: /hogar
 		<div class="quick-link">
 			<div class="quick-link-img">
 				<a href="{{ site.baseurl }}/donate" data-href-es="{{ site.baseurl }}/donar" target="_self">
-					<div style="background-image:url('{{ site.baseurl }}/media/donate.jpg')">
+					<div>
+						<img src="{{ site.baseurl }}/{{ site.mediadir }}/donate.jpg">
 						<div></div>
 					</div>
 				</a>
 			</div>
 			<h4 class="editable">Donate</h4>
 			<p class="editable">The First Generation First Fund will be used towards scholarships for students in underfunded schools who are entering their first year of college.</p>
-			<a href="{{ site.baseurl }}/donate" data-href-es="{{ site.baseurl }}/donar" target="_self" class="editable button">Donate</a>
-		</div>
-	</div>
-	<div id="quick-btns-container">
-		<div class="quick-btn">
-			<a href="{{ site.youtube.url }}" target="_self" class="editable button">Subscribe</a>
-		</div>
-		<div class="quick-btn">
-			<a href="{{ site.baseurl }}/students/scholarship" data-href-es="{{ site.baseurl }}/estudiantes/beca" target="_self" class="editable button">Apply</a>
-		</div>
-		<div class="quick-btn">
 			<a href="{{ site.baseurl }}/donate" data-href-es="{{ site.baseurl }}/donar" target="_self" class="editable button">Donate</a>
 		</div>
 	</div>

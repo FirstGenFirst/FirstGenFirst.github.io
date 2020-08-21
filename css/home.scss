@@ -12,15 +12,26 @@
 		flex-basis: 33%;
 		flex-shrink: 1;
 		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
 
 		&-img {
 			box-shadow: 0 .2em .3em transparentize(black, 0.47);
 
 			a > div {
 				width: 100%;
-				background-size: cover;
-				background-position: center;
+				position: relative;
 				overflow: hidden;
+
+				> img {
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					width: 100%;
+					object-fit: cover;
+
+				}
 
 				> div {
 					// This <div> gives the parent <div> its 16:9 ratio shape.
@@ -30,18 +41,19 @@
 		}
 
 		p {
+			margin: .5em 0;
 			line-height: initial;
 			color: #4C0803;
+			flex-grow: 1;
 		}
 
 		h4 {
-			margin: .2em 0;
+			margin: .5em 0 0;
 			font-size: 1.7em;
 			font-family: $Helvetica;
 		}
 
 		> a {
-			display: none;
 			width: 50%;
 		}
 
@@ -55,30 +67,6 @@
 		justify-content: center;
 		width: 100%;
 		flex-basis: 100%;
-	}
-
-	#quick-btns-container {
-		display: flex;
-		justify-content: center;
-		width: 100%;
-		flex-basis: 100%;
-
-		.quick-btn {
-			max-width: 20em;
-			width: 33%;
-			flex-basis: 33%;
-			flex-shrink: 1;
-			flex-grow: 1;
-
-			> a {
-				display: block;
-				width: 50%;
-			}
-
-			&:not(:first-of-type) {
-				margin-left: 2em;
-			}
-		}
 	}
 }
 
@@ -100,6 +88,7 @@
 		> div {
 			position: relative;
 			overflow: hidden;
+			box-shadow: 0 0.2em 0.3em rgba(0, 0, 0, 0.53);
 
 			div {
 				margin-top: percentage(9 / 16);
@@ -327,6 +316,7 @@
 			max-width: 30%;
 			flex-shrink: 1;
 			object-fit: cover;
+			box-shadow: 0 .2em .3em transparentize(black, 0.47);
 		}
 	}
 }
@@ -342,19 +332,11 @@
 				width: 100%;
 				flex-basis: 100%;
 
-				> a {
-					display: block;
-				}
-
 				&:not(:first-of-type) {
 					margin-left: 0;
 					margin-top: 2em;
 				}
 			}
-		}
-
-		#quick-btns-container {
-			display: none;
 		}
 	}
 
