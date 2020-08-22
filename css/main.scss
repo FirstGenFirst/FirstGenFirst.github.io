@@ -277,12 +277,12 @@ body {
 			@include body-width;
 		}
 
-		&:nth-child(2n) {
+		&:nth-of-type(2n) {
 			background-color: scale-color($theme-color, $lightness: 5%);
 			color: white;
 		}
 
-		&:nth-child(2n + 1) {
+		&:nth-of-type(2n + 1) {
 			background-color: white;
 			color: black;
 		}
@@ -399,6 +399,10 @@ footer {
 		margin-top: 2em;
 		font-family: $Cormorant;
 	}
+}
+
+html:not(.scriptenabled) .withscript {
+	display: none;
 }
 
 @media #{$mobile} {

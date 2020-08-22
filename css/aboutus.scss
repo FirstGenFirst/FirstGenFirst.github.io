@@ -114,11 +114,11 @@
 		}
 	}
 
-	&:nth-child(2n) h2 > div {
+	&:nth-of-type(2n) h2 > div {
 		color: $secondary-color;
 	}
 
-	&:nth-child(2n + 1) h2 > div {
+	&:nth-of-type(2n + 1) h2 > div {
 		color: scale-color($theme-color, $lightness: 5%);
 	}
 
@@ -164,7 +164,7 @@
 		}
 	}
 
-	&:nth-child(2n) form {
+	&:nth-of-type(2n) form {
 		background-color: white;
 
 		h4 {
@@ -187,7 +187,7 @@
 		}
 	}
 
-	&:nth-child(2n + 1) form {
+	&:nth-of-type(2n + 1) form {
 		background-color: scale-color($theme-color, $lightness: 5%);
 
 		h4 {

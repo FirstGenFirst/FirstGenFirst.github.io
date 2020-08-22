@@ -2,6 +2,27 @@
 ---
 {% include sass_variables.scss %}
 
+#banner {
+	background-color: scale-color($secondary-color, $lightness: 20%);
+	padding: 1rem 2rem;
+	position: relative;
+	box-shadow: 0 .2em .3em transparentize(black, 0.47);
+
+	p {
+		margin: 0;
+		font-family: $Helvetica;
+		font-size: 1.2rem;
+		text-align: center;
+	}
+
+	h4 {
+		font-family: $Coolvetica;
+		font-size: 2rem;
+		text-align: center;
+		margin: .25rem 0 1rem;
+	}
+}
+
 #quick-links {
 	display: flex;
 	flex-wrap: wrap;
@@ -115,11 +136,11 @@
 		}
 	}
 
-	&:nth-child(2n) h2 > div {
+	&:nth-of-type(2n) h2 > div {
 		color: $secondary-color;
 	}
 
-	&:nth-child(2n + 1) h2 > div {
+	&:nth-of-type(2n + 1) h2 > div {
 		color: scale-color($theme-color, $lightness: 5%);
 	}
 
@@ -183,7 +204,7 @@
 		}
 	}
 
-	&:nth-child(2n) form {
+	&:nth-of-type(2n) form {
 		background-color: white;
 
 		h4 {
@@ -206,7 +227,7 @@
 		}
 	}
 
-	&:nth-child(2n + 1) form {
+	&:nth-of-type(2n + 1) form {
 		background-color: scale-color($theme-color, $lightness: 5%);
 
 		h4 {

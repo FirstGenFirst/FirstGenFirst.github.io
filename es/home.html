@@ -7,53 +7,53 @@ lang-ref: "home"
 en: "/"
 ---
 
+<div id="banner" class="withscript">
+	<p>Nuestra solicitud de beca se cierra en</p>
+	<h4 id="scholarship-time-left"></h4>
+	<div class="button-center">
+		<a href="{{ site.baseurl }}/estudiantes/beca" target="_self" class="button">¡Aplica ya!</a>
+	</div>
+</div>
+<script type="text/javascript">!function(t,l,b){function f(d){if((d=~~((t-new Date())/1000))>0){l.textContent=d<300?"¡menos de 5 minutos!":d<3600?"¡"+~~(d/60)+" minutos!":d<7200?"¡1 hora!":d<86400?~~(d/3600)+" horas":d<172800?"1 día":~~(d/86400)+" días"}else b.style.display="none"}setInterval(f,1000),f()}(new Date("2020-09-02T06:59:59.999Z"),document.getElementById("scholarship-time-left"),document.getElementById("banner"))</script>
 <section id="quick-links" translate>
 	<div id="quick-links-container">
 		<div class="quick-link">
 			<div class="quick-link-img">
 				<a href="https://youtu.be/{{ site.youtube.latestvideo }}" target="_blank" rel="nofollow noopener">
-					<div style="background-image:url('https://img.youtube.com/vi/{{ site.youtube.latestvideo }}/0.jpg')">
+					<div>
+						<img src="https://img.youtube.com/vi/{{ site.youtube.latestvideo }}/0.jpg">
 						<div></div>
 					</div>
 				</a>
 			</div>
 			<h4 class="editable" translate="no">YouTube</h4>
-			<p class="editable">¡Revisa nuestro último vídeo! Jazmin alto las diferentes tarifas que encontró en el aula, y formas en las que puede gestionar ellos o darles la vuelta!</p>
+			<p class="editable">¡Revisa nuestro último vídeo! ¡Jazmin repasa las diferentes tarifas que encontró en el aula y las formas en que puede administrarlas o evitarlas!</p>
 			<a href="{{ site.youtube.url }}" target="_blank" rel="nofollow noopener" class="editable button">Suscribir</a>
 		</div>
 		<div class="quick-link">
 			<div class="quick-link-img">
 				<a href="{{ site.baseurl }}/estudiantes/beca" target="_self">
-					<div style="background-image:url('{{ site.baseurl }}/media/apply.jpg')">
+					<div>
+						<img src="{{ site.baseurl }}/{{ site.mediadir }}/apply.jpg">
 						<div></div>
 					</div>
 				</a>
 			</div>
 			<h4 class="editable">Aplicar</h4>
-			<p class="editable">Los objetivos FGF beca para asistir financieramente de primera generación y / o estudiantes de secundaria de bajos ingresos con los gastos de la universidad. Compruebe si es elegible!</p>
+			<p class="editable">La beca FGF tiene como objetivo ayudar financieramente a los estudiantes de secundaria de primera generación y / o de bajos ingresos con los gastos universitarios. ¡Compruebe si es elegible!</p>
 			<a href="{{ site.baseurl }}/estudiantes/beca" target="_self" class="editable button">Aplicar</a>
 		</div>
 		<div class="quick-link">
 			<div class="quick-link-img">
 				<a href="{{ site.baseurl }}/donar" target="_self">
-					<div style="background-image:url('{{ site.baseurl }}/media/donate.jpg')">
+					<div>
+						<img src="{{ site.baseurl }}/{{ site.mediadir }}/donate.jpg">
 						<div></div>
 					</div>
 				</a>
 			</div>
 			<h4 class="editable">Donar</h4>
-			<p class="editable">La Primera Generación Primera Fondo será utilizado para becas para estudiantes en escuelas de bajos recursos que están entrando en su primer año de universidad.</p>
-			<a href="{{ site.baseurl }}/donar" target="_self" class="editable button">Donar</a>
-		</div>
-	</div>
-	<div id="quick-btns-container">
-		<div class="quick-btn">
-			<a href="{{ site.youtube.url }}" target="_self" class="editable button">Suscribir</a>
-		</div>
-		<div class="quick-btn">
-			<a href="{{ site.baseurl }}/estudiantes/beca" target="_self" class="editable button">Aplicar</a>
-		</div>
-		<div class="quick-btn">
+			<p class="editable">El First Generation First Fund se utilizará para becas para estudiantes de escuelas con fondos insuficientes que ingresen a su primer año de universidad.</p>
 			<a href="{{ site.baseurl }}/donar" target="_self" class="editable button">Donar</a>
 		</div>
 	</div>
@@ -62,7 +62,7 @@ en: "/"
 	<div class="text-then-img">
 		<div>
 			<h2 class="editable">Sobre nosotros</h2>
-			<p class="editable">FGF fue fundada por Jazmin Reyes en julio de 2020, como estudiante en la Universidad de Stanford. A lo largo de su infancia, Jazmín vio a su familia y su comunidad sufren debido a la pobreza, el racismo, y un sistema de educación injusta como de primera generación y el estudiante de bajos ingresos a sí misma. Nuestro objetivo es ayudar a otros estudiantes FGLI en situaciones similares tengan un mejor acceso a la educación superior. A partir de las primeras etapas de la soñando con la universidad para ser aceptado, FGF objetivos para asegurar que ningún estudiante FGLI está siempre solo.</p>
+			<p class="editable">FGF fue fundada por Jazmin Reyes en julio de 2020 como estudiante en la Universidad de Stanford. A lo largo de su infancia, Jazmin vio a su familia y su comunidad sufrir por la pobreza, el racismo y un sistema educativo injusto como estudiante de primera generación y de bajos ingresos. Nuestro objetivo es ayudar a otros estudiantes de FGLI en situaciones similares a tener un mejor acceso a la educación superior. Desde las primeras etapas de soñar despierto con la universidad hasta ser aceptado, FGF tiene como objetivo garantizar que ningún estudiante de FGLI esté solo.</p>
 		</div>
 		<div>
 			<div id="about">
@@ -86,7 +86,7 @@ en: "/"
 			<p><a href="{{ site.twitter.url }}"><span>{% include social-media-icons.html social_icon="twitter" %}</span> <span class="link">@{{ site.twitter.handle }}<span></span></span></a></p>
 			<p><a href="{{ site.youtube.url }}"><span>{% include social-media-icons.html social_icon="youtube" %}</span> <span class="link">{{ site.youtube.name }}<span></span></span></a></p>
 			<p><a href="mailto:{{ site.email }}"><span>{% include social-media-icons.html social_icon="email" %}</span> <span class="link">{{ site.email }}<span></span></span></a></p>
-			<p class="editable" translate>Háganos saber si desea unirse a nuestro equipo!</p>
+			<p class="editable" translate>¡Háganos saber si desea unirse a nuestro equipo!</p>
 		</div>
 		<div translate>
 			<form action="https://formspree.io/mqkyngyo" method="POST">
