@@ -15,7 +15,7 @@ youtube:
   # URL to the channel
   url: https://www.youtube.com/channel/UCmFyUfF2O_-k9U1UIYwM6RA/
   # Video ID of the video to showcase on the home page
-  latestvideo: mipQVfC0da8 # Should be JUST THE ID at the end of the video's url
+  latestvideo: nnelg6igZ5w
 
 twitter:
   name: First Gen First
