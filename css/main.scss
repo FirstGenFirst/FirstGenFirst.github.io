@@ -2,6 +2,16 @@
 ---
 {% include sass_variables.scss %}
 
+@font-face {
+	font-family: "Coolvetica";
+	src: url("{{ site.baseurl }}/media/coolvetica-webfont.woff2") format("woff2"),
+		url("{{ site.baseurl }}/media/coolvetica-webfont.woff") format("woff"),
+		url("{{ site.baseurl }}/media/coolvetica-webfont.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
 @mixin flex-row {
 	@include body-width;
 	display: flex;
@@ -363,34 +373,43 @@ footer {
 	font-style: italic;
 	font-weight: 500;
 
-	> div {
+	#footer-social-links {
 		@include flex-row;
 		align-items: center;
-	}
 
-	#footer-social-links a {
-		text-decoration: none;
-		display: inline-flex;
-		justify-content: center;
+		a {
+			text-decoration: none;
+			display: inline-flex;
+			justify-content: center;
 
-		span {
-			display: block;
-			vertical-align: middle;
-			text-decoration: underline;
-			font-size: 1.2em;
-		}
-
-		&:hover,
-		&:focus,
-		&:focus-within {
 			span {
-				text-decoration: none;
+				display: block;
+				vertical-align: middle;
+				text-decoration: underline;
+				font-size: 1.2em;
+			}
+
+			&:hover,
+			&:focus,
+			&:focus-within {
+				span {
+					text-decoration: none;
+				}
 			}
 		}
 	}
 
-	#back-to-top {
+	#footer-meta-links {
 		margin-top: 1em;
+		text-align: center;
+
+		#back-to-top ~ span {
+			margin: 0 .5em;
+		}
+
+		a {
+			padding: .5em;
+		}
 	}
 
 	small {

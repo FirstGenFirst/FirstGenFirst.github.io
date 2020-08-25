@@ -1,10 +1,11 @@
 ---
-title: "Hogar"
-layout: "default.es"
-permalink: "/hogar"
-lang: "es"
-lang-ref: "home"
-en: "/"
+  title: "Hogar"
+  description: "Encuentre recursos para estudiantes universitarios de primera generación y solicite nuestra beca de primera generación."
+  layout: "default.es"
+  permalink: "/hogar"
+  lang: "es"
+  lang-ref: "home"
+  en: "/"
 ---
 
 <div id="banner" class="withscript" translate>
@@ -21,7 +22,7 @@ en: "/"
 			<div class="quick-link-img">
 				<a href="https://youtu.be/{{ site.youtube.latestvideo }}" target="_blank" rel="nofollow noopener">
 					<div>
-						<img src="https://img.youtube.com/vi/{{ site.youtube.latestvideo }}/0.jpg">
+						<img src="https://img.youtube.com/vi/{{ site.youtube.latestvideo }}/0.jpg" alt="Miniatura de nuestro último video de YouTube">
 						<div></div>
 					</div>
 				</a>
@@ -34,7 +35,7 @@ en: "/"
 			<div class="quick-link-img">
 				<a href="{{ site.baseurl }}/estudiantes/beca" target="_self">
 					<div>
-						<img src="{{ site.baseurl }}/{{ site.mediadir }}/apply.jpg">
+						<img src="{{ site.baseurl }}/{{ site.mediadir }}/apply.jpg" class="editable" alt="Una mano llenando una solicitud de beca">
 						<div></div>
 					</div>
 				</a>
@@ -47,7 +48,7 @@ en: "/"
 			<div class="quick-link-img">
 				<a href="{{ site.baseurl }}/donar" target="_self">
 					<div>
-						<img src="{{ site.baseurl }}/{{ site.mediadir }}/donate.jpg">
+						<img src="{{ site.baseurl }}/{{ site.mediadir }}/donate.jpg" class="editable" alt="Una multitud de estudiantes en togas de graduación">
 						<div></div>
 					</div>
 				</a>
@@ -67,7 +68,7 @@ en: "/"
 		<div>
 			<div id="about">
 				<div>
-					<iframe allowfullscreen="allowFullScreen" src="https://www.youtube.com/embed/Z73NQ43q5RI?ecver=1&iv_load_policy=1&rel=0&showinfo=0&yt:stretch=16:9&autohide=1&color=red" allowtransparency="true" frameborder="0"></iframe>
+					<iframe title="Video de bienvenida de First Generation First" allowfullscreen="allowFullScreen" src="https://www.youtube.com/embed/Z73NQ43q5RI?ecver=1&iv_load_policy=1&rel=0&showinfo=0&yt:stretch=16:9&autohide=1&color=red" allowtransparency="true" frameborder="0"></iframe>
 					<div></div>
 				</div>
 			</div>
@@ -90,10 +91,10 @@ en: "/"
 		</div>
 		<div translate>
 			<form action="https://formspree.io/mqkyngyo" method="POST">
-				<h4 class="editable">Envianos un email</h4>
-				<input type="text" name="name" placeholder="Nombre" required>
-				<input type="email" name="_replyto" placeholder="Email" required>
-				<textarea name="message" placeholder="Tu mensaje" required></textarea>
+				<h2 class="editable">Envianos un email</h2>
+				<input type="text" name="name" placeholder="Nombre" required aria-label="Nombre">
+				<input type="email" name="_replyto" placeholder="Email" required aria-label="Email">
+				<textarea name="message" placeholder="Tu mensaje" required aria-label="Tu mensaje"></textarea>
 				<button type="submit">Enviar</button>
 			</form>
 		</div>
@@ -101,16 +102,29 @@ en: "/"
 </section>
 <section id="follow-us" translate="no">
 	<div class="button-center">
-		<a href="{{ site.instagram.url }}"><span>{% include social-media-icons.html social_icon="instagram" %}</span> <span class="editable" translate>Síguenos</span></a>
+		<a href="{{ site.instagram.url }}"><span>{% include social-media-icons.html social_icon="instagram" %}</span><span class="editable" translate>Síguenos</span></a>
 	</div>
 	<div id="follow-tags" class="flex-row">
 		<div>@{{ site.instagram.handle }}</div>
 		<div class="editable">#firstgenfirst</div>
 		<div class="editable">#IAmFLI</div>
 	</div>
-	<div id="follow-images" class="flex-row">
-		<img src="{{ site.baseurl }}/media/follow-us-1.jpg" class="editable">
-		<img src="{{ site.baseurl }}/media/follow-us-2.jpg" class="editable">
-		<img src="{{ site.baseurl }}/media/follow-us-3.jpg" class="editable">
+	{%- comment -%}
+	If JavaScript is disabled, no lazy loading optimizations take place; just load the images directly in a <noscript> element.
+	{%- endcomment -%}
+	<noscript>
+		<div id="follow-images" class="flex-row">
+			<img src="{{ site.baseurl }}/media/follow-us-1.jpg" alt="Jazmin y Caroline sosteniendo una pancarta &quot;FLI @ Stanford&quot;"/>
+			<img src="{{ site.baseurl }}/media/follow-us-2.jpg" alt="Dos estudiantes de primera generación posando para una foto frente al espacio Meyer Green de Stanford"/>
+			<img src="{{ site.baseurl }}/media/follow-us-3.jpg" alt="Un grupo de muchos estudiantes de primera generación posando para una foto grupal con varios carteles &quot;FLI @ Stanford&quot;"/>
+		</div>
+	</noscript>
+	{%- comment -%}
+	If JavaScript is enabled, these images are lazy loaded using lazysizes to make the page a tiny bit faster to load.
+	{%- endcomment -%}
+	<div id="follow-images" class="flex-row withscript">
+		<img data-src="{{ site.baseurl }}/media/follow-us-1.jpg" class="lazyload" alt="Jazmin y Caroline sosteniendo una pancarta &quot;FLI @ Stanford&quot;"/>
+		<img data-src="{{ site.baseurl }}/media/follow-us-2.jpg" class="lazyload" alt="Dos estudiantes de primera generación posando para una foto frente al espacio Meyer Green de Stanford"/>
+		<img data-src="{{ site.baseurl }}/media/follow-us-3.jpg" class="lazyload" alt="Un grupo de muchos estudiantes de primera generación posando para una foto grupal con varios carteles &quot;FLI @ Stanford&quot;"/>
 	</div>
 </section>

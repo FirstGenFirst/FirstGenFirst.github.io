@@ -294,22 +294,19 @@ module.exports = function(type, config, lang) {
 
 					// Clone the file to not edit the original.
 					let clone = file.clone();
-					// This is where the file's contents will go.
-					let contents = "";
 
-					// Make a new front matter to add to the beginning of the file.
-					contents +=
-						`---\n`                                                                            +
-						`title: "${langConfig.title}"\n`                                                   +
-						`layout: "default.${lang}"\n`                                                      +
-						`permalink: "${langConfig.permalink}"\n`                                           +
-						`lang: "${lang}"\n`                                                                +
-						`lang-ref: "${config["lang-ref"]}"\n`                                              +
-						`en: "${file.frontMatter.permalink || "/" + config.src.replace(/\.html$/, "")}"\n` +
-						`---\n`
+					let fm = {};
+					fm.title = langConfig.title;
+					if (file.frontMatter["description-es"]) {
+						fm.description = file.frontMatter["description-es"];
+					}
+					fm.layout = `default.${lang}`;
+					fm.permalink = langConfig.permalink;
+					fm.lang = lang;
+					fm["lang-ref"] = config["lang-ref"];
+					fm.en = file.frontMatter.permalink || "/" + config.src.replace(/\.html$/, "");
 
-					// Now parse the rest of the page as HTML.
-					contents += await translateHTML(clone.contents.toString(), "en", lang);
+					contents = json2yaml.stringify(fm) + "---\n" + await translateHTML(clone.contents.toString(), "en", lang);
 
 					clone.contents = Buffer.from(contents, "utf-8");
 
