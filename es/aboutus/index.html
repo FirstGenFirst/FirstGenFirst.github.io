@@ -1,5 +1,6 @@
 ---
   title: "Sobre Nosotros"
+  description: "Los antecedentes, la historia y la misión de First Generation First"
   layout: "default.es"
   permalink: "/sobrenosotros"
   lang: "es"
@@ -18,7 +19,7 @@
 				<div translate="no">Hi!</div>
 				<div></div>
 			</div>
-			<img src="{{ site.baseurl }}/media/aboutus.jpg" class="editable">
+			<img src="{{ site.baseurl }}/media/aboutus.jpg" class="editable" alt="Jazmin sentada al borde de una fuente en la Plaza Blanca de Stanford">
 		</div>
 	</div>
 </section>
@@ -29,7 +30,7 @@
 			<p class="editable">En primer lugar la primera generación que comenzó como una idea entre dos amigos que habían visto tanto las desigualdades de ser de primera generación y el estudiante de la universidad de bajos ingresos en una universidad de elite como Stanford. Jazmin y Caroline se reunieron en su primer año de universidad y pronto se dieron cuenta de que compartían experiencias muy similares a pesar de venir de diferentes culturas y estados. Llegaron a apreciar y dependen unos de otros y se dieron cuenta que nunca quisieron otros estudiantes de primera generación a la lucha tanto como que tenían. Su coincidencia de deseo de los estudiantes y la atención a la educación de ayuda les llevó a poner en marcha FGF, donde ponemos de primera generación y / o estudiantes de bajos ingresos en primer lugar.</p>
 		</div>
 		<div>
-			<img src="{{ site.baseurl }}/media/ourhistory.jpg" class="editable">
+			<img src="{{ site.baseurl }}/media/ourhistory.jpg" class="editable" alt>
 		</div>
 	</div>
 </section>
@@ -62,10 +63,10 @@
 		</div>
 		<div translate>
 			<form action="https://formspree.io/mqkyngyo" method="POST">
-				<h4 class="editable">Envianos un email</h4>
-				<input type="text" name="name" placeholder="Nombre" required>
-				<input type="email" name="_replyto" placeholder="Email" required>
-				<textarea name="message" placeholder="Tu mensaje" required></textarea>
+				<h2 class="editable">Envianos un email</h2>
+				<input type="text" name="name" placeholder="Nombre" required aria-label="Nombre">
+				<input type="email" name="_replyto" placeholder="Email" required aria-label="Email">
+				<textarea name="message" placeholder="Tu mensaje" required aria-label="Tu mensaje"></textarea>
 				<button type="submit">Enviar</button>
 			</form>
 		</div>

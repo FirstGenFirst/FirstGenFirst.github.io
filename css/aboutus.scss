@@ -125,7 +125,7 @@
 	&:nth-of-type(2n) form {
 		background-color: white;
 
-		h4 {
+		h2 {
 			color: scale-color($theme-color, $lightness: 20%);
 		}
 
@@ -148,7 +148,7 @@
 	&:nth-of-type(2n + 1) form {
 		background-color: scale-color($theme-color, $lightness: 5%);
 
-		h4 {
+		h2 {
 			color: white;
 		}
 
@@ -171,7 +171,7 @@
 	form {
 		padding: 1em 2em;
 
-		h4 {
+		h2 {
 			font-family: $Nunito;
 			font-weight: 300;
 			font-style: italic;
@@ -221,17 +221,15 @@
 }
 
 @media #{$mobile} {
-	#contact-us {
+	#contact-us > div {
+		flex-direction: column;
+
 		> div {
-			flex-direction: column;
+			width: 100%;
+			flex-basis: 100%;
 
-			> div {
-				width: 100%;
-				flex-basis: 100%;
-
-				&:nth-child(2) {
-					margin: 0;
-				}
+			&:nth-child(2) {
+				margin: 0;
 			}
 		}
 

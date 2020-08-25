@@ -35,19 +35,10 @@
 		}
 	}
 
-	&:nth-child(2n) h2 > div {
-		color: $secondary-color;
-	}
-
-	&:nth-child(2n + 1) h2 > div {
-		color: scale-color($theme-color, $lightness: 5%);
-	}
-
 	h2 {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		font-size: 2.5rem;
 
 		> div {
 			height: 1em;
@@ -59,8 +50,20 @@
 		}
 	}
 
+	&:nth-of-type(2n) h2 > div {
+		color: $secondary-color;
+	}
+
+	&:nth-of-type(2n + 1) h2 > div {
+		color: scale-color($theme-color, $lightness: 5%);
+	}
+
 	p {
 		margin: 0;
+		font-family: $Nunito;
+		font-size: 1.5em;
+		font-weight: 300;
+		font-style: italic;
 
 		a {
 			color: inherit;
@@ -88,26 +91,19 @@
 			}
 		}
 
-		&:nth-child(2) {
-			margin: 1rem 0 0;
-		}
-
-		&:not(:last-of-type) {
-			font-family: $Nunito;
-			font-size: 1.5em;
-			font-weight: 300;
-			font-style: italic;
+		&:first-of-type {
+			margin-top: 1rem;
 		}
 
 		&:last-of-type {
-			margin: 1em 0 0;
+			margin-bottom: 1rem;
 		}
 	}
 
-	&:nth-child(2n) form {
+	&:nth-of-type(2n) form {
 		background-color: white;
 
-		h4 {
+		h2 {
 			color: scale-color($theme-color, $lightness: 20%);
 		}
 
@@ -127,10 +123,10 @@
 		}
 	}
 
-	&:nth-child(2n + 1) form {
+	&:nth-of-type(2n + 1) form {
 		background-color: scale-color($theme-color, $lightness: 5%);
 
-		h4 {
+		h2 {
 			color: white;
 		}
 
@@ -153,7 +149,7 @@
 	form {
 		padding: 1em 2em;
 
-		h4 {
+		h2 {
 			font-family: $Nunito;
 			font-weight: 300;
 			font-style: italic;

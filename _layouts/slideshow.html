@@ -6,8 +6,11 @@
 <html lang="en">
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width" />
     <title>{{ page.title }} &ndash; {{ site.title }}</title>
+    {%- if page.description -%}
+    <meta name="description" content="{{ page.description }}">
+    {%- endif -%}
     <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/favicon-16x16.png">
@@ -124,10 +127,10 @@
             <div id="hex-{{ slideids[i] }}" class="hex loc-{{ location }}">
                 <svg viewBox="-17.75 -15.522 35.5 31.044">
                     <a class="forward" href="{{ page.permalink }}#{{ slideids[i] }}" target="_self">
-                        <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
+                        <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0">{{ slide[0] }}</polygon>
                     </a>
                     <a class="back" href="{{ page.permalink }}#title" target="_self">
-                        <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0"/>
+                        <polygon points="8.5,-14.722 -8.5,-14.722 -17,0 -8.5,14.722 8.5,14.722 17,0">Title</polygon>
                     </a>
                 </svg>
                 <div {% if i == 8 %}style="height:70%"{% elsif i == 9 %}style="height:70%;top:30%"{% endif %}>

@@ -376,11 +376,13 @@ footer {
 	#footer-social-links {
 		@include flex-row;
 		align-items: center;
+		margin-top: -.5rem;
 
 		a {
 			text-decoration: none;
 			display: inline-flex;
 			justify-content: center;
+			padding: .5rem;
 
 			span {
 				display: block;
@@ -586,8 +588,13 @@ html:not(.scriptenabled) .withscript {
 		}
 	}
 
-	footer > div {
+	footer > #footer-social-links {
 		flex-direction: column;
+		margin-top: initial;
+
+		a {
+			padding: 0;
+		}
 
 		> :not(:first-child) {
 			margin-left: initial;
