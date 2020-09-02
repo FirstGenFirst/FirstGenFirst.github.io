@@ -2,6 +2,24 @@
 ---
 {% include sass_variables.scss %}
 
+#closed {
+	h2 {
+		font-family: $Coolvetica;
+		font-style: initial;
+		font-size: 3em;
+		text-align: center;
+		margin: 0 auto .5em;
+	}
+
+	figure img {
+		border: 1px solid #AAA;
+		max-width: 40rem;
+		display: block;
+		margin: auto;
+		box-shadow: 0 .2em .3em transparentize(black, 0.47);
+	}
+}
+
 #apply {
 	h2 {
 		font-family: $Coolvetica;
@@ -11,8 +29,13 @@
 		margin: 0 auto .5em;
 	}
 
-	p {
+	p.footnote {
 		font-size: 1em;
+		margin: 1em 0 0;
+
+		+ p.footnote {
+			margin: 0 0 1em;
+		}
 	}
 
 	img {
@@ -37,9 +60,7 @@
 }
 
 #about {
-	p:last-child {
-		margin-bottom: 0;
-	}
+
 }
 
 @media #{$mobile} {

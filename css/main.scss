@@ -246,6 +246,12 @@ body {
 			font-weight: 300;
 		}
 
+		figcaption {
+			@extend p;
+			font-size: 1rem;
+			text-align: center;
+		}
+
 		.flex-row {
 			@include flex-row;
 		}
@@ -314,6 +320,10 @@ body {
 				@include body-width;
 			}
 		}
+	}
+
+	section div > :last-child {
+		margin-bottom: 0;
 	}
 }
 
@@ -389,6 +399,7 @@ footer {
 				vertical-align: middle;
 				text-decoration: underline;
 				font-size: 1.2em;
+				white-space: nowrap;
 			}
 
 			&:hover,
