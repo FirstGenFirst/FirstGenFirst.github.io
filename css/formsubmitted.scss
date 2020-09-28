@@ -1,0 +1,30 @@
+---
+---
+{% include sass_variables.scss %}
+
+#form_submitted {
+	padding: 4em;
+
+	h1 {
+		font-size: 5em;
+		font-family: $Coolvetica;
+		text-align: center;
+		margin: 0;
+		letter-spacing: 0.05em;
+	}
+
+	h2 {
+		font-size: 2em;
+		font-family: $Coolvetica;
+		font-style: initial;
+		text-align: center;
+		margin: 0 auto;
+		font-weight: 400;
+	}
+
+	div {
+		font-family: $Helvetica;
+		text-align: center;
+		margin: 2em auto 0;
+	}
+}
