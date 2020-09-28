@@ -2,6 +2,16 @@
 ---
 {% include sass_variables.scss %}
 
+@keyframes loading {
+	from {
+		transform: translateY(-.25rem);
+	}
+
+	to {
+		transform: translateY(.25rem);
+	}
+}
+
 #contact-us {
 	> div {
 		display: flex;
@@ -96,7 +106,7 @@
 			border: .2em solid $theme-color;
 		}
 
-		button {
+		> [type=submit] {
 			background-color: scale-color($theme-color, $lightness: 20%);
 			color: white;
 
@@ -104,6 +114,18 @@
 			&:focus {
 				background-color: scale-color($theme-color, $lightness: 50%);
 			}
+		}
+
+		&.submitting > [type=submit] {
+			background-color: adjust-color($theme-color, $lightness: 50%);
+		}
+
+		#indicator {
+			color: scale-color($theme-color, $lightness: 20%);
+		}
+
+		#contact-us-err {
+			color: black;
 		}
 	}
 
@@ -119,7 +141,7 @@
 			border: .2em solid $secondary-color;
 		}
 
-		button {
+		> [type=submit] {
 			background-color: white;
 			color: $theme-color;
 
@@ -127,6 +149,21 @@
 			&:focus {
 				background-color: scale-color(white, $lightness: -10%);
 			}
+		}
+
+		&.submitting > [type=submit] {
+			background-color: change-color(white, $lightness: 75%);
+			color: change-color($theme-color, $saturation: 50%);
+			pointer-events: none;
+			cursor: not-allowed;
+		}
+
+		#indicator {
+			color: white;
+		}
+
+		#contact-us-err {
+			color: white;
 		}
 	}
 
@@ -167,17 +204,103 @@
 			height: 4em;
 		}
 
-		button {
+		> [type=submit],
+		#indicator {
 			font-family: $Nunito;
 			font-weight: 300;
 			font-style: italic;
 			border: 0;
-			font-size: 1.2em;
+			font-size: 1.2rem;
 			padding: .5rem 1rem;
 			width: calc(50% - 2rem);
 			margin: 1rem auto 0;
 			display: block;
 			cursor: pointer;
+			box-sizing: border-box;
+			text-align: center;
+		}
+
+		&.submitted > [type=submit] {
+			pointer-events: none;
+		}
+
+		&:not(.errored) #contact-us-err {
+			display: none;
+		}
+
+		#contact-us-err {
+			font-family: $Nunito;
+			font-weight: 300;
+			font-style: italic;
+			font-size: 1rem;
+			padding: .5rem 1rem;
+			text-align: center;
+
+			> [type=submit] {
+				display: inline;
+				margin: 0;
+				border: none;
+				padding: 0;
+				background-color: transparent;
+				font-size: inherit;
+				font-weight: inherit;
+				font-style: inherit;
+				text-decoration: underline;
+				cursor: pointer;
+
+				&:hover,
+				&:focus {
+					text-decoration: none;
+				}
+			}
+		}
+
+		#indicator {
+			cursor: default;
+
+			span {
+				color: transparent;
+				pointer-events: none;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				-o-user-select: none;
+				user-select: none;
+				display: inline-block;
+				width: 0;
+			}
+
+			div {
+				margin: 0 .1rem;
+				display: inline-block;
+				height: .5rem;
+				width: .5rem;
+				border-radius: 50%;
+				background-color: currentColor;
+				animation-name: loading;
+				animation-duration: .55s;
+				animation-direction: alternate;
+				animation-timing-function: ease-in-out;
+				animation-iteration-count: infinite;
+				animation-fill-mode: both;
+
+				&:nth-of-type(1) {
+					animation-delay: 0s;
+				}
+
+				&:nth-of-type(2) {
+					animation-delay: .15s;
+				}
+
+				&:nth-of-type(3) {
+					animation-delay: .3s;
+				}
+			}
+		}
+
+		&.submitting > [type=submit],
+		&:not(.submitting) #indicator {
+			display: none;
 		}
 	}
 }

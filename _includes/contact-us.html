@@ -1,7 +1,7 @@
 <link href="{{ site.baseurl }}/css/contact-us.snippet.css" rel="stylesheet" type="text/css">
-{% if page.lang == "en" %}
 <section id="contact-us" translate="no">
 	<div>
+		{% if page.lang == "en" %}
 		<div>
 			<h2 class="editable" translate>Contact Us<div>
 				<svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 337.772 303.508" role="img">
@@ -22,13 +22,16 @@
 				<input type="email" name="email" placeholder="Email" required aria-label="Email"/>
 				<textarea name="message" placeholder="Your Message" required aria-label="Your Message"></textarea>
 				<button type="submit">Send</button>
+				<div id="indicator">
+					<span>Send</span>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div id="contact-us-err">There was a problem sending your email. Please <button type="submit">try again</button>.</div>
 			</form>
 		</div>
-	</div>
-</section>
-{% elsif page.lang == "es" %}
-<section id="contact-us" translate="no">
-	<div>
+		{% elsif page.lang == "es" %}
 		<div>
 			<h2 class="editable" translate>Contáctenos<div>
 				<svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 337.772 303.508" role="img">
@@ -49,8 +52,59 @@
 				<input type="email" name="email" placeholder="Email" required aria-label="Email"/>
 				<textarea name="message" placeholder="Tu mensaje" required aria-label="Tu mensaje"></textarea>
 				<button type="submit">Enviar</button>
+				<div id="indicator">Enviar</div>
 			</form>
 		</div>
+		{% endif %}
 	</div>
 </section>
-{% endif %}
+<script type="text/javascript">
+	// Makes the contact form stay on the current page without redirecting as long as JavaScript is enabled.
+	// If disabled, the form will redirect to the form's url and then redirect back to a confirmation page.
+	document.querySelector("#contact-us form").addEventListener("submit", function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+
+		var form = this;
+
+		var name = this.querySelector("[name=name]");
+		var email = this.querySelector("[name=email]");
+		var message = this.querySelector("[name=message]");
+		var lang = this.querySelector("[name=lang]")
+		var submit = this.querySelector("[type=submit");
+
+		form.classList.add("submitting");
+		form.classList.remove("errored");
+
+		var request = {
+			name: name.value,
+			email: email.value,
+			message: message.value,
+			lang: lang.value,
+		};
+
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "https://us-west2-cogent-anvil-290321.cloudfunctions.net/contact-us-emailer");
+		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+		xhr.setRequestHeader("Content-Type", "application/json");
+
+		xhr.addEventListener("readystatechange", function(e) {
+			if (this.readyState == 4) {
+				form.classList.remove("submitting");
+				if (this.status == 200) {
+					message.value = "";
+					submit.textContent = "\u2713";
+					form.classList.add("submitted");
+					setTimeout(function() {
+						form.classList.remove("submitted");
+						submit.textContent = {% if page.lang == "en" %}"Send"{% elsif page.lang == "es" %}"Enviar"{% endif %};
+					}, 2500);
+				} else {
+					form.classList.add("errored");
+				}
+			}
+		});
+
+		xhr.send(JSON.stringify(request));
+	});
+</script>
