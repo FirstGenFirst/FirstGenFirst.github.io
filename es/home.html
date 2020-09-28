@@ -8,47 +8,39 @@
   en: "/"
 ---
 
-<div id="banner" class="withscript" translate>
-	<p>Nuestra solicitud de beca se cierra</p>
-	<h4 id="scholarship-time-left"></h4>
-	<div class="button-center">
-		<a href="{{ site.baseurl }}/estudiantes/beca" target="_self" class="button">¡Aplica ya!</a>
-	</div>
-</div>
-<script type="text/javascript">!function(t,l,b){function f(d){if((d=~~((t-new Date())/1000))>0){l.textContent=d<300?"less than 5 minutes!":d<3600?~~(d/60)+" minutes!":d<7200?"1 hour!":d<86400?~~(d/3600)+" hours":d<172800?"1 day":~~(d/86400)+" days"}else b.style.display="none"}setInterval(f,1000),f()}(new Date("2020-09-02T06:59:59.999Z"),document.getElementById("scholarship-time-left"),document.getElementById("banner"))</script>
 <section id="quick-links" translate>
 	<div id="quick-links-container">
 		<div class="quick-link">
 			<div class="quick-link-img">
 				<a href="https://youtu.be/{{ site.youtube.latestvideo }}" target="_blank" rel="nofollow noopener">
 					<div>
-						<img src="https://img.youtube.com/vi/{{ site.youtube.latestvideo }}/0.jpg" alt="Miniatura de nuestro último video de YouTube">
+						<img src="https://img.youtube.com/vi/{{ site.youtube.latestvideo }}/0.jpg" alt="Miniatura de nuestro último vídeo de YouTube">
 						<div></div>
 					</div>
 				</a>
 			</div>
 			<h4 class="editable" translate="no">YouTube</h4>
-			<p class="editable">¡Revisa nuestro último vídeo! Jazmin habla de todos los artículos que tuvo que comprar para mudarse a su dormitorio universitario y de lo rápido que pueden acumularse los gastos.</p>
+			<p class="editable">Mira nuestro último video y el segundo vlog de Jazmin: ¡decorando su habitación! ¡Jazmin va de compras para encontrar adornos (con un presupuesto limitado) y hace un recorrido por su apartamento después de instalarlo!</p>
 			<a href="{{ site.youtube.url }}" target="_blank" rel="nofollow noopener" class="editable button">Suscribir</a>
 		</div>
 		<div class="quick-link">
 			<div class="quick-link-img">
 				<a href="{{ site.baseurl }}/estudiantes/beca" target="_self">
 					<div>
-						<img src="{{ site.baseurl }}/{{ site.mediadir }}/apply.jpg" class="editable" alt="Una mano llenando una solicitud de beca">
+						<img src="{{ site.baseurl }}/{{ site.mediadir }}/voterregistration.jpg" class="editable" alt="Una mano de llenar una solicitud de beca">
 						<div></div>
 					</div>
 				</a>
 			</div>
-			<h4 class="editable">Aplicar</h4>
-			<p class="editable">Los objetivos FGF beca para asistir financieramente de primera generación y / o estudiantes de secundaria de bajos ingresos con los gastos de la universidad. Compruebe si es elegible!</p>
-			<a href="{{ site.baseurl }}/estudiantes/beca" target="_self" class="editable button">Aplicar</a>
+			<h4 class="editable">Votar</h4>
+			<p class="editable">Asegúrese de que está registrado para votar en su área. Siga las instrucciones en el siguiente enlace para aprender, y por favor, participar en su elección local!</p>
+			<a href="https://howto.vote/?lang=es" target="_blank" rel="nofollow noopener" class="editable button">Registrarse</a>
 		</div>
 		<div class="quick-link">
 			<div class="quick-link-img">
 				<a href="{{ site.baseurl }}/donar" target="_self">
 					<div>
-						<img src="{{ site.baseurl }}/{{ site.mediadir }}/donate.jpg" class="editable" alt="Una multitud de estudiantes en togas de graduación">
+						<img src="{{ site.baseurl }}/{{ site.mediadir }}/donate.jpg" class="editable" alt="Una multitud de estudiantes en vestidos de graduación">
 						<div></div>
 					</div>
 				</a>
@@ -93,7 +85,7 @@
 			<form action="https://formspree.io/mqkyngyo" method="POST">
 				<h2 class="editable">Envianos un email</h2>
 				<input type="text" name="name" placeholder="Nombre" required aria-label="Nombre">
-				<input type="email" name="_replyto" placeholder="Email" required aria-label="Email">
+				<input type="email" name="_replyto" placeholder="Correo electrónico" required aria-label="Email">
 				<textarea name="message" placeholder="Tu mensaje" required aria-label="Tu mensaje"></textarea>
 				<button type="submit">Enviar</button>
 			</form>
@@ -113,18 +105,18 @@
 	If JavaScript is disabled, no lazy loading optimizations take place; just load the images directly in a <noscript> element.
 	{%- endcomment -%}
 	<noscript>
-		<div id="follow-images" class="flex-row">
-			<img src="{{ site.baseurl }}/media/follow-us-1.jpg" alt="Jazmin y Caroline sosteniendo una pancarta &quot;FLI @ Stanford&quot;"/>
-			<img src="{{ site.baseurl }}/media/follow-us-2.jpg" alt="Dos estudiantes de primera generación posando para una foto frente al espacio Meyer Green de Stanford"/>
-			<img src="{{ site.baseurl }}/media/follow-us-3.jpg" alt="Un grupo de muchos estudiantes de primera generación posando para una foto grupal con varios carteles &quot;FLI @ Stanford&quot;"/>
+		<div id="follow-images" class="flex-row" translate>
+			<img src="{{ site.baseurl }}/media/follow-us-1.jpg" alt="Jazmin y Caroline, con un cartel &quot;FLI @ Stanford&quot;">
+			<img src="{{ site.baseurl }}/media/follow-us-2.jpg" alt="Dos estudiantes FGLI posando para una foto delante del espacio Meyer Verde de Stanford">
+			<img src="{{ site.baseurl }}/media/follow-us-3.jpg" alt="Un grupo de muchos estudiantes FGLI posando para una foto de grupo de soporte múltiple &quot;FLI @ Stanford&quot; banners">
 		</div>
 	</noscript>
 	{%- comment -%}
 	If JavaScript is enabled, these images are lazy loaded using lazysizes to make the page a tiny bit faster to load.
 	{%- endcomment -%}
-	<div id="follow-images" class="flex-row withscript">
-		<img data-src="{{ site.baseurl }}/media/follow-us-1.jpg" class="lazyload" alt="Jazmin y Caroline sosteniendo una pancarta &quot;FLI @ Stanford&quot;"/>
-		<img data-src="{{ site.baseurl }}/media/follow-us-2.jpg" class="lazyload" alt="Dos estudiantes de primera generación posando para una foto frente al espacio Meyer Green de Stanford"/>
-		<img data-src="{{ site.baseurl }}/media/follow-us-3.jpg" class="lazyload" alt="Un grupo de muchos estudiantes de primera generación posando para una foto grupal con varios carteles &quot;FLI @ Stanford&quot;"/>
+	<div id="follow-images" class="flex-row withscript" translate>
+		<img data-src="{{ site.baseurl }}/media/follow-us-1.jpg" class="lazyload" alt="Jazmin y Caroline, con un cartel &quot;FLI @ Stanford&quot;">
+		<img data-src="{{ site.baseurl }}/media/follow-us-2.jpg" class="lazyload" alt="Dos estudiantes FGLI posando para una foto delante del espacio Meyer Verde de Stanford">
+		<img data-src="{{ site.baseurl }}/media/follow-us-3.jpg" class="lazyload" alt="Un grupo de muchos estudiantes FGLI posando para una foto de grupo de soporte múltiple &quot;FLI @ Stanford&quot; banners">
 	</div>
-</section>
+</noscript></section>
