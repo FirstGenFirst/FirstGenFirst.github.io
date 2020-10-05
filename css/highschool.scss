@@ -1,0 +1,71 @@
+---
+---
+{% include sass_variables.scss %}
+
+#actions-to-take-in-high-school {
+	.graderow {
+		display: flex;
+
+		> * {
+			flex-basis: 50%;
+
+			&:not(:first-child) {
+				margin-left: 1em;
+			}
+
+			ul {
+				$bullet-size: .85em;
+				font-family: $Helvetica;
+				font-size: 1em;
+				padding-left: 0;
+
+				li {
+					padding: .3em 0 .3em 40px;
+					list-style-type: none;
+					position: relative;
+				}
+
+				.checkmark-bullet {
+					color: $theme-color;
+					display: inline-block;
+					margin-left: -40px;
+					padding: 0 calc(20px - #{$bullet-size / 2}) 0 calc(20px - #{$bullet-size / 2});
+
+					svg {
+						width: $bullet-size;
+					}
+				}
+			}
+		}
+
+		+ p {
+			margin-top: 0;
+		}
+	}
+}
+
+#sat-act-practice-preparation {
+	ul {
+		list-style-type: none;
+		padding-left: 0;
+	}
+
+	h4 {
+		font-family: $Cormorant;
+		font-style: italic;
+		font-size: 1.5em;
+		margin: 0;
+	}
+}
+
+@media #{$mobile} {
+	#actions-to-take-in-high-school {
+		.graderow {
+			flex-direction: column;
+
+			> *:not(:first-child) {
+				margin-left: initial;
+			}
+		}
+	}
+}

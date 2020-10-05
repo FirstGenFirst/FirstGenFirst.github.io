@@ -46,6 +46,8 @@
     {% endif %}
     <script type="text/javascript" src="{{ site.baseurl }}/lazysizes.min.js" async defer></script>
     <script type="text/javascript">document.documentElement.className+="scriptenabled"</script>
+    {% comment %}Some links use an SVG image as their content. This makes the entire <img> clickable, even parts that you wouldn't think are part of the <img> because they are not part of the SVG inside. This will turn any <img> with an SVG source that is being used inside a <a> link into an inline SVG with an <a> element inside of it that will act as the link. This makes the bounding box for the clickable link make more sense and actually follow the content of the SVG instead of being an arbitrary square around it. The image itself will look the same whether this script is enabled or not, its just a minor UX thing.{% endcomment %}
+    <script type="text/javascript" src="{{ site.baseurl }}/svg-links.js" async defer></script>
 </head>
 <body>
     <header id="top">
@@ -61,7 +63,7 @@
         <div>
             <div id="olang">
                 {% if page.es %}
-                    <a href="{{ page.es }}">Español</a>
+                    <a href="{{ page.es.permalink }}">Español</a>
                 {% else %}
                     <span></span>
                 {% endif %}
@@ -84,11 +86,11 @@
                         <li class='subnav-link {% if page.lang-ref == "ourteam" %} selected{% endif %}'><a href="{{ site.baseurl }}/aboutus/ourteam" target="_self">Our Team</a></li>
                     </ul>
                 </li>
-                <li class='nav-link {% if page.lang-ref == "students" or page.lang-ref == "scholarship" or page.lang-ref == "applyingtocollege" or page.lang-ref == "collegereadiness" %} selected{% endif %}'>
+                <li class='nav-link {% if page.lang-ref == "students" or page.lang-ref == "scholarship" or page.lang-ref == "highschool" or page.lang-ref == "applyingtocollege" or page.lang-ref == "collegereadiness" or page.lang-ref == "professionalprofile" %} selected{% endif %}'>
                     <a href="{{ site.baseurl }}/students" target="_self" id="nav-students">Students</a>
                     <ul class="subnav">
                         <li class='subnav-link {% if page.lang-ref == "scholarship" %} selected{% endif %}'><a href="{{ site.baseurl }}/students/scholarship" target="_self">FGF Scholarship</a></li>
-                        <!--<li class='subnav-link {% if page.lang-ref == "hsactions" %} selected{% endif %}'><a href="{{ site.baseurl }}/students/highschoolactions" target="_self">High School Actions</a></li>-->
+                        <li class='subnav-link {% if page.lang-ref == "highschool" %} selected{% endif %}'><a href="{{ site.baseurl }}/students/highschool" target="_self">High School</a></li>
                         <li class='subnav-link {% if page.lang-ref == "applyingtocollege" %} selected{% endif %}'><a href="{{ site.baseurl }}/students/applyingtocollege" target="_self">Applying to College</a></li>
                         <li class='subnav-link {% if page.lang-ref == "collegereadiness" %} selected{% endif %}'><a href="{{ site.baseurl }}/students/collegereadiness" target="_self">College Readiness</a></li>
                         <!--<li class='subnav-link {% if page.lang-ref == "professionalprofile" %} selected{% endif %}'><a href="{{ site.baseurl }}/students/professionalprofile" target="_self">Professional Profile</a></li>-->
@@ -113,7 +115,7 @@
             <div><a href="mailto:{{ site.email }}"><span class="link">{% include social-media-icons.html social_icon="email" %}</span>&nbsp;<span>{{ site.email }}</span></a></div>
         </div>
         <div id="footer-meta-links">
-            <a id="back-to-top" href="#top" class="link">Back to top</a>{%- if page.es -%}<span>|</span><a id="read-in-other" href="{{ page.es }}" class="link">Lee esta página en español</a>{%- endif -%}
+            <a id="back-to-top" href="#top" class="link">Back to top</a>{%- if page.es -%}<span>|</span><a id="read-in-other" href="{{ page.es.permalink }}" class="link">Lee esta página en español</a>{%- endif -%}
         </div>
         <small>&copy; 2020, First Generation First</small>
     </footer>

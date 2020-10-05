@@ -3,7 +3,7 @@
 	<div>
 		{% if page.lang == "en" %}
 		<div>
-			<h2 class="editable" translate>Contact Us<div>
+			<h2 class="editable" translate>{{ include.header | default: "Contact Us" }}<div>
 				<svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 337.772 303.508" role="img">
 					<path fill="currentColor" d="M310.485 21.159C290.731 4.583 271.484-.029 245.926 0c-27.13 2.348-50.615 15.589-77.041 49.05C142.46 15.589 118.975 2.348 91.845 0 66.287-.029 47.038 4.583 27.284 21.159 14.511 31.878 0 60.341 0 87.465c.339 54.573 38.391 136.609 163.485 212.905l5.165 3.138.236-.141.236.141 5.165-3.138c125.094-76.296 163.146-158.332 163.485-212.905-.001-27.124-14.514-55.587-27.287-66.306z"></path>
 				</svg></div>
@@ -33,7 +33,7 @@
 		</div>
 		{% elsif page.lang == "es" %}
 		<div>
-			<h2 class="editable" translate>Contáctenos<div>
+			<h2 class="editable" translate>{{ include.header-es | default: "Contáctenos" }}<div>
 				<svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 337.772 303.508" role="img">
 					<path fill="currentColor" d="M310.485 21.159C290.731 4.583 271.484-.029 245.926 0c-27.13 2.348-50.615 15.589-77.041 49.05C142.46 15.589 118.975 2.348 91.845 0 66.287-.029 47.038 4.583 27.284 21.159 14.511 31.878 0 60.341 0 87.465c.339 54.573 38.391 136.609 163.485 212.905l5.165 3.138.236-.141.236.141 5.165-3.138c125.094-76.296 163.146-158.332 163.485-212.905-.001-27.124-14.514-55.587-27.287-66.306z"></path>
 				</svg></div>

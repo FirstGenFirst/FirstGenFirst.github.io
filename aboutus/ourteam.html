@@ -5,9 +5,12 @@ layout: default
 permalink: /aboutus/ourteam
 lang: en
 lang-ref: ourteam
-es: /sobrenosotros/nuestroequipo
+es:
+  title: Nuestro Equipo
+  description: Conozca al equipo detrás de First Generation First y contáctenos individualmente
+  permalink: /sobrenosotros/nuestroequipo
+  redirect_from: null
 redirect_from: /ourteam
-description-es: Conozca al equipo detrás de First Generation First y contáctenos individualmente
 ---
 <section id="our-team" translate>
 	<h2 class="editable">Our Team</h2>
@@ -30,8 +33,9 @@ description-es: Conozca al equipo detrás de First Generation First y contácten
 		{%- endfor -%}
 	</div>
 </section>
+<script type="text/javascript">
 {%- comment -%}
 The pictures sometimes load in a weird way where their width isn't what it's supposed to be and they stay like that until you update the width. This script updates the width to be one pixel less (so that the picture will update and show that width), and then reverts it back to the original width so that they always look the right width.
 Without JavaScript, they just look a little weird, but no way around it in that case.
 {%- endcomment -%}
-<script type="text/javascript">!function(e,i,s,w,l){for(l=e.length;i<l;i++)e[i].addEventListener("lazyloaded",function(e){setTimeout(function(){e[s][w]=""},1),(e=this)[s][w]="calc(15em - 1px)"})}(document.querySelectorAll("img[data-src]"),0,"style","width")</script>
+!function(e,i,s,w,l){for(l=e.length;i<l;i++)e[i].addEventListener("lazyloaded",function(e){setTimeout(function(){e[s][w]=""},1),(e=this)[s][w]="calc(15em - 1px)"})}(document.querySelectorAll("img[data-src]"),0,"style","width")</script>

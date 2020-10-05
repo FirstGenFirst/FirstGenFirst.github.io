@@ -272,7 +272,8 @@ body {
 				margin-left: 1em;
 				text-align: center;
 
-				img {
+				img,
+				svg {
 					height: 20em;
 				}
 			}
@@ -321,7 +322,7 @@ body {
 		}
 	}
 
-	section div > :last-child {
+	section > div > :last-child {
 		margin-bottom: 0;
 	}
 }

@@ -2,10 +2,12 @@
   title: "Nuestro Equipo"
   description: "Conozca al equipo detrás de First Generation First y contáctenos individualmente"
   layout: "default.es"
-  permalink: "sobrenosotros/nuestroequipo"
+  permalink: "/sobrenosotros/nuestroequipo"
   lang: "es"
   lang-ref: "ourteam"
-  en: "/aboutus/ourteam"
+  redirect_from: null
+  en: 
+    permalink: "/aboutus/ourteam"
 ---
 <section id="our-team" translate>
 	<h2 class="editable">Nuestro equipo</h2>
@@ -16,9 +18,9 @@
 		{%- if team_member.display == false -%}{%- continue -%}{%- endif -%}
 		<div class="team-member">
 			<noscript>
-				<img src="{{ site.baseurl }}/{{ site.mediadir }}/{{ team_member.image }}" alt="{{ team_member.name }}">
+				<img src="{{ site.baseurl }}/{{ site.mediadir }}/{{ team_member.image }}" alt="{{ team_member.name }}"/>
 			</noscript>
-			<img data-src="{{ site.baseurl }}/{{ site.mediadir }}/{{ team_member.image }}" alt="{{ team_member.name }}" class="lazyload withscript">
+			<img data-src="{{ site.baseurl }}/{{ site.mediadir }}/{{ team_member.image }}" alt="{{ team_member.name }}" class="lazyload withscript"/>
 			<div>
 				<div><span>{{ team_member.name }}</span><span> – <span>{{ team_member.role }}</span></span></div>
 				<p>{{ team_member.bio }}</p>
@@ -28,8 +30,9 @@
 		{%- endfor -%}
 	</div>
 </section>
+<script type="text/javascript">
 {%- comment -%}
 The pictures sometimes load in a weird way where their width isn't what it's supposed to be and they stay like that until you update the width. This script updates the width to be one pixel less (so that the picture will update and show that width), and then reverts it back to the original width so that they always look the right width.
 Without JavaScript, they just look a little weird, but no way around it in that case.
 {%- endcomment -%}
-<script type="text/javascript">!function(e,i,s,w,l){for(l=e.length;i<l;i++)e[i].addEventListener("lazyloaded",function(e){setTimeout(function(){e[s][w]=""},1),(e=this)[s][w]="calc(15em - 1px)"})}(document.querySelectorAll("img[data-src]"),0,"style","width")</script>
+!function(e,i,s,w,l){for(l=e.length;i<l;i++)e[i].addEventListener("lazyloaded",function(e){setTimeout(function(){e[s][w]=""},1),(e=this)[s][w]="calc(15em - 1px)"})}(document.querySelectorAll("img[data-src]"),0,"style","width")</script>

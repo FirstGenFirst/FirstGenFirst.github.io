@@ -3,7 +3,9 @@
 {% include sass_variables.scss %}
 
 #donate-to-fgf {
-
+	.text-then-img img {
+		box-shadow: 0 .2em .3em transparentize(black, 0.47);
+	}
 }
 
 #donate-with {

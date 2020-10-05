@@ -3,7 +3,9 @@
 {% include sass_variables.scss %}
 
 #parents-and-teachers {
-	
+	img {
+		box-shadow: 0 .2em .3em transparentize(black, 0.47);
+	}
 }
 
 #financial-resources {
