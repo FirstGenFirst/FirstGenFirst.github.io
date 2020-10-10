@@ -70,9 +70,11 @@ plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
 exclude:
+  - Gemfile
+  - Gemfile.lock
   - node_modules
   - package.json
   - package-lock.json
   - gulpfile.js
   - vendor
-  - translate_files.js
+  - contactuseremailer.js

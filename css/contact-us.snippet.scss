@@ -106,7 +106,7 @@
 			border: .2em solid $theme-color;
 		}
 
-		> [type=submit] {
+		#contact-us-submit {
 			background-color: scale-color($theme-color, $lightness: 20%);
 			color: white;
 
@@ -116,11 +116,11 @@
 			}
 		}
 
-		&.submitting > [type=submit] {
+		&.submitting > #contact-us-submit {
 			background-color: adjust-color($theme-color, $lightness: 50%);
 		}
 
-		#indicator {
+		#contact-us-indicator {
 			color: scale-color($theme-color, $lightness: 20%);
 		}
 
@@ -141,7 +141,7 @@
 			border: .2em solid $secondary-color;
 		}
 
-		> [type=submit] {
+		#contact-us-submit {
 			background-color: white;
 			color: $theme-color;
 
@@ -151,14 +151,14 @@
 			}
 		}
 
-		&.submitting > [type=submit] {
+		&.submitting > #contact-us-submit {
 			background-color: change-color(white, $lightness: 75%);
 			color: change-color($theme-color, $saturation: 50%);
 			pointer-events: none;
 			cursor: not-allowed;
 		}
 
-		#indicator {
+		#contact-us-indicator {
 			color: white;
 		}
 
@@ -205,8 +205,8 @@
 			resize: vertical;
 		}
 
-		> [type=submit],
-		#indicator {
+		#contact-us-submit,
+		#contact-us-indicator {
 			font-family: $Nunito;
 			font-weight: 300;
 			font-style: italic;
@@ -221,7 +221,7 @@
 			text-align: center;
 		}
 
-		&.submitted > [type=submit] {
+		&.submitted > #contact-us-submit {
 			pointer-events: none;
 		}
 
@@ -256,7 +256,7 @@
 			}
 		}
 
-		#indicator {
+		#contact-us-indicator {
 			cursor: default;
 
 			span {
@@ -299,8 +299,8 @@
 			}
 		}
 
-		&.submitting > [type=submit],
-		&:not(.submitting) #indicator {
+		&.submitting > #contact-us-submit,
+		&:not(.submitting) #contact-us-indicator {
 			display: none;
 		}
 	}

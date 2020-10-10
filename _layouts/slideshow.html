@@ -54,14 +54,12 @@
     <div id="{{ slideid }}"></div>
     {%- endfor -%}
     <div id="content">
-
         {%- for slide in slides -%}
             {%- assign i = forloop.index | minus: 1 -%}
             {%- case i -%}
             {%- when 0 -%}
                 {%- if slides.size == 1 or slides.size == 3 -%}
                     {%- assign location = 2 -%}
-                    }
                 {%- elsif slides.size == 2 -%}
                     {%- assign location = 4 -%}
                 {%- else -%}

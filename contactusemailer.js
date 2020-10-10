@@ -117,6 +117,19 @@ exports.email = (req, res) => {
     const email = body.email;
     const message = body.message;
     const lang = body.lang;
+    const path = body.path;
+
+    console.log(JSON.stringify({
+      severity: "INFO",
+      message: `Submission received from ${name} <${email}>.`,
+      submission: {
+        name: name,
+        email: email,
+        message: message,
+        lang: lang,
+        path: path
+      }
+    }));
 
     if (typeof name != "string" || typeof email != "string" || typeof message != "string") {
       return fail(500, "Improper component (name, email, and message must all be strings)", body, lang);
@@ -134,7 +147,7 @@ exports.email = (req, res) => {
       from: "info@firstgenfirst.org",
       to: "info@firstgenfirst.org",
       subject: "New \"Contact Us\" Entry",
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}\n\nSubmitted from: ${req.get("Referer")}`
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}\n\nLang: ${lang || "unset"}\nSubmitted from: ${typeof path == "string" ? "https://firstgenfirst.org" + path : req.get("Referer")}`
     };
 
     transporter.sendMail(mailOptions, function(err, info) {

@@ -15,14 +15,15 @@
 			<p class="editable" translate>Let us know if you'd like to join our team!</p>
 		</div>
 		<div translate="">
-			<form action="https://us-west2-cogent-anvil-290321.cloudfunctions.net/contact-us-emailer" method="POST">
+			<form action="https://us-west2-cogent-anvil-290321.cloudfunctions.net/contact-us-emailer" method="POST" id="contact-us-form">
 				<h2 class="editable">Send Us An Email</h2>
-				<input type="hidden" name="lang" value="en">
-				<input type="text" name="name" placeholder="Name" required aria-label="Name"/>
-				<input type="email" name="email" placeholder="Email" required aria-label="Email"/>
-				<textarea name="message" placeholder="Your Message" required aria-label="Your Message"></textarea>
-				<button type="submit">Send</button>
-				<div id="indicator">
+				<input type="hidden" name="lang" value="en" id="contact-us-lang"/>
+				<input type="hidden" name="path" value="{{ page.permalink }}" id="contact-us-path"/>
+				<input type="text" name="name" placeholder="Name" required aria-label="Name" id="contact-us-name"/>
+				<input type="email" name="email" placeholder="Email" required aria-label="Email" id="contact-us-email"/>
+				<textarea name="message" placeholder="Your Message" required aria-label="Your Message" id="contact-us-message"></textarea>
+				<button type="submit" id="contact-us-submit">Send</button>
+				<div id="contact-us-indicator">
 					<span>Send</span>
 					<div></div>
 					<div></div>
@@ -45,14 +46,21 @@
 			<p class="editable" translate>¡Háganos saber si desea unirse a nuestro equipo!</p>
 		</div>
 		<div translate>
-			<form action="https://us-west2-cogent-anvil-290321.cloudfunctions.net/contact-us-emailer" method="POST">
+			<form action="https://us-west2-cogent-anvil-290321.cloudfunctions.net/contact-us-emailer" method="POST" id="contact-us-form">
 				<h2 class="editable">Envianos un email</h2>
-				<input type="hidden" name="lang" value="es">
-				<input type="text" name="name" placeholder="Nombre" required aria-label="Nombre"/>
-				<input type="email" name="email" placeholder="Email" required aria-label="Email"/>
-				<textarea name="message" placeholder="Tu mensaje" required aria-label="Tu mensaje"></textarea>
-				<button type="submit">Enviar</button>
-				<div id="indicator">Enviar</div>
+				<input type="hidden" name="lang" value="es" id="contact-us-lang"/>
+				<input type="hidden" name="path" value="{{ page.permalink }}" id="contact-us-path"/>
+				<input type="text" name="name" placeholder="Nombre" required aria-label="Nombre" id="contact-us-name"/>
+				<input type="email" name="email" placeholder="Email" required aria-label="Email" id="contact-us-email"/>
+				<textarea name="message" placeholder="Tu mensaje" required aria-label="Tu mensaje" id="contact-us-message"></textarea>
+				<button type="submit" id="contact-us-submit">Enviar</button>
+				<div id="contact-us-indicator">
+					<span>Enviar</span>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div id="contact-us-err">Hubo un problema al enviar su correo electrónico. <button type="submit">Inténtalo de nuevo</button>.</div>
 			</form>
 		</div>
 		{% endif %}
@@ -61,17 +69,17 @@
 <script type="text/javascript">
 	// Makes the contact form stay on the current page without redirecting as long as JavaScript is enabled.
 	// If disabled, the form will redirect to the form's url and then redirect back to a confirmation page.
-	document.querySelector("#contact-us form").addEventListener("submit", function(e) {
+	document.getElementById("contact-us-form").addEventListener("submit", function(e) {
 		e.preventDefault();
 		e.stopPropagation();
 
 		var form = this;
-
-		var name = this.querySelector("[name=name]");
-		var email = this.querySelector("[name=email]");
-		var message = this.querySelector("[name=message]");
-		var lang = this.querySelector("[name=lang]")
-		var submit = this.querySelector("[type=submit");
+		var name = document.getElementById("contact-us-name");
+		var email = document.getElementById("contact-us-email");
+		var message = document.getElementById("contact-us-message");
+		var lang = document.getElementById("contact-us-lang");
+		var path = document.getElementById("contact-us-path");
+		var submit = document.getElementById("contact-us-submit");
 
 		form.classList.add("submitting");
 		form.classList.remove("errored");
@@ -81,6 +89,7 @@
 			email: email.value,
 			message: message.value,
 			lang: lang.value,
+			path: path.value
 		};
 
 		var xhr = new XMLHttpRequest();
