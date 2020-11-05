@@ -6,6 +6,7 @@
   lang: "es"
   lang-ref: "home"
   redirect-from: null
+  youtube: "VE_zLmbvKjg"
   en: 
     permalink: "/"
 ---
@@ -13,29 +14,29 @@
 	<div id="quick-links-container">
 		<div class="quick-link">
 			<div class="quick-link-img">
-				<a href="https://youtu.be/{{ site.youtube.latestvideo }}" target="_blank" rel="nofollow noopener">
+				<a href="https://youtu.be/{{ page.youtube }}" target="_blank" rel="nofollow noopener">
 					<div>
-						<img src="https://img.youtube.com/vi/{{ site.youtube.latestvideo }}/0.jpg" alt="Miniatura de nuestro último video de YouTube"/>
+						<img src="https://img.youtube.com/vi/{{ page.youtube }}/0.jpg" alt="Miniatura de nuestro último video de YouTube"/>
 						<div></div>
 					</div>
 				</a>
 			</div>
 			<h4 class="editable" translate="no">YouTube</h4>
-			<p class="editable">Mira nuestro último video y el segundo vlog de Jazmin: ¡decorando su habitación! Jazmin va de compras para encontrar adornos (con un presupuesto limitado) y hace un recorrido por su apartamento después de instalarlo.</p>
+			<p class="editable">¡Revisa nuestro último vídeo! Jazmin ofrece una lista largamente solicitada de consejos de supervivencia universitaria, desde la perspectiva de un estudiante de primera generación.<span translate="no"></span></p>
 			<a href="{{ site.youtube.url }}" target="_blank" rel="nofollow noopener" class="editable button">Suscribir</a>
 		</div>
 		<div class="quick-link">
 			<div class="quick-link-img">
-				<a href="https://howto.vote/?lang=es" target="_blank" rel="nofollow noopener">
+				<a href="/estudiantes/aplicandoalauniversidad" rel="nofollow noopener">
 					<div>
-						<img src="{{ site.baseurl }}/{{ site.mediadir }}/voterregistration.jpg" class="editable" alt="Una mano llenando una solicitud de beca"/>
+						<img src="{{ site.baseurl }}/{{ site.mediadir }}/apply.jpg" class="editable" alt="Una mano llenando una solicitud de beca"/>
 						<div></div>
 					</div>
 				</a>
 			</div>
-			<h4 class="editable">Votar</h4>
-			<p class="editable">Asegúrese de estar registrado para votar en su área. Siga las instrucciones en el enlace a continuación para aprender cómo, ¡y participe en su elección local!</p>
-			<a href="https://howto.vote/?lang=es" target="_blank" rel="nofollow noopener" class="editable button">Registrarse</a>
+			<h4 class="editable">Consejos para postularse</h4>
+			<p class="editable">¡La temporada de solicitudes universitarias está aquí! Consulte nuestros consejos para escribir una declaración personal y solicitar una carta de recomendación, ¡y consulte <a href="{{ site.youtube.url }}" target="_blank" rel="nofollow noopener" class="link">nuestro canal de YouTube</a> para obtener más información!</p>
+			<a href="/estudiantes/aplicandoalauniversidad" rel="nofollow noopener" class="editable button">Echale un vistazo</a>
 		</div>
 		<div class="quick-link">
 			<div class="quick-link-img">
@@ -47,7 +48,7 @@
 				</a>
 			</div>
 			<h4 class="editable">Donar</h4>
-			<p class="editable">El First Generation First Fund se utilizará para becas para estudiantes de escuelas con fondos insuficientes que están ingresando a su primer año de universidad.</p>
+			<p class="editable">El First Generation First Fund se utilizará para becas para estudiantes de escuelas con fondos insuficientes que estén ingresando a su primer año de universidad.</p>
 			<a href="{{ site.baseurl }}/donar" target="_self" class="editable button">Donar</a>
 		</div>
 	</div>

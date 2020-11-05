@@ -13,9 +13,7 @@ description-es: Poniendo a nuestros estudiantes de primera generación en primer
 youtube:
   name: First Generation First
   # URL to the channel
-  url: https://www.youtube.com/channel/UCmFyUfF2O_-k9U1UIYwM6RA/
-  # Video ID of the video to showcase on the home page
-  latestvideo: kI63P8c7tmM
+  url: https://www.youtube.com/c/firstgenfirst
 
 twitter:
   name: First Gen First

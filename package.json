@@ -23,7 +23,7 @@
     "gulp": "^4.0.2",
     "htmlparser2": "^4.1.0",
     "js-yaml": "^3.14.0",
-    "json2yaml": "^1.1.0",
+    "json2yaml": "^1.1.0"
   },
   "keywords": [
     "college",
