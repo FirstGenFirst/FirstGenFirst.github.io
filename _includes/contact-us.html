@@ -30,6 +30,7 @@
 					<div></div>
 				</div>
 				<div id="contact-us-err">There was a problem sending your email. Please <button type="submit">try again</button>.</div>
+				<div id="insufficient-msg">Your message is too short. Add more words and <button type="submit">try again</button>.</div>
 			</form>
 		</div>
 		{% elsif page.lang == "es" %}
@@ -61,6 +62,7 @@
 					<div></div>
 				</div>
 				<div id="contact-us-err">Hubo un problema al enviar su correo electrónico. <button type="submit">Inténtalo de nuevo</button>.</div>
+				<div id="insufficient-msg">Tu mensaje es muy corto. Agregue más palabras y <button type="submit">vuelva a intentarlo</button>.</div>
 			</form>
 		</div>
 		{% endif %}
@@ -81,8 +83,12 @@
 		var path = document.getElementById("contact-us-path");
 		var submit = document.getElementById("contact-us-submit");
 
-		form.classList.add("submitting");
-		form.classList.remove("errored");
+		if (message.value.trim().split(/\s/g).length < 3) {
+			form.className = "insufficient-msg";
+			return;
+		}
+
+		form.className = "submitting";
 
 		var request = {
 			name: name.value,
@@ -99,17 +105,16 @@
 
 		xhr.addEventListener("readystatechange", function(e) {
 			if (this.readyState == 4) {
-				form.classList.remove("submitting");
 				if (this.status == 200) {
 					message.value = "";
 					submit.textContent = "\u2713";
-					form.classList.add("submitted");
+					form.className = "submitted";
 					setTimeout(function() {
 						form.classList.remove("submitted");
 						submit.textContent = {% if page.lang == "en" %}"Send"{% elsif page.lang == "es" %}"Enviar"{% endif %};
 					}, 2500);
 				} else {
-					form.classList.add("errored");
+					form.className = "errored";
 				}
 			}
 		});
