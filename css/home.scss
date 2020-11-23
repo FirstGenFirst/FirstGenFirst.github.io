@@ -2,24 +2,190 @@
 ---
 {% include sass_variables.scss %}
 
-#banner {
-	background-color: scale-color($secondary-color, $lightness: 20%);
-	padding: 1rem 2rem;
-	position: relative;
-	box-shadow: 0 .2em .3em transparentize(black, 0.47);
-
-	p {
-		margin: 0;
-		font-family: $Helvetica;
-		font-size: 1.2rem;
-		text-align: center;
+@keyframes loading {
+	from {
+		transform: translateY(-.25rem);
 	}
 
-	h4 {
-		font-family: $Coolvetica;
-		font-size: 2rem;
-		text-align: center;
-		margin: .25rem 0;
+	to {
+		transform: translateY(.25rem);
+	}
+}
+
+#email-reminder {
+	background-color: #FFF;
+	padding: 1rem 2rem 0;
+	position: relative;
+
+	form {
+		@include body-width;
+		margin: auto;
+
+		#er-info {
+			font-family: $Helvetica;
+			font-size: 1.2rem;
+			font-weight: 300;
+			line-height: 1.5;
+			text-align: center;
+			margin: 0;
+		}
+
+		#er-info-extra {
+			font-family: $Helvetica;
+			font-size: 1rem;
+			font-weight: 300;
+			line-height: 1.5;
+			text-align: center;
+			margin: 0 0 .5em;
+			color: #777;
+		}
+
+		#er-inputs {
+			display: flex;
+
+			input {
+				flex-basis: 50%;
+				margin: 0;
+				border: .2em solid $theme-color;
+				border-radius: .4em;
+				font-family: $Nunito;
+				font-weight: 300;
+				font-style: italic;
+				font-size: 1.2rem;
+				color: scale-color($theme-color, $lightness: 20%);
+				padding: .4rem .8rem;
+				outline: 0;
+				transition: border-color .3s cubic-bezier(0.77,0.2,0.05,1.0);
+
+				&:focus {
+					border-color: scale-color($theme-color, $lightness: 50%);
+				}
+
+				&:last-of-type {
+					margin-left: 1em;
+				}
+			}
+		}
+
+		#er-buttons {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		#er-submit,
+		#er-submit-indicator {
+			font-family: $Nunito;
+			font-weight: 300;
+			font-style: italic;
+			border: 0;
+			font-size: 1.2rem;
+			padding: .5rem 1rem;
+			width: 12em;
+			margin-top: .5em;
+			margin-bottom: 0;
+			max-width: 100%;
+			cursor: pointer;
+			box-sizing: border-box;
+			text-align: center;
+			background-color: scale-color($theme-color, $lightness: 20%);
+			color: white;
+		}
+
+		#er-submit {
+			&:hover,
+			&:focus {
+				background-color: scale-color($theme-color, $lightness: 50%);
+			}
+		}
+
+		#er-submit-indicator {
+			background-color: transparent;
+			cursor: default;
+
+			span {
+				color: transparent;
+				pointer-events: none;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				-o-user-select: none;
+				user-select: none;
+				display: inline-block;
+				width: 0;
+			}
+
+			div {
+				margin: 0 .1rem;
+				display: inline-block;
+				height: .5rem;
+				width: .5rem;
+				border-radius: 50%;
+				background-color: scale-color($theme-color, $lightness: 20%);
+				animation-name: loading;
+				animation-duration: .55s;
+				animation-direction: alternate;
+				animation-timing-function: ease-in-out;
+				animation-iteration-count: infinite;
+				animation-fill-mode: both;
+
+				&:nth-of-type(1) {
+					animation-delay: 0s;
+				}
+
+				&:nth-of-type(2) {
+					animation-delay: .15s;
+				}
+
+				&:nth-of-type(3) {
+					animation-delay: .3s;
+				}
+			}
+		}
+
+		&.submitting #er-submit,
+		&:not(.submitting) #er-submit-indicator {
+			display: none;
+		}
+
+		&.submitted #er-submit {
+			pointer-events: none;
+		}
+
+		#er-error {
+			display: none;
+			font-family: $Helvetica;
+			font-weight: 300;
+			font-size: 1rem;
+			margin-bottom: .2rem;
+		}
+
+		&.errored #er-error {
+			display: block;
+		}
+
+		#er-no {
+			color: #888;
+			font-size: .9rem;
+			padding: .2em .4em;
+			font-family: $Helvetica;
+			font-weight: 300;
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			display: inline;
+			text-decoration: underline;
+			display: none;
+
+			&:hover,
+			&:focus {
+				text-decoration: none;
+			}
+		}
+
+		.scriptenabled & #er-no {
+			display: block;
+		}
 	}
 }
 
@@ -164,6 +330,17 @@
 }
 
 @media #{$mobile} {
+	#email-reminder {
+		form #er-inputs {
+			flex-direction: column;
+
+			input:last-of-type {
+				margin-left: 0;
+				margin-top: .4em;
+			}
+		}
+	}
+
 	#quick-links {
 		#quick-links-container {
 			flex-direction: column;

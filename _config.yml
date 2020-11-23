@@ -75,4 +75,4 @@ exclude:
   - package-lock.json
   - gulpfile.js
   - vendor
-  - contactuseremailer.js
+  - cloud_functions

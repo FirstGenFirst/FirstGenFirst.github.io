@@ -1,0 +1,7 @@
+{
+  "name": "contact-us-emailer",
+  "version": "0.0.1",
+  "dependencies": {
+    "nodemailer": "^6.4.11"
+  }
+}

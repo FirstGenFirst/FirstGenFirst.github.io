@@ -10,6 +10,79 @@
   en: 
     permalink: "/"
 ---
+<div id="email-reminder">
+	<form method="POST" action="https://us-central1-cogent-anvil-290321.cloudfunctions.net/notification-signup" id="er-form" enctype="multipart/form-data">
+		<p id="er-info" translate>¿Quiere <strong>recibir una notificación cuando se abra nuestra solicitud de beca 2021</strong> ?<br/> Complete su información a continuación y le enviaremos un recordatorio por correo electrónico más tarde.</p>
+		<p id="er-info-extra" translate>Utilice un correo electrónico permanente donde podamos comunicarnos con usted en el futuro (los correos electrónicos de la escuela generalmente se eliminan después de graduarse).</p>
+		<div id="er-inputs" translate>
+			<input type="hidden" name="er-lang" id="er-lang" value="{{ page.lang }}"/>
+			<input type="hidden" name="er-referrer" id="er-referrer" value="{{ page.permalink }}"/>
+			<input type="text" name="er-name" id="er-name" placeholder="Nombre" aria-label="Nombre" required/>
+			<input type="email" name="er-email" id="er-email" placeholder="Email" aria-label="Email" required/>
+		</div>
+		<div id="er-buttons" translate>
+			<button type="submit" id="er-submit">Enviar</button>
+			<div id="er-submit-indicator">
+				<span>Enviar</span>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<p id="er-error">Hubo un problema al enviar tu información. Inténtelo de nuevo o <a class="link" href="mailto:info@firstgenfirst.org?cc=christian%40firstgenfirst.org&subject=I%20want%20to%20be%20notified&body=I'd%20like%20to%20be%20notified%20when%20the%202021%20scholarship%20application%20opens.%0AMy%20name%20is%3A%20">envíenos un correo electrónico</a> .</p>
+			<button type="button" id="er-no">No, gracias</button>
+		</div>
+	</form>
+	<script type="text/javascript">
+		document.getElementById("er-no").addEventListener("click",function(){document.getElementById("email-reminder").style.display="none"});
+	</script>
+	<script type="text/javascript">
+		document.getElementById("er-form").addEventListener("submit", function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			if (this.classList.contains("submitted")) {
+				return;
+			}
+
+			var form = this;
+			var name = document.getElementById("er-name");
+			var email = document.getElementById("er-email");
+			var lang = document.getElementById("er-lang");
+			var referrer = document.getElementById("er-referrer");
+			var submit = document.getElementById("er-submit");
+
+			form.className = "submitting";
+
+			var request = {
+				"er-name": name.value,
+				"er-email": email.value,
+				"er-lang": lang.value,
+				"er-referrer": referrer.value
+			};
+
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "https://us-central1-cogent-anvil-290321.cloudfunctions.net/notification-signup");
+			xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+			xhr.setRequestHeader("Content-Type", "application/json");
+
+			xhr.addEventListener("readystatechange", function(e) {
+				if (this.readyState == 4) {
+					if (Math.floor(this.status / 100) == 2) {
+						submit.textContent = "\u2713";
+						form.className = "submitted";
+						setTimeout(function() {
+							form.style.display = "none";
+						}, 2500);
+					} else {
+						form.className = "errored";
+					}
+				}
+			});
+
+			xhr.send(JSON.stringify(request));
+		});
+	</script>
+</div>
 <section id="quick-links" translate>
 	<div id="quick-links-container">
 		<div class="quick-link">
@@ -48,7 +121,7 @@
 				</a>
 			</div>
 			<h4 class="editable">Donar</h4>
-			<p class="editable">El First Generation First Fund se utilizará para becas para estudiantes en escuelas con fondos insuficientes que ingresan a su primer año de universidad.</p>
+			<p class="editable">El First Generation First Fund se utilizará para becas para estudiantes de escuelas con fondos insuficientes que estén ingresando a su primer año de universidad.</p>
 			<a href="{{ site.baseurl }}/donar" target="_self" class="editable button">Donar</a>
 		</div>
 	</div>
@@ -57,7 +130,7 @@
 	<div class="text-then-img">
 		<div>
 			<h2 class="editable">Sobre nosotros</h2>
-			<p class="editable">FGF fue fundada por Jazmin Reyes en julio de 2020 como estudiante en la Universidad de Stanford. A lo largo de su infancia, Jazmin vio a su familia y su comunidad sufrir a través de la pobreza, el racismo y un sistema educativo injusto como estudiante de primera generación y de bajos ingresos. Nuestro objetivo es ayudar a otros estudiantes de FGLI en situaciones similares a tener un mejor acceso a la educación superior. Desde las primeras etapas de soñar despierto con la universidad hasta ser aceptado, FGF tiene como objetivo garantizar que ningún estudiante de FGLI esté nunca solo.</p>
+			<p class="editable">FGF fue fundada por Jazmin Reyes en julio de 2020 como estudiante en la Universidad de Stanford. A lo largo de su infancia, Jazmin vio a su familia y su comunidad sufrir a través de la pobreza, el racismo y un sistema educativo injusto como estudiante de primera generación y de bajos ingresos. Nuestro objetivo es ayudar a otros estudiantes de FGLI en situaciones similares a tener un mejor acceso a la educación superior. Desde las primeras etapas de soñar despierto con la universidad hasta ser aceptado, FGF tiene como objetivo garantizar que ningún estudiante de FGLI esté solo.</p>
 		</div>
 		<div>
 			<div id="about">

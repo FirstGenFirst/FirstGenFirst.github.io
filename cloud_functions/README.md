@@ -1,0 +1,1 @@
+The `cloud_functions` directory houses the code used by Google Cloud Functions to handle server-side operations like form submissions. This entire directory is excluded from Jekyll's output.

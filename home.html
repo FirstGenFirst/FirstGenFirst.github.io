@@ -13,6 +13,79 @@ es:
 redirect-from: /home
 youtube: 86KL-R4xo5E
 ---
+<div id="email-reminder">
+	<form method="POST" action="https://us-central1-cogent-anvil-290321.cloudfunctions.net/notification-signup" id="er-form" enctype="multipart/form-data">
+		<p id="er-info" translate>Want to <strong>get notified when our 2021 scholarship application opens</strong>?<br>Fill out your info below and we'll send you a reminder email later!</p>
+		<p id="er-info-extra" translate>Please use a permanent email where we'll be able to reach you in the future (school emails are usually deleted after graduating).</p>
+		<div id="er-inputs" translate>
+			<input type="hidden" name="er-lang" id="er-lang" value="{{ page.lang }}">
+			<input type="hidden" name="er-referrer" id="er-referrer" value="{{ page.permalink }}">
+			<input type="text" name="er-name" id="er-name" placeholder="Name" data-placeholder-es="Nombre" aria-label="Name" data-aria-label-es="Nombre" required>
+			<input type="email" name="er-email" id="er-email" placeholder="Email" data-placeholder-es="Email" aria-label="Email" data-aria-label-es="Email" required>
+		</div>
+		<div id="er-buttons" translate>
+			<button type="submit" id="er-submit">Submit</button>
+			<div id="er-submit-indicator">
+				<span>Submit</span>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<p id="er-error">There was a problem submitting your info. Please try again or <a class="link" href="mailto:info@firstgenfirst.org?cc=christian%40firstgenfirst.org&subject=I%20want%20to%20be%20notified&body=I'd%20like%20to%20be%20notified%20when%20the%202021%20scholarship%20application%20opens.%0AMy%20name%20is%3A%20">send us an email</a>.</p>
+			<button type="button" id="er-no">No thanks</button>
+		</div>
+	</form>
+	<script type="text/javascript">
+		document.getElementById("er-no").addEventListener("click",function(){document.getElementById("email-reminder").style.display="none"});
+	</script>
+	<script type="text/javascript">
+		document.getElementById("er-form").addEventListener("submit", function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			if (this.classList.contains("submitted")) {
+				return;
+			}
+
+			var form = this;
+			var name = document.getElementById("er-name");
+			var email = document.getElementById("er-email");
+			var lang = document.getElementById("er-lang");
+			var referrer = document.getElementById("er-referrer");
+			var submit = document.getElementById("er-submit");
+
+			form.className = "submitting";
+
+			var request = {
+				"er-name": name.value,
+				"er-email": email.value,
+				"er-lang": lang.value,
+				"er-referrer": referrer.value
+			};
+
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "https://us-central1-cogent-anvil-290321.cloudfunctions.net/notification-signup");
+			xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+			xhr.setRequestHeader("Content-Type", "application/json");
+
+			xhr.addEventListener("readystatechange", function(e) {
+				if (this.readyState == 4) {
+					if (Math.floor(this.status / 100) == 2) {
+						submit.textContent = "\u2713";
+						form.className = "submitted";
+						setTimeout(function() {
+							form.style.display = "none";
+						}, 2500);
+					} else {
+						form.className = "errored";
+					}
+				}
+			});
+
+			xhr.send(JSON.stringify(request));
+		});
+	</script>
+</div>
 <section id="quick-links" translate>
 	<div id="quick-links-container">
 		<div class="quick-link">
