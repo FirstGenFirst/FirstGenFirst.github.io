@@ -13,7 +13,6 @@
 }
 
 @mixin flex-row {
-	@include body-width;
 	display: flex;
 	justify-content: space-around;
 
@@ -21,10 +20,10 @@
 		flex-grow: 1;
 		flex-basis: 0;
 		text-align: center;
-	}
 
-	> :not(:first-child) {
-		margin-left: 1em;
+		+ * {
+			margin-left: 1em;
+		}
 	}
 }
 
@@ -84,6 +83,7 @@ header {
 				font-size: 1.5rem;
 				font-style: italic;
 				margin: 0;
+				font-family: inherit;
 
 				> a {
 					color: white;
@@ -214,49 +214,49 @@ nav {
 }
 
 body {
+	p {
+		@extend %p;
+	}
+
+	figcaption {
+		@extend %p;
+		font-size: 1rem;
+		text-align: center;
+	}
+
+	h2,
+	h3 {
+		font-family: $Cormorant;
+		font-weight: 500;
+		font-style: italic;
+		margin: 0;
+	}
+
+	h2 {
+		font-size: 2.8rem;
+	}
+
+	h3 {
+		font-size: 2rem;
+	}
+
+	.container {
+		@include body-width;
+	}
+
+	.flex-row {
+		@include flex-row;
+	}
+
 	> section {
 		padding: 3rem 2rem;
-
-		h2,
-		h3 {
-			font-family: $Cormorant;
-			font-weight: 500;
-			font-style: italic;
-			margin: 0;
-		}
 
 		> h2,
 		> h3 {
 			@include body-width;
 		}
 
-		h2 {
-			font-size: 2.8rem;
-		}
-
-		h3 {
-			font-size: 2rem;
-		}
-
-		p {
-			font-size: 1.2rem;
-			line-height: 1.5;
-			font-family: $Helvetica;
-			font-weight: 300;
-		}
-
-		figcaption {
-			@extend p;
-			font-size: 1rem;
-			text-align: center;
-		}
-
-		.flex-row {
-			@include flex-row;
-		}
-
 		.text-then-img {
-			@include body-width;
 			display: flex;
 			align-items: center;
 
@@ -331,7 +331,8 @@ a {
 	color: inherit;
 }
 
-a.button {
+a.button,
+button {
 	font-family: $Coolvetica;
 	margin: auto;
 	text-align: center;
@@ -341,6 +342,7 @@ a.button {
 	white-space: nowrap;
 	padding: .3em 1em;
 	font-size: 1.5em;
+	border: none;
 	border-radius: .5em;
 	transition: color .3s cubic-bezier(0.77,0.2,0.05,1.0),
 		background-color .3s cubic-bezier(0.77,0.2,0.05,1.0);
@@ -351,11 +353,6 @@ a.button {
 	&:focus {
 		color: $theme-color;
 		background-color: #EEE;
-	}
-
-	// No href is a disabled button
-	&:not([href]) {
-		pointer-events: none;
 	}
 }
 
@@ -384,6 +381,7 @@ footer {
 	font-weight: 500;
 
 	#footer-social-links {
+		@include body-width;
 		@include flex-row;
 		align-items: center;
 		margin-top: -.5rem;
@@ -453,7 +451,6 @@ html:not(.scriptenabled) .withscript {
 			}
 
 			.text-then-img {
-				@include body-width;
 				flex-direction: column;
 
 				> * {

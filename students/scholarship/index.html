@@ -10,8 +10,11 @@ es:
   description: ¡Solicite nuestra beca de primera generación de $500 completando nuestra solicitud rápida y fácil!
   permalink: /estudiantes/beca
   redirect_from: null
-redirect_from: /scholarship
+redirect_from:
+  - /scholarship
+  - /apply
 ---
+{%- comment -%}
 <div id="email-reminder">
 	<form method="POST" action="https://us-central1-cogent-anvil-290321.cloudfunctions.net/notification-signup" id="er-form" enctype="multipart/form-data">
 		<p id="er-info" translate>Want to <strong>get notified when our 2021 scholarship application opens</strong>?<br>Fill out your info below and we'll send you a reminder email later!</p>
@@ -115,10 +118,41 @@ redirect_from: /scholarship
 		</div>
 	</section>
 </section>
+{%- endcomment -%}
+<section id="apply" translate>
+	<h2 id="fgf-scholarship" class="editable" data-translate-override-es="Beca de First Generation First">First Generation First Scholarship</h2>
+	<div class="text-then-img container">
+		<div>
+			<h3 class="editable">Eligibility</h3>
+			<ul>
+				<li class="editable">Must have graduated high school and <strong>entering your first year of college</strong></li>
+				<li class="editable">Must be first-generation and/or low-income</li>
+				<li class="editable">U.S. resident attending a college in the U.S.*</li>
+				<li class="editable">Must received FAFSA, CSS, Dream Act or other financial aid offer from your college</li>
+				<li class="editable">No GPA requirement</li>
+				<li class="editable">Undocumented students are welcomed to apply!</li>
+			</ul>
+			<p id="deadline" class="editable">Deadline to apply is September 1, 2021 at 11:59 p.m. (PDT).</p>
+			<div class="button-center">
+				<a href="{{ site.baseurl }}/students/scholarship/faq" target="_self" data-href-es="{{ site.baseurl }}/estudiantes/beca/pmf" class="editable button" data-translate-override-es="Preguntas más frecuentes">Frequently Asked Questions</a>
+			</div>
+			<p class="editable">*Open to all students in the U.S. but not U.S. territories</p>
+			<p class="editable">If you have any questions about the eligibility requirements, please feel free to reach out to us!</p>
+		</div>
+		<div>
+			<div>
+				<img src="{{ site.baseurl }}/media/apply-form.jpg" class="editable" alt="" />
+				<div class="button-center">
+					<a href="https://forms.gle/P4BLkne6k6hM8VCu9" target="_self" class="editable button">Apply Here!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 <section id="about" translate>
 	<div>
 		<h3 class="editable">About</h3>
-		<p class="editable">The FGF Scholarship aims to financially assist first-generation and/or low-income students who are entering college for the very first time. As FGLI students ourselves, we noticed a ton of random fees and expenses during our physical transition into our first quarter into Stanford and we know other students will face the same, so we want to reward this scholarship to help those who may need it the most! We will be rewarding at least one $500 scholarship but we may pick multiple applicants (depends how much money we raise)!</p>
-		<p class="editable" data-translate-ovrride-es="Nota: Queremos ayudar a quienes más lo necesiten y no necesariamente al &ldquo;mejor&rdquo; solicitante, ¡así que solicítelo!">Note: We want to help who may need it most and not necessarily the &ldquo;best&rdquo; applicant, so please apply!</p>
+		<p class="editable">The FGF Scholarship aims to financially assist first-generation and/or low-income students who are entering college for the very first time. As FGLI students ourselves, we noticed a ton of random fees and expenses during our physical transition into our first quarter into Stanford and we know other students will face the same, so we want to reward this scholarship to help those who may need it the most! We will be rewarding at least one $500 scholarship, but we may pick multiple applicants (depends how much money we raise)!</p>
+		<p class="editable" data-translate-ovrride-es="Nota: Queremos ayudar a quienes más lo necesiten y no necesariamente al &ldquo;mejor&rdquo; solicitante, ¡así que solicítelo!">Note: We want to help who may need it most and not necessarily the &ldquo;most impressive&rdquo; applicant, so please apply!</p>
 	</div>
 </section>

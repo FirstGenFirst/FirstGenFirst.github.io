@@ -189,6 +189,22 @@
 	}
 }
 
+#scholarship-open {
+	background-color: #FFF;
+	padding: 1rem 2rem 0;
+	position: relative;
+	text-align: center;
+
+	p {
+		margin: 0;
+	}
+
+	a.button {
+		display: inline-block;
+		margin-top: .5em;
+	}
+}
+
 #quick-links {
 	display: flex;
 	flex-wrap: wrap;

@@ -23,3 +23,10 @@ $content-width: 60rem;
 }
 
 $mobile: "only screen and (max-width: 767px)";
+
+%p {
+	font-size: 1.2rem;
+	line-height: 1.5;
+	font-family: $Helvetica;
+	font-weight: 300;
+}

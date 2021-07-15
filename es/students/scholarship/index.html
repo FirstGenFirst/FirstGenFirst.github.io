@@ -9,9 +9,10 @@
   en: 
     permalink: "/students/scholarship"
 ---
+{%- comment -%}
 <div id="email-reminder">
 	<form method="POST" action="https://us-central1-cogent-anvil-290321.cloudfunctions.net/notification-signup" id="er-form" enctype="multipart/form-data">
-		<p id="er-info" translate>¿Quiere <strong>recibir una notificación cuando se abra nuestra solicitud de beca 2021</strong>?<br/> Complete su información a continuación y le enviaremos un recordatorio por correo electrónico más tarde.</p>
+		<p id="er-info" translate>¿Quiere <strong>recibir una notificación cuando se abra nuestra solicitud de beca 2021</strong> ?<br/> Complete su información a continuación y le enviaremos un correo electrónico de recordatorio más tarde.</p>
 		<p id="er-info-extra" translate>Utilice un correo electrónico permanente donde podamos comunicarnos con usted en el futuro (los correos electrónicos de la escuela generalmente se eliminan después de graduarse).</p>
 		<div id="er-inputs" translate>
 			<input type="hidden" name="er-lang" id="er-lang" value="{{ page.lang }}"/>
@@ -97,12 +98,12 @@
 			<h3 class="editable">Elegibilidad</h3>
 			<p class="editable">Nuestra beca para este año ha cerrado, ¡pero aún puede verificar si será elegible para el próximo año!</p>
 			<ul>
-				<li class="editable">Debe haberse graduado de la escuela secundaria y estar <strong>ingresando a su primer año de universidad</strong></li>
+				<li class="editable">Debe haberse graduado de la escuela secundaria y estar <strong>ingresando a su primer año de universidad.</strong></li>
 				<li class="editable">Debe ser de primera generación y / o de bajos ingresos</li>
 				<li class="editable">Residente de EE. UU. Que asiste a una universidad en EE. UU. *</li>
 				<li class="editable">Debe recibir FAFSA, CSS, Dream Act u otra oferta de ayuda financiera de su universidad</li>
 				<li class="editable">Sin requisito de GPA</li>
-				<li class="editable">¡Los estudiantes indocumentados pueden postularse!</li>
+				<li class="editable">¡Los estudiantes indocumentados son bienvenidos a postularse!</li>
 			</ul>
 			<p class="editable footnote">* Abierto para todos los estudiantes en los EE. UU. Pero no en los territorios de EE. UU.</p>
 			<p class="editable footnote">Si tiene alguna pregunta sobre los requisitos de elegibilidad, no dude en comunicarse con nosotros.</p>
@@ -112,10 +113,41 @@
 		</div>
 	</section>
 </section>
+{%- endcomment -%}
+<section id="apply" translate>
+	<h2 id="fgf-scholarship" class="editable">Beca de First Generation First</h2>
+	<div class="text-then-img container">
+		<div>
+			<h3 class="editable">Elegibilidad</h3>
+			<ul>
+				<li class="editable">Debe haberse graduado de la escuela secundaria y estar <strong>ingresando a su primer año de universidad.</strong></li>
+				<li class="editable">Debe ser de primera generación y / o de bajos ingresos</li>
+				<li class="editable">Residente de EE. UU. Que asiste a una universidad en EE. UU. *</li>
+				<li class="editable">Debe recibir FAFSA, CSS, Dream Act u otra oferta de ayuda financiera de su universidad</li>
+				<li class="editable">Sin requisito de GPA</li>
+				<li class="editable">¡Los estudiantes indocumentados son bienvenidos a postularse!</li>
+			</ul>
+			<p id="deadline" class="editable">La fecha límite para postularse es el 1 de septiembre de 2021 a las 11:59 p.m. (PDT).</p>
+			<div class="button-center">
+				<a href="{{ site.baseurl }}/estudiantes/beca/pmf" target="_self" class="editable button">Preguntas más frecuentes</a>
+			</div>
+			<p class="editable">* Abierto a todos los estudiantes en los EE. UU. Pero no en los territorios de EE. UU.</p>
+			<p class="editable">Si tiene alguna pregunta sobre los requisitos de elegibilidad, no dude en comunicarse con nosotros.</p>
+		</div>
+		<div>
+			<div>
+				<img src="{{ site.baseurl }}/media/apply-form.jpg" class="editable" alt/>
+				<div class="button-center">
+					<a href="https://forms.gle/P4BLkne6k6hM8VCu9" target="_self" class="editable button">¡Aplicar aquí!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 <section id="about" translate>
 	<div>
 		<h3 class="editable">Acerca de</h3>
-		<p class="editable">La beca FGF tiene como objetivo ayudar financieramente a los estudiantes de primera generación y / o de bajos ingresos que ingresan a la universidad por primera vez. Como estudiantes de FGLI, notamos un montón de tarifas y gastos aleatorios durante nuestra transición física a nuestro primer trimestre en Stanford y sabemos que otros estudiantes enfrentarán lo mismo, por lo que queremos recompensar esta beca para ayudar a aquellos que más lo necesiten. ! Estaremos recompensando al menos una beca de $ 500, pero podemos elegir a varios solicitantes (¡depende de cuánto dinero recaudemos)!</p>
-		<p class="editable" translate-ovrride="Nota: Queremos ayudar a quienes más lo necesiten y no necesariamente al “mejor” solicitante, ¡así que solicítelo!">Nota: Queremos ayudar a quienes puedan necesitarlo más y no necesariamente al “mejor” solicitante, ¡así que inscríbase!</p>
+		<p class="editable">La beca FGF tiene como objetivo ayudar financieramente a los estudiantes de primera generación y / o de bajos ingresos que ingresan a la universidad por primera vez. Como estudiantes de FGLI, notamos un montón de tarifas y gastos aleatorios durante nuestra transición física a nuestro primer trimestre en Stanford y sabemos que otros estudiantes enfrentarán lo mismo, por lo que queremos recompensar esta beca para ayudar a quienes más lo necesiten. ! Estaremos recompensando al menos una beca de $ 500, pero podemos elegir a varios solicitantes (¡depende de cuánto dinero recaudemos)!</p>
+		<p class="editable" translate-ovrride="Nota: Queremos ayudar a quienes más lo necesiten y no necesariamente al “mejor” solicitante, ¡así que solicítelo!">Nota: Queremos ayudar a quienes puedan necesitarlo más y no necesariamente al solicitante "más impresionante", ¡así que inscríbase!</p>
 	</div>
 </section>

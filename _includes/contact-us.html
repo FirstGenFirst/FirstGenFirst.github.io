@@ -1,6 +1,6 @@
 <link href="{{ site.baseurl }}/css/contact-us.snippet.css" rel="stylesheet" type="text/css">
 <section id="contact-us" translate="no">
-	<div>
+	<div class="container">
 		{% if page.lang == "en" %}
 		<div>
 			<h2 class="editable" translate>{{ include.header | default: "Contact Us" }}<div>
@@ -12,9 +12,8 @@
 			<p><a href="{{ site.twitter.url }}"><span>{% include social-media-icons.html social_icon="twitter" %}</span>&nbsp;<span class="link">@{{ site.twitter.handle }}<span></a></p>
 			<p><a href="{{ site.youtube.url }}"><span>{% include social-media-icons.html social_icon="youtube" %}</span>&nbsp;<span class="link">{{ site.youtube.name }}<span></a></p>
 			<p><a href="mailto:{{ site.email }}"><span>{% include social-media-icons.html social_icon="email" %}</span>&nbsp;<span class="link">{{ site.email }}<span></a></p>
-			<p class="editable" translate>Let us know if you'd like to join our team!</p>
 		</div>
-		<div translate="">
+		<div translate>
 			<form action="https://us-west2-cogent-anvil-290321.cloudfunctions.net/contact-us-emailer" method="POST" id="contact-us-form">
 				<h2 class="editable">Send Us An Email</h2>
 				<input type="hidden" name="lang" value="en" id="contact-us-lang"/>

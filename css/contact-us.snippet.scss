@@ -20,18 +20,93 @@
 			@include centering-flex;
 			flex-basis: 50%;
 
-			&:nth-child(2) {
+			+ div {
 				margin-left: 1em;
 			}
 		}
 	}
 
-	&:nth-of-type(2n) h2 > div {
-		color: $secondary-color;
+	&:nth-of-type(2n) {
+		h2 > div {
+			color: $secondary-color;
+		}
+
+		form {
+			background-color: white;
+	
+			h2 {
+				color: scale-color($theme-color, $lightness: 20%);
+			}
+	
+			input,
+			textarea {
+				border: .2em solid $theme-color;
+			}
+	
+			#contact-us-submit {
+				background-color: scale-color($theme-color, $lightness: 20%);
+				color: white;
+	
+				&:hover,
+				&:focus {
+					background-color: scale-color($theme-color, $lightness: 50%);
+				}
+			}
+	
+			&.submitting > #contact-us-submit {
+				background-color: adjust-color($theme-color, $lightness: 50%);
+			}
+	
+			#contact-us-indicator {
+				color: scale-color($theme-color, $lightness: 20%);
+			}
+	
+			#contact-us-err {
+				color: black;
+			}
+		}
 	}
 
-	&:nth-of-type(2n + 1) h2 > div {
-		color: scale-color($theme-color, $lightness: 5%);
+	&:nth-of-type(2n + 1) {
+		h2 > div {
+			color: scale-color($theme-color, $lightness: 5%);
+		}
+
+		form {
+			background-color: scale-color($theme-color, $lightness: 5%);
+	
+			h2 {
+				color: white;
+			}
+	
+			input,
+			textarea {
+				border: .2em solid $secondary-color;
+			}
+	
+			#contact-us-submit {
+				background-color: white;
+				color: $theme-color;
+	
+				&:hover,
+				&:focus {
+					background-color: scale-color(white, $lightness: -10%);
+				}
+			}
+	
+			&.submitting > #contact-us-submit {
+				background-color: change-color(white, $lightness: 75%);
+				color: change-color($theme-color, $saturation: 50%);
+				pointer-events: none;
+				cursor: not-allowed;
+			}
+	
+			#insufficient-msg,
+			#contact-us-indicator,
+			#contact-us-err {
+				color: white;
+			}
+		}
 	}
 
 	h2 {
@@ -42,7 +117,6 @@
 		> div {
 			height: 1em;
 			width: 1em;
-			vertical-align: middle;
 			transform: scale(1.3);
 			transform-origin: right;
 			margin-right: .5em
@@ -82,86 +156,11 @@
 			margin: 1rem 0 0;
 		}
 
-		&:not(:last-of-type) {
+		& {
 			font-family: $Nunito;
 			font-size: 1.5em;
 			font-weight: 300;
 			font-style: italic;
-		}
-
-		&:last-of-type {
-			margin: 1em 0 0;
-		}
-	}
-
-	&:nth-of-type(2n) form {
-		background-color: white;
-
-		h2 {
-			color: scale-color($theme-color, $lightness: 20%);
-		}
-
-		input,
-		textarea {
-			border: .2em solid $theme-color;
-		}
-
-		#contact-us-submit {
-			background-color: scale-color($theme-color, $lightness: 20%);
-			color: white;
-
-			&:hover,
-			&:focus {
-				background-color: scale-color($theme-color, $lightness: 50%);
-			}
-		}
-
-		&.submitting > #contact-us-submit {
-			background-color: adjust-color($theme-color, $lightness: 50%);
-		}
-
-		#contact-us-indicator {
-			color: scale-color($theme-color, $lightness: 20%);
-		}
-
-		#contact-us-err {
-			color: black;
-		}
-	}
-
-	&:nth-of-type(2n + 1) form {
-		background-color: scale-color($theme-color, $lightness: 5%);
-
-		h2 {
-			color: white;
-		}
-
-		input,
-		textarea {
-			border: .2em solid $secondary-color;
-		}
-
-		#contact-us-submit {
-			background-color: white;
-			color: $theme-color;
-
-			&:hover,
-			&:focus {
-				background-color: scale-color(white, $lightness: -10%);
-			}
-		}
-
-		&.submitting > #contact-us-submit {
-			background-color: change-color(white, $lightness: 75%);
-			color: change-color($theme-color, $saturation: 50%);
-			pointer-events: none;
-			cursor: not-allowed;
-		}
-
-		#insufficient-msg,
-		#contact-us-indicator,
-		#contact-us-err {
-			color: white;
 		}
 	}
 
